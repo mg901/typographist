@@ -1,6 +1,6 @@
 {
   "name": "@typographist/eslint-config-react",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "eslint config react for typographist",
   "main": "index.js",
   "license": "MIT",
