@@ -1,6 +1,6 @@
 {
   "name": "@typographist/styled",
-  "version": "2.0.1-alpha.0",
+  "version": "2.0.1-alpha.1",
   "main": "lib/index.cjs.js",
   "module": "es/index.es.js",
   "scripts": {
