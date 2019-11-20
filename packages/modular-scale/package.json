@@ -1,6 +1,6 @@
 {
   "name": "@typographist/modular-scale",
-  "version": "1.0.1",
+  "version": "1.0.2-alpha.0",
   "description": "A Javascript modular scale calculator",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
