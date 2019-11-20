@@ -3,8 +3,8 @@ var utils = require('./lib');
 var ERROR_PREFIX = '[typographist]: Check your config. ';
 
 var BASE_ERROR_MESSAGE =
-  "is invalid 'base'. Base must be a string with the value in pixels or an array of strings. " +
-  "Example 'base': '16px' or 'base': ['14px', '32px'].";
+  "is invalid 'base'. Base must be an array of strings. " +
+  "Example 'base': ['14px', '32px'].";
 
 var BREAKPOINT_ERROR_MESSAGE =
   "is invalid 'breakpoint'. Breakpoint must be a string with a value (in pixels). " +
@@ -20,7 +20,7 @@ var RATIO_ERROR_MESSAGE =
 // validateConfig :: config -> Void
 var validateConfig = function(x) {
   validateBases(x);
-  hasBreakpointProp(x);
+  throwIfDoesntContainBreakpointProp(x);
   validateBreakpoints(x);
   validateLineHeights(x);
   validateRatios(x);
@@ -38,7 +38,7 @@ function hasPx(x) {
 // ---------- BASE ------------------------------------------------------------
 
 // validateField :: a -> Void
-function validateBase(x) {
+function throwIsInvalidBase(x) {
   return invariantWithErrorPrefix(
     hasPx(x),
     "'" + x + "' " + BASE_ERROR_MESSAGE,
@@ -52,13 +52,13 @@ function validateBases(x) {
       .deepObjectValues('base')(x)
       // make flat array
       .reduce((acc, y) => acc.concat(y), [])
-      .forEach(validateBase)
+      .forEach(throwIsInvalidBase)
   );
 }
 
 // ---------- BREAKPOINTS ------------------------------------------------------
 // validateBreakpoint :: Object -> Void
-function hasBreakpointProp(x) {
+function throwIfDoesntContainBreakpointProp(x) {
   var breaks = utils.omit('base', 'lineHeight', 'ratio', x);
 
   Object.keys(breaks).forEach((key) => {
@@ -74,7 +74,7 @@ function hasBreakpointProp(x) {
 }
 
 // validateField :: a -> Void
-function validateBreakpoint(x) {
+function throwIsInvalidBreakpoint(x) {
   invariantWithErrorPrefix(
     typeof x === 'string' && hasPx(x),
     "'" + x + "' " + BREAKPOINT_ERROR_MESSAGE,
@@ -85,12 +85,15 @@ function validateBreakpoint(x) {
 function validateBreakpoints(x) {
   utils
     .deepObjectValues('breakpoint')(x)
-    .forEach(validateBreakpoint);
+    .forEach((y) => {
+      // throwIfDoesntContainBreakpointProp(y);
+      throwIsInvalidBreakpoint(y);
+    });
 }
 
 // ---------- LINE-HEIGHT --------------------------------------------------------
 // validateField :: a -> Void
-function validateLineHeight(x) {
+function throwIsInvalidLineHeight(x) {
   invariantWithErrorPrefix(
     typeof x === 'number' && utils.isNumeric(x),
     "'" + x + "' " + LINE_HEIGHT_ERRROR_MESSAGE,
@@ -101,7 +104,7 @@ function validateLineHeight(x) {
 function validateLineHeights(x) {
   return utils
     .deepObjectValues('lineHeight')(x)
-    .forEach(validateLineHeight);
+    .forEach(throwIsInvalidLineHeight);
 }
 
 // ---------- RATIO --------------------------------------------------------------
@@ -122,7 +125,7 @@ function ratioHasStep(x) {
 }
 
 // validateField :: a -> Void
-function validateRatio(x) {
+function throwIsInvalidRatio(x) {
   var isValid =
     (typeof x === 'number' && utils.isNumeric(x)) ||
     (ratioHasFontSize(x) && ratioHasAtWord(x) && ratioHasStep(x));
@@ -134,22 +137,22 @@ function validateRatio(x) {
 function validateRatios(x) {
   return utils
     .deepObjectValues('ratio')(x)
-    .forEach(validateRatio);
+    .forEach(throwIsInvalidRatio);
 }
 
 module.exports = {
   hasPx,
-  validateBase,
+  throwIsInvalidBase,
   validateBases,
-  hasBreakpointProp,
-  validateBreakpoint,
+  throwIfDoesntContainBreakpointProp,
+  throwIsInvalidBreakpoint,
   validateBreakpoints,
-  validateLineHeight,
+  throwIsInvalidLineHeight,
   validateLineHeights,
   ratioHasFontSize,
   ratioHasAtWord,
   ratioHasStep,
-  validateRatio,
+  throwIsInvalidRatio,
   validateRatios,
   validateConfig,
 };
