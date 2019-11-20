@@ -11,13 +11,13 @@
     "lint:file": "cross-env eslint --fix"
   },
   "license": "MIT",
-  "homepage": "https://github.com/typographist/postcss#readme",
+  "homepage": "https://github.com/mg901/typographist/postcss#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/typographist/postcss.git"
+    "url": "https://github.com/mg901/typographist/postcss.git"
   },
   "bugs": {
-    "url": "https://github.com/typographist/postcss/issues"
+    "url": "https://github.com/mg901/typographist/postcss/issues"
   },
   "author": "mg901 <mgreen097@gmail.com>",
   "keywords": [
