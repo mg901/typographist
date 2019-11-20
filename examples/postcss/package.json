@@ -1,0 +1,16 @@
+{
+  "name": "postcss-example",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx postcss src/index.css -o dist/index.css -w"
+  },
+  "devDependencies": {
+    "postcss-cli": "^6.1.3"
+  },
+  "dependencies": {
+    "@typographist/postcss": "^5.1.0",
+    "postcss": "^7.0.21"
+  }
+}

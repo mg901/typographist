@@ -1,0 +1,8 @@
+{
+  "packages": ["packages/*"],
+  "hoist": true,
+  "version": "independent",
+  "npmClient": "yarn",
+  "npmClientArgs": ["--no-package-lock"],
+  "useWorkspaces": true
+}

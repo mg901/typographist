@@ -1,0 +1,63 @@
+{
+  "name": "@typographist/styled",
+  "version": "2.0.0",
+  "main": "lib/index.cjs.js",
+  "module": "es/index.es.js",
+  "scripts": {
+    "build": "npm run clean && tsc && npm run size",
+    "clean": "cross-env rimraf build",
+    "size": "cross-env size-limit",
+    "commit": "cross-env git-cz",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "lint:file": "cross-env eslint --fix",
+    "lint:all": "cross-env eslint --fix ."
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/typographist/styled",
+  "bugs": "https://github.com/typographist/styled/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typographist/styled.git"
+  },
+  "contributors": [
+    "Maxim Alyoshin <mgreen097@gmail.com>",
+    "Sergey Sova <mail@sergeysova.com>"
+  ],
+  "peerDependencies": {
+    "react": "^16.8.x",
+    "react-dom": "^16.8.x",
+    "styled-components": "^4.x.x"
+  },
+  "dependencies": {
+    "@typographist/core": "^25.0.0",
+    "memoize-one": "^5.1.1",
+    "styled-breakpoints": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-typescript": "^7.7.2",
+    "@size-limit/preset-small-lib": "^2.2.1",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
+    "@types/styled-components": "^4.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "coveralls": "^3.0.7",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "styled-components": "^4.4.1",
+    "typescript": "^3.7.2"
+  }
+}

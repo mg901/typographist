@@ -1,0 +1,27 @@
+module.exports = {
+  extends: ['airbnb-base'],
+  env: {
+    node: true,
+    jest: true,
+  },
+  rules: {
+    'newline-before-return': 2,
+    'import/prefer-default-export': 0,
+    'no-restricted-syntax': 0,
+    'no-restricted-properties': 0,
+    'import/no-extraneous-dependencies': 0,
+    'no-underscore-dangle': 0,
+    'no-restricted-globals': 0,
+    'no-use-before-define': 0,
+    'prefer-template': 0,
+    'func-names': 0,
+    'prefer-object-spread': 0,
+    'prefer-rest-params': 0,
+    'prefer-destructuring': 0,
+    'no-param-reassign': 0,
+    'guard-for-in': 0,
+    'no-plusplus': 0,
+    'no-var': 0,
+    'vars-on-top': 0,
+  },
+};

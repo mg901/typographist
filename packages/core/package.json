@@ -1,0 +1,45 @@
+{
+  "name": "@typographist/core",
+  "version": "25.0.0",
+  "description": "Core API for typographist",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "test": "cross-env ../../node_modules/.bin/jest --colors",
+    "commit": "cross-env npx git-cz",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "lint:all": "cross-env eslint --fix .",
+    "lint:file": "cross-env eslint --fix",
+    "size": "cross-env size-limit"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/typographist/core#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typographist/core.git"
+  },
+  "bugs": {
+    "url": "https://github.com/typographist/core/issues"
+  },
+  "author": "maxinakenty <mgreen097@gmail.com>",
+  "keywords": [
+    "css-in-js",
+    "design",
+    "golden-ratio",
+    "modular",
+    "modular-scale",
+    "musical-scales",
+    "ratio",
+    "scale",
+    "typography",
+    "typographist",
+    "web-typography"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^2.2.1",
+    "@typographist/eslint-config-base": "^1.0.0"
+  }
+}

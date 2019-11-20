@@ -1,0 +1,36 @@
+{
+  "name": "@typographist/modular-scale",
+  "version": "1.0.0",
+  "description": "A Javascript modular scale calculator",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "clean": "cross-env rimraf dist coverage",
+    "commit": "cross-env npx git-cz",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "test": "cross-env ../../node_modules/.bin/jest --colors",
+    "lint:all": "cross-env eslint --fix .",
+    "lint:file": "cross-env eslint --fix",
+    "size": "cross-env size-limit"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/typographist/modular-scale#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typographist/modular-scale.git"
+  },
+  "bugs": {
+    "url": "https://github.com/typographist/modular-scale/issues"
+  },
+  "author": "mg901 <mgreen097@gmail.com>",
+  "keywords": [],
+  "files": [
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "memoize-one": "^5.1.1"
+  }
+}

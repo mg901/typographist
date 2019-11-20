@@ -1,0 +1,63 @@
+{
+  "name": "@typographist/postcss",
+  "version": "5.1.0",
+  "description": "Toolkit for the rapid construction of interfaces with high quality typography.",
+  "main": "src/index.js",
+  "scripts": {
+    "commit": "cross-env npx git-cz",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "test": "cross-env ../../node_modules/.bin/jest --colors",
+    "lint:all": "cross-env eslint --fix .",
+    "lint:file": "cross-env eslint --fix"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/typographist/postcss#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typographist/postcss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/typographist/postcss/issues"
+  },
+  "author": "mg901 <mgreen097@gmail.com>",
+  "keywords": [
+    "postcss",
+    "css-in-js",
+    "design",
+    "golden-ratio",
+    "modular",
+    "micro-module",
+    "vertical-rhythm",
+    "fluid-typography",
+    "responsive-typography",
+    "typography",
+    "web-typography",
+    "modular-scale",
+    "musical-scales",
+    "ratio",
+    "scale",
+    "typographist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "postcss": "^7.0.21"
+  },
+  "devDependencies": {
+    "@typographist/eslint-config-base": "^1.0.0",
+    "cross-env": "^6.0.3",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-jest": "^23.0.4",
+    "eslint-plugin-prettier": "^3.1.1",
+    "postcss": "^7.0.21",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0"
+  },
+  "dependencies": {
+    "@typographist/core": "^25.0.0",
+    "@typographist/modular-scale": "^1.0.0",
+    "@typographist/utils": "^1.0.0",
+    "memoize-one": "^5.1.1"
+  }
+}

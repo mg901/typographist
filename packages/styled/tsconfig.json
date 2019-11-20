@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "es2015"],
+    "jsx": "react",
+    "rootDir": "src",
+    "outDir": "build",
+    "module": "commonjs",
+    "strictNullChecks": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node"]
+  },
+  "files": ["./src/index.ts"],
+  "include": ["node_modules/@types"],
+  "exclude": ["node_modules/**", "src/lib.ts", "build/**", "tests/**"]
+}
