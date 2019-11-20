@@ -1,3 +1,9 @@
+exports.defaultConfig = {
+  base: ['16px'],
+  lineHeight: 1.5,
+  ratio: 1.333,
+};
+
 exports.config = {
   base: ['16px', '32px'],
   lineHeight: 1.5,

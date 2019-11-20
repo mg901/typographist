@@ -30,20 +30,19 @@ exports.omit = function() {
 // deepObjectValues :: (String, ?a | [a]) -> [a]
 exports.deepObjectValues = function deepObjectValues(target, memo) {
   return function(obj) {
-    return Object.keys(Object(obj)).reduce(
-      (acc, key) => {
-        if (key === target) {
-          return acc.concat(obj[key]);
-        }
+    var result = !Array.isArray(memo) ? [] : memo;
 
-        if (obj[key] instanceof Object) {
-          return [].concat(deepObjectValues(target, acc)(obj[key]));
-        }
+    for (var key in obj) {
+      if (key === target) {
+        result.push(obj[key]);
+      }
 
-        return acc;
-      },
-      !Array.isArray(memo) ? [] : memo,
-    );
+      if (obj[key] instanceof Object) {
+        deepObjectValues(target, result)(obj[key]);
+      }
+    }
+
+    return result;
   };
 };
 

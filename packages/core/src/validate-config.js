@@ -2,8 +2,12 @@ var utils = require('./lib');
 
 var ERROR_PREFIX = '[typographist]: Check your config. ';
 
-var BASE_ERROR_MESSAGE =
+var BASE_MUST_BE_AN_ARRAY =
   "is invalid 'base'. Base must be an array of strings. " +
+  "Example 'base': ['14px', '32px'].";
+
+var BASE_MUST_CONTAIN_PX =
+  "is invalid 'base'. Base must contain pixels " +
   "Example 'base': ['14px', '32px'].";
 
 var BREAKPOINT_ERROR_MESSAGE =
@@ -20,7 +24,7 @@ var RATIO_ERROR_MESSAGE =
 // validateConfig :: config -> Void
 var validateConfig = function(x) {
   validateBases(x);
-  throwIfDoesntContainBreakpointProp(x);
+  throwDoesntContainBreakpointProp(x);
   validateBreakpoints(x);
   validateLineHeights(x);
   validateRatios(x);
@@ -36,45 +40,51 @@ function hasPx(x) {
 }
 
 // ---------- BASE ------------------------------------------------------------
-
-// validateField :: a -> Void
-function throwIsInvalidBase(x) {
-  return invariantWithErrorPrefix(
-    hasPx(x),
-    "'" + x + "' " + BASE_ERROR_MESSAGE,
+// throwBaseMustBeAnArray -> a -> Void
+function throwBaseMustBeAnArray(x) {
+  invariantWithErrorPrefix(
+    Array.isArray(x),
+    "'" + x + "' " + BASE_MUST_BE_AN_ARRAY,
   );
+}
+
+// throwBaseMustContainPixels :: a -> Void
+function throwBaseMustContainPixels(x) {
+  invariantWithErrorPrefix(hasPx(x), "'" + x + "' " + BASE_MUST_CONTAIN_PX);
 }
 
 // validateBases :: Object -> Void
 function validateBases(x) {
-  return (
-    utils
-      .deepObjectValues('base')(x)
-      // make flat array
-      .reduce((acc, y) => acc.concat(y), [])
-      .forEach(throwIsInvalidBase)
-  );
+  utils
+    .deepObjectValues('base')(x)
+    .forEach((item) => {
+      throwBaseMustBeAnArray(item);
+      item.forEach(throwBaseMustContainPixels);
+    });
 }
 
 // ---------- BREAKPOINTS ------------------------------------------------------
 // validateBreakpoint :: Object -> Void
-function throwIfDoesntContainBreakpointProp(x) {
+function throwDoesntContainBreakpointProp(x) {
   var breaks = utils.omit('base', 'lineHeight', 'ratio', x);
+  var keys = Object.keys(breaks);
 
-  Object.keys(breaks).forEach((key) => {
-    invariantWithErrorPrefix(
-      breaks[key].breakpoint,
-      "'" +
-        key +
-        "': must contain the mandatory breakpoint property. Example '" +
-        key +
-        "': {breakpoint: '768px'}.",
-    );
-  });
+  if (keys.length) {
+    keys.forEach((key) => {
+      invariantWithErrorPrefix(
+        breaks[key].breakpoint,
+        "'" +
+          key +
+          "': must contain the mandatory breakpoint property. Example '" +
+          key +
+          "': {breakpoint: '768px'}.",
+      );
+    });
+  }
 }
 
 // validateField :: a -> Void
-function throwIsInvalidBreakpoint(x) {
+function throwInvalidBreakpoint(x) {
   invariantWithErrorPrefix(
     typeof x === 'string' && hasPx(x),
     "'" + x + "' " + BREAKPOINT_ERROR_MESSAGE,
@@ -85,15 +95,12 @@ function throwIsInvalidBreakpoint(x) {
 function validateBreakpoints(x) {
   utils
     .deepObjectValues('breakpoint')(x)
-    .forEach((y) => {
-      // throwIfDoesntContainBreakpointProp(y);
-      throwIsInvalidBreakpoint(y);
-    });
+    .forEach(throwInvalidBreakpoint);
 }
 
 // ---------- LINE-HEIGHT --------------------------------------------------------
 // validateField :: a -> Void
-function throwIsInvalidLineHeight(x) {
+function throwInvalidLineHeight(x) {
   invariantWithErrorPrefix(
     typeof x === 'number' && utils.isNumeric(x),
     "'" + x + "' " + LINE_HEIGHT_ERRROR_MESSAGE,
@@ -102,9 +109,9 @@ function throwIsInvalidLineHeight(x) {
 
 // validateFields :: config -> Void
 function validateLineHeights(x) {
-  return utils
+  utils
     .deepObjectValues('lineHeight')(x)
-    .forEach(throwIsInvalidLineHeight);
+    .forEach(throwInvalidLineHeight);
 }
 
 // ---------- RATIO --------------------------------------------------------------
@@ -125,7 +132,7 @@ function ratioHasStep(x) {
 }
 
 // validateField :: a -> Void
-function throwIsInvalidRatio(x) {
+function throwInvalidRatio(x) {
   var isValid =
     (typeof x === 'number' && utils.isNumeric(x)) ||
     (ratioHasFontSize(x) && ratioHasAtWord(x) && ratioHasStep(x));
@@ -135,24 +142,25 @@ function throwIsInvalidRatio(x) {
 
 // validateFields :: config -> Void
 function validateRatios(x) {
-  return utils
+  utils
     .deepObjectValues('ratio')(x)
-    .forEach(throwIsInvalidRatio);
+    .forEach(throwInvalidRatio);
 }
 
 module.exports = {
   hasPx,
-  throwIsInvalidBase,
+  throwBaseMustBeAnArray,
+  throwBaseMustContainPixels,
   validateBases,
-  throwIfDoesntContainBreakpointProp,
-  throwIsInvalidBreakpoint,
+  throwDoesntContainBreakpointProp,
+  throwInvalidBreakpoint,
   validateBreakpoints,
-  throwIsInvalidLineHeight,
+  throwInvalidLineHeight,
   validateLineHeights,
   ratioHasFontSize,
   ratioHasAtWord,
   ratioHasStep,
-  throwIsInvalidRatio,
+  throwInvalidRatio,
   validateRatios,
   validateConfig,
 };
