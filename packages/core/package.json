@@ -13,15 +13,15 @@
     "size": "cross-env size-limit"
   },
   "license": "MIT",
-  "homepage": "https://github.com/typographist/core#readme",
+  "homepage": "https://github.com/mg901/typographist#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/typographist/core.git"
+    "url": "https://github.com/mg901/typographist.git"
   },
   "bugs": {
-    "url": "https://github.com/typographist/core/issues"
+    "url": "https://github.com/mg901/typographist/issues"
   },
-  "author": "maxinakenty <mgreen097@gmail.com>",
+  "author": "mg901 <mgreen097@gmail.com>",
   "keywords": [
     "css-in-js",
     "design",
