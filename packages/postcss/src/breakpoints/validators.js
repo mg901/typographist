@@ -18,8 +18,8 @@ const hasPxOrEm = function(x) {
 
 exports.hasPxOrEm = hasPxOrEm;
 
-// throwIsInvalidOrientation :: Object -> Void
-exports.throwIsInvalidOrientation = function(atrule) {
+// throwInvalidOrientation :: Object -> Void
+exports.throwInvalidOrientation = function(atrule) {
   const orientation = getOrientation(atrule.params);
   const isValid = /portrait|landscape/.test(orientation) || orientation === '';
 
@@ -30,8 +30,8 @@ exports.throwIsInvalidOrientation = function(atrule) {
   }
 };
 
-// throwIsInvalidBreakpointValue ::  (Object, Object) -> Void
-exports.throwIsInvalidBreakpointValue = function(breakpoints, atrule) {
+// throwInvalidBreakpointValue ::  (Object, Object) -> Void
+exports.throwInvalidBreakpointValue = function(breakpoints, atrule) {
   getBreakpointValues(atrule.params).forEach((param) => {
     if (/[A-Z]/.test(param)) {
       throw atrule.error(
@@ -51,8 +51,8 @@ exports.throwIsInvalidBreakpointValue = function(breakpoints, atrule) {
   });
 };
 
-// throwIsLastBreakpoint :: (Object, Object) -> Void
-exports.throwIsLastBreakpoint = function(breakpoints, atrule) {
+// throwLastBreakpoint :: (Object, Object) -> Void
+exports.throwLastBreakpoint = function(breakpoints, atrule) {
   const breakpointName = getBreakpointValues(atrule.params);
   const currentIndex = getCurrentIndex(breakpointName, breakpoints);
   const lastBreakIndex = getlastBreakIndex(breakpoints);
@@ -64,7 +64,7 @@ exports.throwIsLastBreakpoint = function(breakpoints, atrule) {
   }
 };
 
-exports.throwIfLessThanTwoArgs = function({ params }) {
+exports.throwLessThanTwoArgs = function({ params }) {
   const args = getBreakpointValues(params).length;
 
   if (args < 2) {

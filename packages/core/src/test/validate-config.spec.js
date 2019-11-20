@@ -1,15 +1,16 @@
-const { invalidconfig } = require('./mocks');
+const { invalidconfig, defaultConfig } = require('./mocks');
 const {
   hasPx,
   validateConfig,
-  throwIsInvalidBase,
-  throwIfDoesntContainBreakpointProp,
-  throwIsInvalidBreakpoint,
-  throwIsInvalidLineHeight,
+  throwBaseMustBeAnArray,
+  throwBaseMustContainPixels,
+  throwDoesntContainBreakpointProp,
+  throwInvalidBreakpoint,
+  throwInvalidLineHeight,
   ratioHasFontSize,
   ratioHasAtWord,
   ratioHasStep,
-  throwIsInvalidRatio,
+  throwInvalidRatio,
 } = require('../validate-config');
 
 describe('hasPx', () => {
@@ -22,10 +23,10 @@ describe('hasPx', () => {
   });
 });
 
-describe('throwIsInvalidBase', () => {
-  it("show warn if the base isn't valid", () => {
+describe('throwBaseMustBeAnArray', () => {
+  it('show warn if the  base not an array', () => {
     try {
-      throwIsInvalidBase('1rem');
+      throwBaseMustBeAnArray('1rem');
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
@@ -35,10 +36,23 @@ describe('throwIsInvalidBase', () => {
   });
 });
 
-describe('throwIfDoesntContainBreakpointPropclear', () => {
+describe('throwBaseMustContainPixels', () => {
+  it("show warn if the base doesn't contain pixels", () => {
+    try {
+      throwBaseMustContainPixels('1rem');
+      expect(true).toEqual(false);
+    } catch (e) {
+      expect(e.message).toEqual(
+        "[typographist]: Check your config. '1rem' is invalid 'base'. Base must contain pixels Example 'base': ['14px', '32px'].",
+      );
+    }
+  });
+});
+
+describe('throwDoesntContainBreakpointProp', () => {
   it("show warn if the breakpoint doesn't contain the breakpoint property", () => {
     try {
-      throwIfDoesntContainBreakpointProp(invalidconfig);
+      throwDoesntContainBreakpointProp(invalidconfig);
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
@@ -50,10 +64,10 @@ describe('throwIfDoesntContainBreakpointPropclear', () => {
 
 describe('Name of the group', () => {});
 
-describe('throwIsInvalidBreakpoint', () => {
+describe('throwInvalidBreakpoint', () => {
   it("show warn if the breakpoint value isn't valid", () => {
     try {
-      throwIsInvalidBreakpoint('60rem');
+      throwInvalidBreakpoint('60rem');
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
@@ -63,10 +77,10 @@ describe('throwIsInvalidBreakpoint', () => {
   });
 });
 
-describe('throwIsInvalidLineHeight', () => {
+describe('throwInvalidLineHeight', () => {
   it("show warn if the line height value isn't valid", () => {
     try {
-      throwIsInvalidLineHeight('1.5');
+      throwInvalidLineHeight('1.5');
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
@@ -122,10 +136,10 @@ describe('ratioHasStep', () => {
   });
 });
 
-describe('throwIsInvalidRatio', () => {
+describe('throwInvalidRatio', () => {
   it("show warn if the ratio value isn't valid", () => {
     try {
-      throwIsInvalidRatio('45 at 6');
+      throwInvalidRatio('45 at 6');
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
@@ -142,7 +156,18 @@ describe('validateConfig', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your config. '1rem' is invalid 'base'. Base must be an array of strings. Example 'base': ['14px', '32px'].",
+        "[typographist]: Check your config. '1rem' is invalid 'base'. Base must contain pixels Example 'base': ['14px', '32px'].",
+      );
+    }
+  });
+
+  it('validate default config', () => {
+    try {
+      validateConfig(defaultConfig);
+      expect(true).toEqual(true);
+    } catch (e) {
+      expect(e.message).toEqual(
+        "[typographist]: Check your config. '16px' is invalid 'base'. Base must contain pixels Example 'base': ['14px', '32px'].",
       );
     }
   });

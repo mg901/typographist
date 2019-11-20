@@ -10,16 +10,16 @@ const {
 } = require('./utils');
 const { calcMinWidth, calcMaxWidth } = require('./calculators');
 const {
-  throwIsInvalidOrientation,
-  throwIsInvalidBreakpointValue,
-  throwIsLastBreakpoint,
-  throwIfLessThanTwoArgs,
+  throwInvalidOrientation,
+  throwInvalidBreakpointValue,
+  throwLastBreakpoint,
+  throwLessThanTwoArgs,
 } = require('./validators');
 
 // up :: (Object, Object) -> String | Void
 exports.up = mem((atrule, breakpoints) => {
-  throwIsInvalidOrientation(atrule);
-  throwIsInvalidBreakpointValue(breakpoints, atrule);
+  throwInvalidOrientation(atrule);
+  throwInvalidBreakpointValue(breakpoints, atrule);
 
   return [
     getBreakpointValues,
@@ -31,9 +31,9 @@ exports.up = mem((atrule, breakpoints) => {
 
 // down :: (Object, Object) -> String | Void
 exports.down = mem((atrule, breakpoints) => {
-  throwIsInvalidOrientation(atrule);
-  throwIsInvalidBreakpointValue(breakpoints, atrule);
-  throwIsLastBreakpoint(breakpoints, atrule);
+  throwInvalidOrientation(atrule);
+  throwInvalidBreakpointValue(breakpoints, atrule);
+  throwLastBreakpoint(breakpoints, atrule);
 
   return [
     getBreakpointValues,
@@ -47,9 +47,9 @@ exports.down = mem((atrule, breakpoints) => {
 exports.only = mem((atrule, breakpoints) => {
   const { params } = atrule;
 
-  throwIsInvalidOrientation(atrule);
-  throwIsInvalidBreakpointValue(breakpoints, atrule);
-  throwIsLastBreakpoint(breakpoints, atrule);
+  throwInvalidOrientation(atrule);
+  throwInvalidBreakpointValue(breakpoints, atrule);
+  throwLastBreakpoint(breakpoints, atrule);
 
   // min :: String -> String
   const min = [getBreakpointValues, calcMinWidth(breakpoints)].reduce(
@@ -72,10 +72,10 @@ exports.only = mem((atrule, breakpoints) => {
 // only :: (Object, Object) -> String | Void
 exports.between = mem((atrule, breakpoints) => {
   const { params } = atrule;
-  throwIfLessThanTwoArgs(atrule);
-  throwIsInvalidBreakpointValue(breakpoints, atrule);
-  throwIsInvalidOrientation(atrule);
-  throwIsLastBreakpoint(breakpoints, atrule);
+  throwLessThanTwoArgs(atrule);
+  throwInvalidBreakpointValue(breakpoints, atrule);
+  throwInvalidOrientation(atrule);
+  throwLastBreakpoint(breakpoints, atrule);
 
   // min :: [String] -> String
   const min = (x) => {
