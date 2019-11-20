@@ -19,7 +19,7 @@ const {
 } = require('./features/media-queries');
 
 const defaultConfig = {
-  base: '16px',
+  base: ['16px'],
   lineHeight: 1.5,
   ratio: 1.333,
 };
