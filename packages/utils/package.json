@@ -6,5 +6,8 @@
     "build": "yarn clean && cross-env rollup -c && yarn build:copy-files",
     "build:copy-files": "node ../../scripts/copy-files.js",
     "clean": "cross-env rimraf dist"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
