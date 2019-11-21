@@ -27,7 +27,8 @@
     "onchange": "^6.1.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
-    "rollup": "^1.27.1"
+    "rollup": "^1.27.1",
+    "typescript": "^3.7.2"
   },
   "version": "0.0.0"
 }
