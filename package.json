@@ -10,7 +10,11 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/config-lerna-scopes": "^8.2.0",
     "@size-limit/preset-small-lib": "^2.2.1",
+    "@types/jest": "^24.0.23",
     "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
