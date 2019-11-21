@@ -5,12 +5,16 @@
   "module": "es/index.es.js",
   "scripts": {
     "build": "npm run clean && tsc && npm run size",
-    "clean": "cross-env rimraf build",
-    "size": "cross-env size-limit",
-    "commit": "cross-env git-cz",
+    "clean": "cross-env  ../../node_modules/.bin/rimraf build",
+    "size": " cross-env ../../node_modules/.bin/size-limit",
+    "commit": "cross-env ../../node_modules/.bin/git-cz",
     "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
-    "lint:file": "cross-env eslint --fix",
-    "lint:all": "cross-env eslint --fix ."
+    "pretty": "cross-env ../../node_modules/.bin/prettier --write '**/*.ts'",
+    "pretty:watch": "cross-env ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
+    "ts-check": "cross-env ../../node_modules/.bin/tsc --noEmit",
+    "ts-check:watch": "npm run ts-check -- --watch",
+    "lint:file": "cross-env ../../node_modules/.bin/eslint --fix",
+    "lint:all": "cross-env ../../node_modules/.bin/eslint --fix ."
   },
   "files": [
     "es",
@@ -20,19 +24,19 @@
     "access": "public"
   },
   "license": "MIT",
-  "homepage": "https://github.com/typographist/styled",
-  "bugs": "https://github.com/typographist/styled/issues",
+  "homepage": "https://github.com/mg901/typographist",
+  "bugs": "https://github.com/mg901/typographist/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/typographist/styled.git"
+    "url": "https://github.com/mg901/typographist.git"
   },
   "contributors": [
     "Maxim Alyoshin <mgreen097@gmail.com>",
     "Sergey Sova <mail@sergeysova.com>"
   ],
   "peerDependencies": {
-    "react": "^16.8.x",
-    "react-dom": "^16.8.x",
+    "react": "^16.x.x",
+    "react-dom": "^16.x.x",
     "styled-components": "^4.x.x"
   },
   "dependencies": {
@@ -44,13 +48,12 @@
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-typescript": "^7.7.2",
-    "@size-limit/preset-small-lib": "^2.2.1",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
     "@types/styled-components": "^4.4.0",
-    "@typescript-eslint/eslint-plugin": "^2.7.0",
-    "@typescript-eslint/parser": "^2.7.0",
-    "coveralls": "^3.0.7",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "coveralls": "^3.0.8",
     "cz-conventional-changelog": "^3.0.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
