@@ -1,3 +1,59 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  "javascript.validate.enable": false,
+  "workbench.colorTheme": "Twilight",
+  "window.zoomLevel": 0,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.fontSize": 12.5,
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
+  "eslint.packageManager": "yarn",
+  "files.autoSave": "onFocusChange",
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "emmet.syntaxProfiles": {
+    "html": "html",
+    "typescript": "tsx",
+    "postcss": "css"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "postcss": "css"
+  },
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "breadcrumbs.enabled": true,
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "liveshare.featureSet": "insiders",
+  "workbench.startupEditor": "newUntitledFile"
 }
