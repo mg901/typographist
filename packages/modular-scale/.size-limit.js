@@ -1,6 +1,6 @@
 module.exports = [
   {
-    path: 'src/index.js',
-    limit: '373b',
+    path: 'build/index.js',
+    limit: '179b',
   },
 ];
