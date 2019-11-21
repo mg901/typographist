@@ -14,7 +14,9 @@
     "ts-check": "cross-env fixme=fixme ../../node_modules/.bin/tsc --noEmit",
     "ts-check:watch": "yarn ts-check -- --watch",
     "lint:file": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix",
-    "lint:all": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix ."
+    "lint:all": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix .",
+    "test": "cross-env fixme=fixme ../../node_modules/.bin/jest",
+    "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
   },
   "files": [
     "es",
