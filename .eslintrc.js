@@ -54,7 +54,6 @@ module.exports = {
     'no-param-reassign': 0,
     'guard-for-in': 0,
     'no-plusplus': 0,
-    'no-var': 0,
-    'vars-on-top': 0,
+    '@typescript-eslint/no-use-before-define': 0,
   },
 };
