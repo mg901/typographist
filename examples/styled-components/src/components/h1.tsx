@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { up, steps } from '@typographist/styled';
 
-export const H1 = styled.h1`
+type Props = {
+  children: React.ReactNode;
+};
+
+export const H1 = styled.h1<Props>`
   ${steps(6)};
   line-height: 4rem;
   margin-top: 8rem;

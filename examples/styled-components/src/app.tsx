@@ -28,6 +28,7 @@ export const App = () => (
   <TypographistProvider>
     <Normalize />
     <Measure>
+      <H1>Typographist</H1>
       <p>
         The Typographist is a mobile first progressive toolkit for web designers
         and developers that allows you to build interfaces with responsive
