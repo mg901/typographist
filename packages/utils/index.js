@@ -1,4 +1,4 @@
-var BROWSER_CONTEXT = 16;
+const BROWSER_CONTEXT = 16;
 
 function toEm(x) {
   return parseFloat(x) / BROWSER_CONTEXT + 'em';

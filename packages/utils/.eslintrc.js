@@ -1,4 +1,4 @@
 module.exports = {
-  plugins: ['prettier', 'jest'],
-  extends: ['@typographist/eslint-config-base', 'prettier'],
+  extends: '../../.eslintrc.js',
+  plugins: ['prettier'],
 };
