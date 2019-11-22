@@ -1,6 +1,6 @@
 {
   "name": "@typographist/styled",
-  "version": "2.1.2-rc",
+  "version": "2.1.1-alpha.1",
   "license": "MIT",
   "homepage": "https://github.com/mg901/typographist",
   "bugs": "https://github.com/mg901/typographist/issues",
@@ -28,10 +28,7 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "prepublishOnly": "npm run rebuild && npm run test",
-    "postpublish": "npm run clean",
-    "rebuild": "npm run clean && npm run build",
-    "build": "yarn clean && tsc && yarn size",
+    "build": "yarn clean && yarn test && yarn lint:all && yarn ts-check && tsc && yarn size",
     "clean": "cross-env fixme=fixme ../../node_modules/.bin/rimraf build",
     "size": " cross-env size-limit",
     "commit": "cross-env fixme=fixme ../../node_modules/.bin/git-cz",
