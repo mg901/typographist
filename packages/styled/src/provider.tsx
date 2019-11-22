@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
 type Props = {
   fluid?: boolean;
   config?: object;
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
 };
 
 export const TypographistProvider: React.FC<Props> = ({
