@@ -28,6 +28,9 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
+    "prepublishOnly": "npm run rebuild && npm run test",
+    "postpublish": "npm run clean",
+    "rebuild": "npm run clean && npm run build",
     "build": "yarn clean && tsc && yarn size",
     "clean": "cross-env fixme=fixme ../../node_modules/.bin/rimraf build",
     "size": " cross-env size-limit",
