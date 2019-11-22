@@ -1,6 +1,6 @@
 {
   "name": "@typographist/utils",
-  "version": "1.0.1-rc",
+  "version": "1.0.2-rc",
   "license": "MIT",
   "scripts": {
     "size": " cross-env size-limit",
