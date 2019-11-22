@@ -9,7 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@typographist/styled": "^2.1.1-alpha.1",
+    "@typographist/styled": "^2.1.2-alpha.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "styled-components": "^4.4.1",

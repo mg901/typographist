@@ -1418,17 +1418,17 @@
     semver "^6.3.0"
     tsutils "^3.17.1"
 
-"@typographist/core@^25.1.1-alpha.1":
+"@typographist/core@^25.1.1-rc":
   version "25.1.1-alpha.1"
   resolved "https://registry.yarnpkg.com/@typographist/core/-/core-25.1.1-alpha.1.tgz#331475d0748a7eded843086b5402823e875b1d0a"
   integrity sha512-O24pxvKoA9Mv3RtlOh+TvpyedAeGpEYRMoHkeU8SwF93qdz1MYm4jtrTgh31K6sZfT01Z5N0ewIK13z273FFCA==
 
-"@typographist/styled@^2.1.1-alpha.1":
-  version "2.1.1-alpha.1"
-  resolved "https://registry.yarnpkg.com/@typographist/styled/-/styled-2.1.1-alpha.1.tgz#bd55f4107c273a786b18aac4206b1f50fc4ad06c"
-  integrity sha512-/NkJdCVmR8cNlzoFsTbWZBcIwrxKIa86rvi/5Xim1O9HuZFP/lkS++2Pdy2Px2gyR5E0zyrb8H7YekWnALA5YA==
+"@typographist/styled@^2.1.2-alpha.1":
+  version "2.1.2-alpha.1"
+  resolved "https://registry.yarnpkg.com/@typographist/styled/-/styled-2.1.2-alpha.1.tgz#1db3d9e719a58650c8c03b6e84a4edbc83b572e4"
+  integrity sha512-L49gvg7RAm2VPb3OYEzvmO5n7HYg1MY/gPF1o88cd5Wg/xNpN6rE6uqln1sDI6AqMuijD5MpdU93TOtoYQDlRg==
   dependencies:
-    "@typographist/core" "^25.1.1-alpha.1"
+    "@typographist/core" "^25.1.1-rc"
     memoize-one "^5.1.1"
     styled-breakpoints "^7.0.0"
 
