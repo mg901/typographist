@@ -12,6 +12,10 @@ const GlobalStyles = createGlobalStyle`
   body {
 		line-height: 2rem;
     ${base}
+    body {
+    font-style: normal;
+    font-weight: normal;
+  }
   }
 
 	p {
