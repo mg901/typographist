@@ -1,6 +1,30 @@
 {
   "name": "@typographist/styled",
   "version": "2.1.1-alpha.1",
+  "license": "MIT",
+  "homepage": "https://github.com/mg901/typographist",
+  "bugs": "https://github.com/mg901/typographist/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mg901/typographist.git"
+  },
+  "contributors": [
+    "Maxim Alyoshin <mgreen097@gmail.com>",
+    "Sergey Sova <mail@sergeysova.com>"
+  ],
+  "keywords": [
+    "css-in-js",
+    "design",
+    "golden-ratio",
+    "modular",
+    "modular-scale",
+    "musical-scales",
+    "ratio",
+    "scale",
+    "typography",
+    "typographist",
+    "web-typography"
+  ],
   "main": "lib/index.cjs.js",
   "module": "es/index.es.js",
   "scripts": {
@@ -22,20 +46,6 @@
     "es",
     "lib"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/mg901/typographist",
-  "bugs": "https://github.com/mg901/typographist/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mg901/typographist.git"
-  },
-  "contributors": [
-    "Maxim Alyoshin <mgreen097@gmail.com>",
-    "Sergey Sova <mail@sergeysova.com>"
-  ],
   "peerDependencies": {
     "react": "^16.x.x",
     "react-dom": "^16.x.x",
@@ -55,5 +65,8 @@
     "react-dom": "^16.12.0",
     "styled-components": "^4.4.1",
     "typescript": "^3.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

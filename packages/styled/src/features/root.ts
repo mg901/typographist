@@ -37,7 +37,7 @@ export const makeFluidRootFontSizes = (x: BreakpointsMap): string =>
       const isLastElem = index === list.length - 1;
 
       if (index === 0) {
-        return acc + makeRoot(root);
+        acc += makeRoot(root);
       }
 
       if (index > 0 && list[nextIndex]) {
@@ -49,15 +49,13 @@ export const makeFluidRootFontSizes = (x: BreakpointsMap): string =>
         const breaksRatio = `${toEm(value)}) / ${parseFloat(nextBreakValue) -
           parseFloat(value)}`;
 
-        return `${acc} @media (min-width: ${toEm(
+        acc += ` @media (min-width: ${toEm(
           value,
         )}) { font-size: calc(${fontSize} * ((${BROWSER_VIEWPORT_WIDTH} - ${breaksRatio})); }`;
       }
 
       if (isLastElem) {
-        return `${acc} @media (min-width: ${toEm(value)}) { ${makeRoot(
-          root,
-        )} }`;
+        acc += ` @media (min-width: ${toEm(value)}) { ${makeRoot(root)} }`;
       }
 
       return acc;
