@@ -13,7 +13,7 @@ export const makeErrorMessage: MakeErrorMessage = (breaks, name) => {
     .slice(1)
     .join(', ');
 
-  return `'${name}' is invalid breakpoint name. Use ${breakpointNamesList}.`;
+  return `[typographist]: '${name}' is invalid breakpoint name. Use ${breakpointNamesList}.`;
 };
 
 type GetValidBreakpoint = (x: BreakpointsMap, y: string) => Breakpoint;
@@ -26,10 +26,10 @@ const getValidBreakpoint: GetValidBreakpoint = (breaks, name) => {
 
 type Step = (x: number, y?: string) => (z: Props) => string;
 
-export const step: Step = mem((target, name) => ({ theme }) => {
+export const step: Step = mem((target, name = 'initial') => ({ theme }) => {
   const { root, base, ratio } = getValidBreakpoint(
     theme[CONFIG_SYMBOL].breakpointsMap,
-    name || 'initial',
+    name,
   );
 
   return toRem(root, modularScale(target, base, ratio));

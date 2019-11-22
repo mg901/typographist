@@ -1,32 +1,27 @@
 import { BreakpointsMap } from '@typographist/core';
 import { toEm, percentage } from '@typographist/utils';
 import { CONFIG_SYMBOL } from '../constants';
-import { Props } from '../model';
+import { Props, Styles } from '../model';
 
 const BROWSER_VIEWPORT_WIDTH = '100vw';
 
-type Root = number | string;
-type MakeRoot = (x: Root) => string;
+export const makeRootFontSizes = (breaks: BreakpointsMap): Styles => {
+  const result: Styles = {};
 
-export const makeRoot: MakeRoot = (root) => `font-size: ${percentage(root)};`;
-
-export const makeRootFontSizes = (x: BreakpointsMap): string => {
-  let result = '';
-
-  for (const key in x) {
-    if (key === 'initial') {
-      result += makeRoot(x[key].root);
-    } else {
-      result += ` @media (min-width: ${toEm(x[key].value)}) { ${makeRoot(
-        x[key].root,
-      )} }`;
+  for (const key in breaks) {
+    if (key !== 'initial') {
+      result[`@media (min-width: ${toEm(breaks[key].value)})`] = {
+        'font-size': percentage(breaks[key].root),
+      };
     }
+
+    result['font-size'] = percentage(breaks[key].root);
   }
 
   return result;
 };
 
-export const makeFluidRootFontSizes = (x: BreakpointsMap): string =>
+export const makeFluidRootFontSizes = (x: BreakpointsMap): Styles =>
   Object.keys(x)
     .map((key) => x[key])
     .reduce((acc, item, index, list) => {
@@ -37,31 +32,29 @@ export const makeFluidRootFontSizes = (x: BreakpointsMap): string =>
       const isLastElem = index === list.length - 1;
 
       if (index === 0) {
-        acc += makeRoot(root);
+        acc['font-size'] = percentage(root);
       }
 
       if (index > 0 && list[nextIndex]) {
         const prevRoot = list[prevIndex].root;
         const nextBreakValue = list[nextIndex].value;
-
         const fontSize = `${percentage(prevRoot)} + ${root - prevRoot}`;
-
         const breaksRatio = `${toEm(value)}) / ${parseFloat(nextBreakValue) -
           parseFloat(value)}`;
 
-        acc += ` @media (min-width: ${toEm(
-          value,
-        )}) { font-size: calc(${fontSize} * ((${BROWSER_VIEWPORT_WIDTH} - ${breaksRatio})); }`;
+        acc[`@media (min-width: ${toEm(value)})`] = {
+          'font-size': `calc(${fontSize} * ((${BROWSER_VIEWPORT_WIDTH} - ${breaksRatio}))`,
+        };
       }
 
       if (isLastElem) {
-        acc += ` @media (min-width: ${toEm(value)}) { ${makeRoot(root)} }`;
+        acc[`@media (min-width: ${toEm(value)})`] = percentage(root);
       }
 
       return acc;
-    }, '');
+    }, {} as Styles);
 
-export const renderStandardOrFluidRoot = ({ fluid, theme }: Props): string => {
+export const renderStandardOrFluidRoot = ({ fluid, theme }: Props): Styles => {
   const { breakpointsMap } = theme[CONFIG_SYMBOL];
 
   return fluid
