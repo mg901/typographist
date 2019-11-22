@@ -1,6 +1,6 @@
 //  https://www.modularscale.com/
 
-export function modularscale(
+export function modularScale(
   rawStep: number,
   base: number[],
   ratio: number,

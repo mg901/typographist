@@ -2,9 +2,23 @@
   "name": "@typographist/modular-scale",
   "version": "1.0.2-alpha.0",
   "description": "A Javascript modular scale calculator",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "license": "MIT",
+  "homepage": "https://github.com/mg901/typographist#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mg901/typographist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mg901/typographist/issues"
+  },
+  "author": "mg901 <mgreen097@gmail.com>",
+  "keywords": [],
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
+    "postpublish": "yarn clean",
+    "prepublishOnly": "yarn rebuild && yarn test",
+    "rebuild": "yarn clean && yarn build",
     "build": "yarn clean && tsc && yarn size",
     "clean": "cross-env fixme=fixme ../../node_modules/.bin/rimraf build",
     "size": " cross-env size-limit",
@@ -19,27 +33,13 @@
     "test": "cross-env fixme=fixme ../../node_modules/.bin/jest",
     "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/mg901/typographist#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mg901/typographist.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mg901/typographist/issues"
-  },
-  "author": "mg901 <mgreen097@gmail.com>",
-  "keywords": [],
-  "files": [
-    "index.js"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "memoize-one": "^5.1.1"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^2.2.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
