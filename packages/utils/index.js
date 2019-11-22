@@ -5,11 +5,11 @@ function toEm(x) {
 }
 
 function toRem(root, fontSize) {
-  return Number(fontSize) / root + 'rem';
+  return parseFloat(fontSize) / root + 'rem';
 }
 
 function percentage(x) {
-  return (Number(x) / BROWSER_CONTEXT) * 100 + '%';
+  return (parseFloat(x) * 100) / BROWSER_CONTEXT + '%';
 }
 
 // invariant :: (a, String) -> Void
