@@ -11,7 +11,7 @@ const {
   ratioHasAtWord,
   ratioHasStep,
   throwInvalidRatio,
-} = require('../validate-config');
+} = require('../src/validate-config');
 
 describe('hasPx', () => {
   it('returns `true` if value contains pixels', () => {

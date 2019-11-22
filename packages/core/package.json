@@ -2,16 +2,6 @@
   "name": "@typographist/core",
   "version": "25.1.1-alpha.1",
   "description": "Core API for typographist",
-  "main": "./src/index.js",
-  "types": "./src/index.d.ts",
-  "scripts": {
-    "test": "cross-env ../../node_modules/.bin/jest --colors",
-    "commit": "cross-env npx git-cz",
-    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
-    "lint:all": "cross-env eslint --fix .",
-    "lint:file": "cross-env eslint --fix",
-    "size": "cross-env size-limit"
-  },
   "license": "MIT",
   "homepage": "https://github.com/mg901/typographist#readme",
   "repository": {
@@ -35,11 +25,27 @@
     "typographist",
     "web-typography"
   ],
-  "publishConfig": {
-    "access": "public"
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "build": "yarn clean && tsc && yarn size",
+    "clean": "cross-env fixme=fixme ../../node_modules/.bin/rimraf build",
+    "size": " cross-env size-limit",
+    "commit": "cross-env fixme=fixme ../../node_modules/.bin/git-cz",
+    "coverage": "cross-env fixme=fixme cat ./coverage/lcov.info | coveralls",
+    "pretty": "cross-env fixme=fixme ../../node_modules/.bin/prettier --write '**/*.ts'",
+    "pretty:watch": "cross-env fixme=fixme ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
+    "lint:file": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix",
+    "lint:all": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix .",
+    "test": "cross-env fixme=fixme ../../node_modules/.bin/jest",
+    "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^2.2.1",
-    "@typographist/eslint-config-base": "^1.0.0"
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -12,7 +12,7 @@ const {
   calcRatio,
   calcLeading,
   setRootProp,
-} = require('../make-breakpoints-map');
+} = require('../src/make-breakpoints-map');
 const { config, breakpointsMap } = require('./mocks');
 
 describe('makeInitialBreakpoint', () => {

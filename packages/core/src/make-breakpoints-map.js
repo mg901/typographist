@@ -1,9 +1,9 @@
-var validateConfig = require('./validate-config').validateConfig;
-var utils = require('./lib');
+const { validateConfig } = require('./validate-config');
+const utils = require('./lib');
 
-var FONT_SIZE = /\b\d+(\.\d+)?(px|em)\b/g;
-var POSITIVE_OR_NEGATIVE_INT_OR_FLOAT_NUM_AT_END_OF_STRING = /-?\b\d+(\.\d+)?\b\s*$/g;
-var HALF = 0.5;
+const FONT_SIZE = /\b\d+(\.\d+)?(px|em)\b/g;
+const POSITIVE_OR_NEGATIVE_INT_OR_FLOAT_NUM_AT_END_OF_STRING = /-?\b\d+(\.\d+)?\b\s*$/g;
+const HALF = 0.5;
 
 // getBreakpoints :: Object -> Object | Void
 function makeBreakpointsMap(x) {
@@ -37,10 +37,10 @@ function makeInitialBreakpoint(x) {
 
 // makeNamedBreakpoints :: Object -> [Object]
 function makeNamedBreakpoints(x) {
-  var breaks = utils.omit('base', 'lineHeight', 'ratio', x);
-  var result = [];
+  const breaks = utils.omit('base', 'lineHeight', 'ratio', x);
+  const result = [];
 
-  for (var key in breaks) {
+  for (const key in breaks) {
     breaks[key].name = key;
 
     result.push(breaks[key]);
@@ -52,9 +52,9 @@ function makeNamedBreakpoints(x) {
 // renameProp :: (String, String, Object) -> Object
 function renameProp(oldProp, newProp) {
   return function(x) {
-    var result = {};
+    const result = {};
 
-    for (var key in x) {
+    for (const key in x) {
       result[key] = x[key];
     }
 
@@ -81,14 +81,14 @@ function normalizeBase(x) {
 // ---------- RATIO -----------------------------------------------------------
 // makeFontSize :: (String) -> Number | Null
 function makeFontSize(x) {
-  var result = x.trim().match(FONT_SIZE);
+  const result = x.trim().match(FONT_SIZE);
 
   return result ? parseFloat(String(result)) : result;
 }
 
 // makeStep :: String -> Number | Null
 function makeStep(x) {
-  var result = x
+  const result = x
     .trim()
     .match(POSITIVE_OR_NEGATIVE_INT_OR_FLOAT_NUM_AT_END_OF_STRING);
 

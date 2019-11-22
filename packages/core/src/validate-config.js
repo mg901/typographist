@@ -75,7 +75,9 @@ function throwDoesntContainBreakpointProp(x) {
         breaks[key].breakpoint,
         "'" +
           key +
-          "': must contain the mandatory breakpoint property. Example '" +
+          "'" +
+          ': must contain the mandatory breakpoint property. Example ' +
+          "'" +
           key +
           "': {breakpoint: '768px'}.",
       );
@@ -137,7 +139,7 @@ function throwInvalidRatio(x) {
     (typeof x === 'number' && utils.isNumeric(x)) ||
     (ratioHasFontSize(x) && ratioHasAtWord(x) && ratioHasStep(x));
 
-  utils.invariant(isValid, ERROR_PREFIX + "'" + x + "' " + RATIO_ERROR_MESSAGE);
+  invariantWithErrorPrefix(isValid, "'" + x + "' " + RATIO_ERROR_MESSAGE);
 }
 
 // validateFields :: config -> Void
