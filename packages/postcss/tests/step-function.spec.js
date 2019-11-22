@@ -1,7 +1,7 @@
 const run = require('./run');
 const { userConfig } = require('./mocks/user-config');
 
-describe('transform t-step function', () => {
+describe('transform step function', () => {
   it('should replace the t-step function with the font size in rem for each breakpoint', () => {
     const source = `
         h1 {

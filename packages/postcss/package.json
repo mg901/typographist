@@ -4,11 +4,15 @@
   "description": "Toolkit for the rapid construction of interfaces with high quality typography.",
   "main": "src/index.js",
   "scripts": {
-    "commit": "cross-env npx git-cz",
-    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
-    "test": "cross-env ../../node_modules/.bin/jest --colors",
-    "lint:all": "cross-env eslint --fix .",
-    "lint:file": "cross-env eslint --fix"
+    "size": " cross-env size-limit",
+    "commit": "cross-env fixme=fixme ../../node_modules/.bin/git-cz",
+    "coverage": "cross-env fixme=fixme cat ./coverage/lcov.info | coveralls",
+    "pretty": "cross-env fixme=fixme ../../node_modules/.bin/prettier --write '**/*.ts'",
+    "pretty:watch": "cross-env fixme=fixme ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
+    "lint:file": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix",
+    "lint:all": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix .",
+    "test": "cross-env fixme=fixme ../../node_modules/.bin/jest",
+    "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
   },
   "license": "MIT",
   "homepage": "https://github.com/mg901/typographist/postcss#readme",
@@ -45,14 +49,9 @@
     "postcss": "^7.0.21"
   },
   "devDependencies": {
-    "@typographist/eslint-config-base": "^1.0.0",
-    "cross-env": "^6.0.3",
-    "eslint-config-prettier": "^6.5.0",
+    "@size-limit/preset-big-lib": "^2.2.1",
     "eslint-plugin-jest": "^23.0.4",
-    "eslint-plugin-prettier": "^3.1.1",
-    "postcss": "^7.0.21",
-    "prettier": "^1.19.1",
-    "rimraf": "^3.0.0"
+    "postcss": "^7.0.21"
   },
   "dependencies": {
     "@typographist/core": "^25.1.1-alpha.1",

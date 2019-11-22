@@ -1,5 +1,5 @@
 const postcss = require('postcss');
-const { typographist } = require('..');
+const { typographist } = require('../src');
 
 module.exports = (input, output, config) =>
   postcss([typographist(config)])

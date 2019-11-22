@@ -6,7 +6,8 @@ const FONT_SIZE_PROP = /^font-size$/;
 const VAL_WITH_STEP = /^-?\d+(\.\d+)?step$/;
 const SUITABLE_MEDIA_QUERIES = /^((up|down|only)$)|((up|down|only):(landscape|portrait))$/;
 
-const ERROR_MESSAGE = `[typographist]: Use @up, @down or @only to calculate the step.`;
+const ERROR_MESSAGE =
+  '[typographist]: Use @up, @down or @only to calculate the step.';
 
 // isStep :: Object -> Boolean
 exports.isStep = ({ prop, value }) =>
