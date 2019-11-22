@@ -67,9 +67,11 @@ const makeBreakpointName = (x) =>
 
 // cleanNode :: Object -> Object
 const cleanNode = (node) => {
-  node.raws.between = node.raws.between ? node.raws.between : {};
-  node.raws.semicolon = true;
-  node.raws.important = node.raws.important ? node.raws.important : {};
+  node.raws = {
+    ...(node.raws.between ? { between: node.raws.between } : {}),
+    ...{ semicolon: true },
+    ...(node.raws.important ? { important: node.raws.important } : {}),
+  };
 
   return node;
 };
