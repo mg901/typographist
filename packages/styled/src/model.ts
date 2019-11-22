@@ -33,6 +33,5 @@ export type CustomTheme = {
 export type Theme = DefaultTheme | CustomTheme;
 
 export type Props = {
-  fluid: boolean;
-  theme: Theme;
+  [key: string]: any;
 };

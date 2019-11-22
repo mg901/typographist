@@ -6,9 +6,10 @@ import mem from 'memoize-one';
 import { CONFIG_SYMBOL } from '../constants';
 import { Props } from '../model';
 
-type MakeErrorMessage = (x: BreakpointsMap, y: string) => string;
-
-export const makeErrorMessage: MakeErrorMessage = (breaks, name) => {
+export const makeErrorMessage = (
+  breaks: BreakpointsMap,
+  name: string,
+): string => {
   const breakpointNamesList = Object.keys(breaks)
     .slice(1)
     .join(', ');
