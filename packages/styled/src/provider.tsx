@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
 
 type Props = {
   fluid?: boolean;
-  config: object;
+  config?: object;
   children: JSX.Element | JSX.Element[];
 };
 

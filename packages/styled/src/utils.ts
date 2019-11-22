@@ -9,7 +9,7 @@ const makeMediaQueries = (x: object): MediaQueries => {
 
   for (const key in breaks) {
     if (key !== 'initial') {
-      result[key] = x[key].value;
+      result[key] = breaks[key].value;
     }
   }
 
