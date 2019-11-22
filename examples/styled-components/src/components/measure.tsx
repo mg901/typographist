@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import { up } from '../../../../packages/styled';
+import { up } from '@typographist/styled';
 
 export const Measure = styled.div`
+  // @ts-ignore
+  ${(props) => console.log(props)}
+
   margin: auto;
   padding-left: 1rem;
   padding-right: 1rem;

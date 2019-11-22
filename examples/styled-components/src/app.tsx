@@ -1,34 +1,33 @@
 import React from 'react';
 import { Normalize } from 'styled-normalize';
-import { ratios, TypographistProvider } from '../../../packages/styled';
+import { ratios, TypographistProvider } from '@typographist/styled';
 import { H1 } from './components/h1';
 import { Measure } from './components/measure';
 
 export const config = {
-  base: '16px',
+  base: ['16px'],
   lineHeight: 1.5,
   ratio: ratios.MINOR_SECOND,
   tablet: {
     breakpoint: '768px',
-    base: '17px',
+    base: ['17px'],
     ratio: ratios.MAJOR_SECOND,
   },
   desktop: {
     breakpoint: '992px',
-    base: '19px',
+    base: ['19px'],
     ratio: ratios.MINOR_THIRD,
   },
   lgDesktop: {
     breakpoint: '1200px',
-    base: '21px',
+    base: ['21px'],
   },
 };
 
 export const App = () => (
-  <TypographistProvider config={config}>
+  <TypographistProvider>
     <Normalize />
     <Measure>
-      <H1>Typographist</H1>
       <p>
         The Typographist is a mobile first progressive toolkit for web designers
         and developers that allows you to build interfaces with responsive

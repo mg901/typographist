@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { up, steps } from '../../../../packages/styled';
+import { up, steps } from '@typographist/styled';
 
 export const H1 = styled.h1`
   ${steps(6)};
