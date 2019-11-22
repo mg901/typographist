@@ -3,11 +3,20 @@
   "version": "1.0.1-alpha.2",
   "license": "MIT",
   "scripts": {
-    "build": "yarn clean && cross-env rollup -c && yarn build:copy-files",
-    "build:copy-files": "node ../../scripts/copy-files.js",
-    "clean": "cross-env rimraf dist"
+    "size": " cross-env size-limit",
+    "commit": "cross-env fixme=fixme ../../node_modules/.bin/git-cz",
+    "coverage": "cross-env fixme=fixme cat ./coverage/lcov.info | coveralls",
+    "pretty": "cross-env fixme=fixme ../../node_modules/.bin/prettier --write '**/*.ts'",
+    "pretty:watch": "cross-env fixme=fixme ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
+    "lint:file": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix",
+    "lint:all": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix .",
+    "test": "cross-env fixme=fixme ../../node_modules/.bin/jest",
+    "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^2.2.1"
   }
 }
