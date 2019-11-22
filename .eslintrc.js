@@ -1,6 +1,6 @@
 module.exports = {
   parserOptions: {
-    ecmaVersion: 2015,
+    ecmaVersion: 2018,
     sourceType: 'module',
     allowImportExportEverywhere: true,
     ecmaFeatures: {
@@ -12,13 +12,8 @@ module.exports = {
     node: true,
     jest: true,
   },
-  parser: '@typescript-eslint/parser',
-  extends: [
-    'airbnb',
-    'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
-  ],
-  plugins: ['prettier', '@typescript-eslint'],
+  extends: ['airbnb', 'prettier'],
+  plugins: ['prettier'],
   settings: {
     'import/resolver': {
       node: {
@@ -31,16 +26,6 @@ module.exports = {
     'newline-before-return': 2,
     'arrow-body-style': 2,
     'import/no-default-export': 2,
-    'jsx-a11y/anchor-is-valid': 0,
-    'jsx-a11y/control-has-associated-label': 0,
-    'react/jsx-closing-bracket-location': 0,
-    'import/no-extraneous-dependencies': 0,
-    'import/prefer-default-export': 0,
-    'react/jsx-filename-extension': 0,
-    'react/jsx-wrap-multilines': 0,
-    'react/forbid-prop-types': 0,
-    'react/jsx-curly-newline': 0,
-    'react/prop-types': 0,
     'no-restricted-syntax': 0,
     'prefer-destructuring': 0,
     'prefer-template': 0,
@@ -54,6 +39,7 @@ module.exports = {
     'no-param-reassign': 0,
     'guard-for-in': 0,
     'no-plusplus': 0,
-    '@typescript-eslint/no-use-before-define': 0,
+    'import/prefer-default-export': 0,
+    'import/no-extraneous-dependencies': 0,
   },
 };
