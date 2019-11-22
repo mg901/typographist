@@ -8,6 +8,7 @@ function toRem(root, fontSize) {
   return parseFloat(fontSize) / root + 'rem';
 }
 
+// percentage :: (String | Number | [String] | [Number])
 function percentage(x) {
   return (parseFloat(x) * 100) / BROWSER_CONTEXT + '%';
 }
