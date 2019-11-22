@@ -43,8 +43,7 @@
     "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
   },
   "files": [
-    "es",
-    "lib"
+    "build"
   ],
   "peerDependencies": {
     "react": "^16.x.x",
