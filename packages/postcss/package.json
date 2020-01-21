@@ -1,6 +1,6 @@
 {
   "name": "@typographist/postcss",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "description": "Toolkit for the rapid construction of interfaces with high quality typography.",
   "main": "src/index.js",
   "scripts": {
@@ -50,9 +50,9 @@
     "eslint-plugin-jest": "^23.0.4"
   },
   "dependencies": {
-    "@typographist/core": "^26.0.4",
-    "@typographist/modular-scale": "^1.1.7",
-    "@typographist/utils": "^2.0.4",
+    "@typographist/core": "^26.0.5",
+    "@typographist/modular-scale": "^1.1.8",
+    "@typographist/utils": "^2.0.5",
     "memoize-one": "^5.1.1"
   }
 }
