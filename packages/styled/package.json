@@ -28,7 +28,7 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "prepublishOnly": "yarn clean && yarn test && yarn lint:all && yarn ts-check && yarn rebuild && yarn size",
+    "prepublishOnly": "yarn clean && yarn lint:all && yarn ts-check && yarn rebuild && yarn size",
     "rebuild": "yarn clean && yarn build",
     "build": "cross-env tsc",
     "clean": "cross-env fixme=fixme ../../node_modules/.bin/rimraf build",

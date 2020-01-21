@@ -1,7 +1,4 @@
-const {
-  cleanNode,
-  transformAfterNodes,
-} = require('@typographist/utils/postcss');
+const { cleanNode, transformAfterNodes } = require('../lib/postcss');
 
 exports.bubblingAtrule = (atrule) => {
   if (!isBubblingAtrule(atrule)) return;

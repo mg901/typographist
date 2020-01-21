@@ -26,5 +26,7 @@ const transformAfterNodes = (node) => {
   return null;
 };
 
-exports.cleanNode = cleanNode;
-exports.transformAfterNodes = transformAfterNodes;
+module.exports = {
+  cleanNode,
+  transformAfterNodes,
+};
