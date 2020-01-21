@@ -1,6 +1,6 @@
 module.exports = [
   {
     path: 'build/index.js',
-    limit: '4.06 KB',
+    limit: '4.08 KB',
   },
 ];

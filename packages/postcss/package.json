@@ -54,5 +54,6 @@
     "@typographist/modular-scale": "^1.1.4",
     "@typographist/utils": "^2.0.1",
     "memoize-one": "^5.1.1"
-  }
+  },
+  "gitHead": "714b250ee8a18f29d04bb463cf089517f9682d1d"
 }

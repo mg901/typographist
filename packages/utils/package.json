@@ -18,5 +18,6 @@
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^3.0.0"
-  }
+  },
+  "gitHead": "714b250ee8a18f29d04bb463cf089517f9682d1d"
 }

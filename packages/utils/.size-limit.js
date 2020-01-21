@@ -1,6 +1,6 @@
 module.exports = [
   {
     path: ['index.js', 'postcss.js'],
-    limit: '611b',
+    limit: '253b',
   },
 ];
