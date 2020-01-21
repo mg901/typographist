@@ -1,6 +1,6 @@
 {
   "name": "@typographist/styled",
-  "version": "2.1.7-alpha.1",
+  "version": "3.0.0",
   "license": "MIT",
   "homepage": "https://github.com/mg901/typographist",
   "bugs": "https://github.com/mg901/typographist/issues",
@@ -53,8 +53,8 @@
     "styled-components": "^4.x.x"
   },
   "dependencies": {
-    "@typographist/core": "^25.1.1-rc",
-    "@typographist/modular-scale": "1.1.3-rc",
+    "@typographist/core": "^26.0.0",
+    "@typographist/modular-scale": "^1.1.3",
     "memoize-one": "^5.1.1",
     "styled-breakpoints": "^7.0.0"
   },
