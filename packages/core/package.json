@@ -41,7 +41,7 @@
     "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^2.2.1",
+    "@size-limit/preset-small-lib": "^3.0.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2"
   },

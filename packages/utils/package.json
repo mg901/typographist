@@ -17,6 +17,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^2.2.1"
+    "@size-limit/preset-small-lib": "^3.0.0"
   }
 }
