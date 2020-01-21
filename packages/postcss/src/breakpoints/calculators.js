@@ -1,30 +1,22 @@
 const { toEm } = require('@typographist/utils');
-const {
-  toPx,
-  toEmOrNot,
-  hasEm,
-  camelize,
-} = require('@typographist/utils/postcss');
+const { toPx, toEmOrNot, camelize } = require('../lib/convertors');
 const { getNextBreakpointValue } = require('./utils');
-
-// normalizeBreakParams :: [String] -> String
-const normalizeBreakParams = (x) => camelize(String(x));
 
 // calcMaxBreakValue :: (String | Number) -> Number
 const calcMaxBreakValue = (x) => toEm(parseFloat(x) - 0.02);
 
 // calcMinWidth :: Object -> [String] -> String
 exports.calcMinWidth = (breakpoints) => (breakpoint) => {
-  const breakParams = normalizeBreakParams(breakpoint);
+  const breakParams = camelize(String(breakpoint));
 
   return breakpoints[breakParams]
-    ? toEm(breakpoints[breakParams].value)
+    ? toEm(breakpoints[breakParams].minWidth)
     : toEmOrNot(breakParams);
 };
 
 // calcMaxWidth :: Object -> String -> String
 exports.calcMaxWidth = (breakpoints) => (breakpoint) => {
-  const breakParams = normalizeBreakParams(breakpoint);
+  const breakParams = camelize(String(breakpoint));
 
   if (breakpoints[breakParams]) {
     const nextBreakpointValue = getNextBreakpointValue(
@@ -35,7 +27,7 @@ exports.calcMaxWidth = (breakpoints) => (breakpoint) => {
     return calcMaxBreakValue(nextBreakpointValue);
   }
 
-  if (hasEm(breakParams)) {
+  if (breakParams.includes('em')) {
     return calcMaxBreakValue(toPx(breakParams));
   }
 

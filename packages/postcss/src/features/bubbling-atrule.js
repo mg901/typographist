@@ -3,13 +3,11 @@ const {
   transformAfterNodes,
 } = require('@typographist/utils/postcss');
 
-exports.isBubblingAtrule = ({ parent, name }) =>
-  isValidMediaQuery(name) && parent && parent.type === 'rule';
-
 exports.bubblingAtrule = (atrule) => {
+  if (!isBubblingAtrule(atrule)) return;
+
   cleanNode(atrule);
   transformAfterNodes(atrule);
-
   const parentClone = atrule.parent.clone();
   const innerNodes = atrule.nodes.map(cleanNode);
 
@@ -25,6 +23,8 @@ exports.bubblingAtrule = (atrule) => {
   if (!parent.nodes.length) parent.remove();
 };
 
-function isValidMediaQuery(name) {
-  return /^(up|down|only|between)$/.test(name);
+function isBubblingAtrule({ parent, name }) {
+  return (
+    /^(up|down|only|between)$/.test(name) && parent && parent.type === 'rule'
+  );
 }

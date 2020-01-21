@@ -1,10 +1,10 @@
-import { makeBreakpointsMap } from '@typographist/core';
+import { createBreakpointsMap } from '@typographist/core';
 import { MediaQueries } from 'styled-breakpoints';
 import { CONFIG_SYMBOL, DEFAULT_CONFIG } from './constants';
 import { CustomTheme, InitialBreakpoint, DefaultTheme, Theme } from './model';
 
-const makeMediaQueries = (x: object): MediaQueries => {
-  const breaks = makeBreakpointsMap(x);
+const createMediaQueries = (x: object): MediaQueries => {
+  const breaks = createBreakpointsMap(x);
   const result = {} as MediaQueries;
 
   for (const key in breaks) {
@@ -18,14 +18,14 @@ const makeMediaQueries = (x: object): MediaQueries => {
 
 const customTheme = (x: object): CustomTheme => ({
   [CONFIG_SYMBOL]: {
-    breakpointsMap: makeBreakpointsMap(x),
-    mediaQueries: makeMediaQueries(x),
+    breakpointsMap: createBreakpointsMap(x),
+    mediaQueries: createMediaQueries(x),
   },
 });
 
 export const defaultTheme = (): DefaultTheme => ({
   [CONFIG_SYMBOL]: {
-    breakpointsMap: makeBreakpointsMap(DEFAULT_CONFIG) as InitialBreakpoint,
+    breakpointsMap: createBreakpointsMap(DEFAULT_CONFIG) as InitialBreakpoint,
     mediaQueries: {},
   },
 });

@@ -15,8 +15,9 @@ export const base = ({ theme }: Props): Styles => {
       result[`@media (min-with: ${toEm(breaks[key].value)})`] = {
         'font-size': calcBase(breaks[key]),
       };
+    } else {
+      result['font-size'] = calcBase(breaks[key]);
     }
-    result['font-size'] = calcBase(breaks[key]);
   }
 
   return result;

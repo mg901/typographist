@@ -6,7 +6,7 @@ import mem from 'memoize-one';
 import { CONFIG_SYMBOL } from '../constants';
 import { Props } from '../model';
 
-export const makeErrorMessage = (
+export const createErrorMessage = (
   breaks: BreakpointsMap,
   name: string,
 ): string => {
@@ -20,7 +20,7 @@ export const makeErrorMessage = (
 type GetValidBreakpoint = (x: BreakpointsMap, y: string) => Breakpoint;
 
 const getValidBreakpoint: GetValidBreakpoint = (breaks, name) => {
-  invariant(breaks[name], makeErrorMessage(breaks, name));
+  invariant(breaks[name], createErrorMessage(breaks, name));
 
   return breaks[name];
 };

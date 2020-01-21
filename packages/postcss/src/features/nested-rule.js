@@ -3,20 +3,14 @@ const {
   transformAfterNodes,
 } = require('@typographist/utils/postcss');
 
-const LAST_COMMA = /,\s*$/;
-const LINE_BREAKS_AND_SPACES = /[\n\s]/g;
-const COMMA_AND_NEW_LINE = ',\n';
-
-// isNestedRule :: Object -> Boolean
-exports.isNestedRule = ({ parent, selector }) =>
-  parent && parent.type === 'rule' && isNestedSelector(selector);
-
 // nestedRule :: Object -> Void
 exports.nestedRule = (rule) => {
+  if (!isNestedRule(rule)) return;
+
   cleanNode(rule);
   transformAfterNodes(rule);
   rule.nodes.map(cleanNode);
-  const selectorName = makeNestedSelectorNames(rule);
+  const selectorName = createNestedSelectorNames(rule);
 
   rule.selector = replaceLastComma(selectorName);
   rule.parent.selector = replaceLastComma(rule.parent.selector);
@@ -29,42 +23,48 @@ exports.nestedRule = (rule) => {
   }
 };
 
-// makeNestedSelectorName :: Object -> String
-function makeNestedSelectorNames(rule) {
+// isNestedRule :: Object -> Boolean
+function isNestedRule({ parent, selector }) {
+  return parent && parent.type === 'rule' && /&/.test(selector);
+}
+
+// createNestedSelectorNames :: Object -> String
+function createNestedSelectorNames(rule) {
   const parentSelectors = getRawRules(rule.parent.selector);
   const nestedSelectors = getRawRules(rule.selector);
+  const commaAndNewLine = ',\n';
 
   let selectorName = '';
   for (let i = 0; i < parentSelectors.length; i += 1) {
     for (let j = 0; j < nestedSelectors.length; j += 1) {
       selectorName +=
-        makeSelectorName(nestedSelectors[j], parentSelectors[i]) +
-        COMMA_AND_NEW_LINE;
+        createSelectorName(nestedSelectors[j], parentSelectors[i]) +
+        commaAndNewLine;
     }
   }
 
   return selectorName;
 }
 
-// makeSelectorName :: (String, String) -> String
-function makeSelectorName(replaceable, replacer) {
+// createSelectorName :: (String, String) -> String
+function createSelectorName(replaceable, replacer) {
   return replaceable.replace(/&/, replacer);
 }
 
 // getRawRules :: String -> [String]
 function getRawRules(rule) {
-  return rule
-    .replace(LAST_COMMA, '')
-    .replace(LINE_BREAKS_AND_SPACES, '')
-    .split(',');
-}
+  const lastComma = /,\s*$/;
+  const lineBreaksAndSpaces = /[\n\s]/g;
 
-// isNestedSelector :: String -> Boolean
-function isNestedSelector(selector) {
-  return /&/.test(selector);
+  return rule
+    .replace(lastComma, '')
+    .replace(lineBreaksAndSpaces, '')
+    .split(',');
 }
 
 // replaceLastComma :: String -> String
 function replaceLastComma(selector) {
-  return selector.replace(LAST_COMMA, '');
+  const lastComma = /,\s*$/;
+
+  return selector.replace(lastComma, '');
 }

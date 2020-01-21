@@ -1,47 +1,90 @@
 const { rule, decl } = require('postcss');
 const { toRem } = require('@typographist/utils');
-const { fontSizeProp, mediaQuery } = require('../elements');
+const { createFontSizeProp, createMediaQuery } = require('../elements');
+
+const props = [
+  decl({
+    prop: 'line-height',
+    value: '2rem',
+  }),
+  decl({
+    prop: 'font-style',
+    value: 'normal',
+  }),
+  decl({
+    prop: 'font-weight',
+    value: 400,
+  }),
+];
 
 // base :: (Object, Object) -> Void
 exports.renderBase = (atrule, breakpointsMap) => {
-  const {
-    initial: { root, base },
-    ...breaks
-  } = breakpointsMap;
+  if (atrule.name !== 'base') return;
 
-  if (atrule.parent && isBody(atrule.parent)) {
-    Object.values(breaks)
-      .reverse()
-      .map((b) => {
-        const body = bodyProp().append(fontSizeProp(toRem(b.root, b.base)));
+  throwIsNotBodySelector(atrule);
+  const [head, ...tail] = Object.values(breakpointsMap);
 
-        return atrule.parent.after(mediaQuery(b.value).append(body));
-      });
+  tail.reverse().forEach(({ root, base, minWidth }) => {
+    const body = rule({
+      selector: 'body',
+    }).append(createFontSizeProp(toRem(root)(base)));
 
-    atrule.replaceWith(fontSizeProp(toRem(root, base)), lineHeightProp());
-  } else {
-    throw atrule.error(
-      `[typographist]: use the ${atrule} only with the 'body' selector.`,
-    );
-  }
+    atrule.parent.after(createMediaQuery(minWidth).append(body));
+  });
+
+  atrule.replaceWith(createFontSizeProp(toRem(head.root)(head.base)), ...props);
 };
 
-// isBody :: Object -> Boolean
-function isBody({ selector }) {
-  return selector === 'body';
-}
+// exports.renderFluidBase = (atrule, breakpointsMap) => {
+//   if (atrule.name !== 'base') return;
+//   throwIsNotBodySelector(atrule);
 
-// bodyProp :: () -> Void
-function bodyProp() {
-  return rule({
-    selector: 'body',
-  });
-}
+//   const { initial: head, ...tail } = breakpointsMap;
+//   addFluidFontForEachBreakpoints(atrule, tail);
+//   atrule.replaceWith(createFontSizeProp(toRem(head.root)(head.base)), ...props);
+// };
 
-// lineHeightProp :: () -> Void
-function lineHeightProp() {
-  return decl({
-    prop: 'line-height',
-    value: '2rem',
-  });
+// function addFluidFontForEachBreakpoints(atrule, breakpointsMap) {
+//   Object.values(breakpointsMap)
+//     .reverse()
+//     .forEach((b, index, arr) => {
+//       const prevIndex = index - 1;
+//       const currentElem = arr[index];
+//       const prevElem = arr[prevIndex];
+
+//       if (index === 0) {
+//         atrule.parent.after(
+//           createMediaQuery(b.minWidth).append(
+//             createParentSelector(atrule.parent).append(
+//               createFontSizeProp(toRem(b.root)(b.base)),
+//             ),
+//           ),
+//         );
+//       }
+
+//       if (index > 0 && arr[prevIndex]) {
+//         atrule.parent.after(
+//           createMediaQuery(currentElem.minWidth).append(
+//             createParentSelector(atrule.parent).append(
+//               createFontSizeProp(
+//                 createFluidFontSize({
+//                   minWidth: currentElem.minWidth,
+//                   maxWidth: prevElem.minWidth,
+//                   minFontSize: currentElem.base,
+//                   maxFontSize: prevElem.base,
+//                   fn: toRem(currentElem.root),
+//                 }),
+//               ),
+//             ),
+//           ),
+//         );
+//       }
+//     });
+// }
+
+// throwIsNotBodySelector :: Object -> Void
+function throwIsNotBodySelector(atrule) {
+  if (atrule.parent && atrule.parent.selector !== 'body') {
+    throw atrule.error(`Use the '${atrule}' only with the 'body' selector.`);
+  }
 }

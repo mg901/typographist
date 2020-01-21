@@ -4,12 +4,22 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "npx postcss src/index.css -o dist/index.css -w"
+    "start": "npm run clean && npm run parcel --no-cache",
+    "parcel": "npx parcel src/index.html",
+    "demo": "npm run clean && npx postcss src/index.css -o dist/index.css -w",
+    "clean": "rimraf dist"
   },
+  "browserslist": "last 2 versions",
   "devDependencies": {
-    "postcss-cli": "^6.1.3"
+    "parcel-bundler": "^1.12.4",
+    "postcss-cli": "^6.1.3",
+    "postcss-normalize": "^8.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "rimraf": "^3.0.0"
   },
   "dependencies": {
+    "normalize": "^0.3.1",
+    "normalize.css": "^8.0.1",
     "postcss": "^7.0.21"
   }
 }

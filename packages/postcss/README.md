@@ -24,7 +24,7 @@
   - [Base font size](#base-font-size)
   - [Breakpoints](#breakpoints)
   - [Step unit](#step-unit)
-  - [T-step function](#t-step-function)
+  - [T-step function](#step-function)
   - [Nesting](#nesting)
 
 ## Introduction

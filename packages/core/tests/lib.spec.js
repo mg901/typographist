@@ -4,6 +4,7 @@ const {
   merge,
   omit,
   isNumeric,
+  type,
 } = require('../src/lib');
 
 describe('merge', () => {
@@ -68,5 +69,37 @@ describe('isNumeric', () => {
 
   it('return `true` if is Infinity number', () => {
     expect(isNumeric(Infinity)).toBe(false);
+  });
+});
+
+describe('type', () => {
+  it('return Function type', () => {
+    expect(type(console.log)).toEqual('Function');
+  });
+
+  it('return Object type', () => {
+    expect(type({})).toEqual('Object');
+  });
+
+  it('return Array type', () => {
+    expect(type([])).toEqual('Array');
+  });
+
+  it('return Number type', () => {
+    expect(type(1)).toEqual('Number');
+    expect(type(Infinity)).toEqual('Number');
+    expect(type(-Infinity)).toEqual('Number');
+  });
+
+  it('return String type', () => {
+    expect(type('')).toEqual('String');
+  });
+
+  it('return Boolean type', () => {
+    expect(type(true)).toEqual('Boolean');
+  });
+
+  it('return Null type', () => {
+    expect(type(null)).toEqual('Null');
   });
 });

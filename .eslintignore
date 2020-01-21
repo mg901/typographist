@@ -1,4 +1,4 @@
-*.d.ts
+**/*/*.d.ts
 *.spec.js
 dist
 build

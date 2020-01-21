@@ -32,4 +32,4 @@ export type Ratios = {
 
 export declare const ratios: Ratios;
 
-export function makeBreakpointsMap(x: object): BreakpointsMap;
+export function createBreakpointsMap(x: object): BreakpointsMap;

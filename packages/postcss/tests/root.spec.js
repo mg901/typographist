@@ -1,5 +1,5 @@
 const run = require('./run');
-const { userConfig } = require('./mocks/user-config');
+const { userConfig, fluidUserConfig } = require('../../../mocks');
 
 describe('@root atrule', () => {
   it('should relpace "@root;" with native css', () => {
@@ -10,71 +10,60 @@ describe('@root atrule', () => {
 
     const compiled = `
         :root {
-          --tablet: 576px;
-          --desktop: 768px;
-          --lg-desktop: 992px;
-          --xl-desktop: 1200px;
-          font-size: 62.5%;
+          --tablet: 768px;
+          --desktop: 992px;
+          --lg-desktop: 1200px;
+          font-size: 75%;
         }
-@media  (min-width: 36em) {
-          :root {
-                    font-size: 65.625%;
-          }
-}
-@media  (min-width: 48em) {
-          :root {
-                    font-size: 71.875%;
-          }
-}
-@media  (min-width: 62em) {
-          :root {
-                    font-size: 78.125%;
-          }
-}
-@media  (min-width: 75em) {
+@media (min-width: 48em) {
           :root {
                     font-size: 81.25%;
+          }
+}
+@media (min-width: 62em) {
+          :root {
+                    font-size: 90.625%;
+          }
+}
+@media (min-width: 75em) {
+          :root {
+                    font-size: 100%;
           }
 }`;
 
     return run(source, compiled, userConfig);
   });
-});
 
-it('should replace "@root(fluid)" with native css', () => {
-  const source = `
-        :root {
-          @root(fluid);
-        }`;
+  //   it('should replace "@root(fluid)" with native css', () => {
+  //     const source = `
+  //             :root {
+  //               @root(fluid);
+  //             }`;
 
-  const compiled = `
-        :root {
-          --tablet: 576px;
-          --desktop: 768px;
-          --lg-desktop: 992px;
-          --xl-desktop: 1200px;
-          font-size: 62.5%;
-        }
-@media  (min-width: 36em) {
-          :root {
-                    font-size: calc(62.5% + 0.5 * ((100vw - 36em) / 192));
-          }
-}
-@media  (min-width: 48em) {
-          :root {
-                    font-size: calc(65.625% + 1 * ((100vw - 48em) / 224));
-          }
-}
-@media  (min-width: 62em) {
-          :root {
-                    font-size: calc(71.875% + 1 * ((100vw - 62em) / 208));
-          }
-}
-@media  (min-width: 75em) {
-          :root {
-                    font-size: 81.25%;
-          }
-}`;
+  //     const compiled = `
+  //             :root {
+  //               --sm: 640px;
+  //               --md: 992px;
+  //               --lg: 1440px;
+  //               font-size: 75%;
+  //             }
 
-  return run(source, compiled, userConfig);
+  // @media (min-width: 40em) {
+  //               :root {
+  //                             font-size: calc(0.4261363636363636vw + 57.95454545454546%);
+  //               }
+  // }
+  // @media (min-width: 62em) {
+  //               :root {
+  //                             font-size: calc(0.33482142857142855vw + 63.61607142857143%);
+  //               }
+  // }
+  // @media (min-width: 90em) {
+  //               :root {
+  //                             font-size: 93.75%;
+  //               }
+  // }`;
+
+  //     return run(source, compiled, fluidUserConfig);
+  //   });
 });

@@ -5,7 +5,7 @@ import { Props, Styles } from '../model';
 
 const BROWSER_VIEWPORT_WIDTH = '100vw';
 
-export const makeRootFontSizes = (breaks: BreakpointsMap): Styles => {
+export const createRootFontSizes = (breaks: BreakpointsMap): Styles => {
   const result: Styles = {};
 
   for (const key in breaks) {
@@ -13,15 +13,15 @@ export const makeRootFontSizes = (breaks: BreakpointsMap): Styles => {
       result[`@media (min-width: ${toEm(breaks[key].value)})`] = {
         'font-size': percentage(breaks[key].root),
       };
+    } else {
+      result['font-size'] = percentage(breaks[key].root);
     }
-
-    result['font-size'] = percentage(breaks[key].root);
   }
 
   return result;
 };
 
-export const makeFluidRootFontSizes = (x: BreakpointsMap): Styles =>
+export const createFluidRootFontSizes = (x: BreakpointsMap): Styles =>
   Object.keys(x)
     .map((key) => x[key])
     .reduce((acc, item, index, list) => {
@@ -58,6 +58,6 @@ export const renderStandardOrFluidRoot = ({ fluid, theme }: Props): Styles => {
   const { breakpointsMap } = theme[CONFIG_SYMBOL];
 
   return fluid
-    ? makeFluidRootFontSizes(breakpointsMap)
-    : makeRootFontSizes(breakpointsMap);
+    ? createFluidRootFontSizes(breakpointsMap)
+    : createRootFontSizes(breakpointsMap);
 };

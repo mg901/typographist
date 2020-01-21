@@ -45,13 +45,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "postcss": "^7.0.21"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@size-limit/preset-big-lib": "^2.2.1",
-    "eslint-plugin-jest": "^23.0.4",
-    "postcss": "^7.0.21"
+    "eslint-plugin-jest": "^23.0.4"
   },
   "dependencies": {
     "@typographist/core": "^25.1.1-rc",

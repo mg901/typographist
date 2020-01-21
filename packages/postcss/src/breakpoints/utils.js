@@ -1,24 +1,24 @@
-const { toKebabCase } = require('@typographist/utils/postcss');
-
-const NOT_BREAKPOINT_NAMES = /^\(([a-z0-9-]+(,?[a-z0-9-]+)?)\).*$/i;
-const ALL_CHARACTERS_BEFORE_COLON = /^\(.+\):?/;
-const SPACES = /\s/g;
+const { toKebabCase } = require('../lib/convertors');
 
 // getOrientation :: String -> String
 exports.getOrientation = function(x) {
-  return x.replace(ALL_CHARACTERS_BEFORE_COLON, '');
+  const allCharactersBeforeColon = /^\(.+\):?/;
+
+  return x.replace(allCharactersBeforeColon, '');
 };
 
 // getBreakpointValues :: String -> [String]
 exports.getBreakpointValues = function(params) {
+  const notBreakpointsNames = /^\(([a-z0-9-]+(,?[a-z0-9-]+)?)\).*$/i;
+
   return params
-    .replace(SPACES, '')
-    .replace(NOT_BREAKPOINT_NAMES, '$1')
+    .replace(/\s/g, '')
+    .replace(notBreakpointsNames, '$1')
     .split(',');
 };
 
-// makeBreakpointList :: Object -> [String]
-exports.makeBreakpointList = function(x) {
+// createBreakpointList :: Object -> [String]
+exports.createBreakpointList = function(x) {
   return Object.keys(x)
     .slice(1)
     .map(toKebabCase)
@@ -45,25 +45,25 @@ exports.withOrientationOrNot = (orientation) => (params) =>
   orientation ? `${params} and (orientation: ${orientation})` : params;
 
 // antecedentBreakName :: Object -> String
-exports.antecedentBreakName = (x) => Object.keys(x)[Object.keys(x).length - 2];
+exports.antecedentBreakName = (x) => {
+  const keys = Object.keys(x);
+
+  return keys[keys.length - 2];
+};
 
 // getlastBreakIndex :: Object -> Number
 exports.getlastBreakIndex = (x) => Object.keys(x).length - 1;
 
 // getCurrentIndex :: (String, Object) -> Number
-const getCurrentIndex = function(name, breakpoints) {
-  return Object.keys(breakpoints).indexOf(name);
-};
+const getCurrentIndex = (name, breakpoints) =>
+  Object.keys(breakpoints).indexOf(name);
 
 exports.getCurrentIndex = getCurrentIndex;
 
 // getNextBreakpointValue :: String  -> Object -> String
-exports.getNextBreakpointValue = function getNextBreakpointValue(
-  name,
-  breakpoints,
-) {
+exports.getNextBreakpointValue = (name, breakpoints) => {
   const currentIndex = getCurrentIndex(name, breakpoints);
   const nextBreakpointName = Object.keys(breakpoints)[currentIndex + 1];
 
-  return breakpoints[nextBreakpointName].value;
+  return breakpoints[nextBreakpointName].minWidth;
 };

@@ -1,68 +1,38 @@
-const { toRem } = require('@typographist/utils');
-const { makeBreakpointName } = require('@typographist/utils/postcss');
-const { modularScale } = require('@typographist/modular-scale');
-
-const FONT_SIZE_PROP = /^font-size$/;
-const VAL_WITH_STEP = /^-?\d+(\.\d+)?step$/;
-const SUITABLE_MEDIA_QUERIES = /^((up|down|only)$)|((up|down|only):(landscape|portrait))$/;
-
-const ERROR_MESSAGE =
-  '[typographist]: Use @up, @down or @only to calculate the step.';
-
-// isStep :: Object -> Boolean
-exports.isStep = ({ prop, value }) =>
-  hasFontSizeProp(prop) && hasStepUnit(value);
+const { calcFontSize } = require('../lib/calculators');
+const { createBreakpointName } = require('../lib/media-queries');
 
 // step :: (Object, Object) -> Void
-exports.step = (decl, breakpointsMap) => {
-  const target = getTarget(decl);
+exports.step = function(decl, breakpointsMap) {
+  if (!isStep(decl)) return;
+
+  const step = decl.value.replace(/step/, '');
   const stepToRem = calcFontSize(breakpointsMap);
   const closestRule = getClosestRule(decl);
   const { type, name, params } = closestRule;
 
   if (type === 'root') {
-    decl.value = stepToRem(target);
+    decl.value = stepToRem(step);
   }
 
   if (isSuitableMedia(name)) {
-    decl.value = stepToRem(target, makeBreakpointName(params));
+    decl.value = stepToRem(step, createBreakpointName(params));
   }
 
   if (name === 'between') {
-    throw decl.error(ERROR_MESSAGE);
+    throw decl.error('Use @up, @down or @only to calculate the step.');
   }
 };
 
-// getTarget :: Object -> String
-function getTarget({ value }) {
-  return value.replace(/step/, '');
-}
+// isStep :: Object -> Boolean
+function isStep({ prop, value }) {
+  const stepUnit = /^-?\d+(\.\d+)?step$/;
 
-// calcFontSize :: Object -> (Number | String, String) -> String
-function calcFontSize(breakpoints) {
-  // eslint-disable-next-line consistent-return
-  return function(target, breakName = 'initial') {
-    if (breakpoints[breakName]) {
-      const { root, base, ratio } = breakpoints[breakName];
-
-      return toRem(root, modularScale(Number(target), base, ratio));
-    }
-  };
-}
-
-// hasFontSizeProp :: String -> Boolean
-function hasFontSizeProp(prop) {
-  return FONT_SIZE_PROP.test(prop);
+  return /^font-size$/.test(prop) && stepUnit.test(value);
 }
 
 // isAppropriateMedia :: String -> Boolean
 function isSuitableMedia(x) {
-  return SUITABLE_MEDIA_QUERIES.test(x);
-}
-
-// hasStepUnit :: String -> Boolean
-function hasStepUnit(value) {
-  return VAL_WITH_STEP.test(value);
+  return /^((up|down|only)$)|((up|down|only):(landscape|portrait))$/.test(x);
 }
 
 // getClosestRule :: Object -> Object

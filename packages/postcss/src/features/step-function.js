@@ -1,62 +1,44 @@
 const { rule } = require('postcss');
-const { toRem } = require('@typographist/utils');
-const { makeBreakpointName } = require('@typographist/utils/postcss');
-const { modularScale } = require('@typographist/modular-scale');
-const { mediaQuery, fontSizeProp } = require('../elements');
+const { calcFontSize } = require('../lib/calculators');
+const { createBreakpointName } = require('../lib/media-queries');
+const { createMediaQuery, createFontSizeProp } = require('../elements');
 
-const FONT_SIZE_PROP = /^font-size$/;
-const STEP_FUNCTION_WITH_VALUE = /^step\(.+?\)$/;
-const STEP_WITH_PARENTHESES = /step\(/;
-const INVERCE_PARENTHESES = /\)$/;
+// stepFn :: (Object, Object) -> Void
+exports.stepFn = function(decl, breakpointsMap) {
+  if (!isStepFn(decl)) return;
 
-// isStepFunction :: Object -> Boolean
-exports.isStepFunction = ({ prop, value }) =>
-  FONT_SIZE_PROP.test(prop) && STEP_FUNCTION_WITH_VALUE.test(value);
-
-// stepFunction :: (Object, Object) -> Void
-exports.stepFunction = (decl, breakpointsMap) => {
   const stepToRem = calcFontSize(breakpointsMap);
-  const target = makeTarget(decl.value);
+  const step = createStep(decl.value);
 
-  tailOfBreaksEntries(breakpointsMap)
+  Object.entries(breakpointsMap)
+    .slice(1)
     .reverse()
-    .map(([name, { value }]) => {
-      const fontSize = fontSizeProp(
-        stepToRem(target, makeBreakpointName(name)),
+    .forEach(([name, { minWidth }]) => {
+      const fontSize = createFontSizeProp(
+        stepToRem(step, createBreakpointName(name)),
       );
-      const selectorWithFontSize = parentSelector(decl.parent).append(fontSize);
+      const selectorWithFontSize = rule({
+        selector: decl.parent.selector,
+      }).append(fontSize);
 
-      return decl.parent.after(mediaQuery(value).append(selectorWithFontSize));
+      decl.parent.after(
+        createMediaQuery(minWidth).append(selectorWithFontSize),
+      );
     });
 
-  decl.replaceWith(fontSizeProp(stepToRem(target)));
+  decl.replaceWith(createFontSizeProp(stepToRem(step)));
 };
 
-// calcFontSize :: Object -> (Number | String, String) -> String
-function calcFontSize(breakpoints) {
-  // eslint-disable-next-line consistent-return
-  return function(target, breakName = 'initial') {
-    if (breakpoints[breakName]) {
-      const { root, base, ratio } = breakpoints[breakName];
+// isStepFn :: Object -> Boolean
+function isStepFn({ prop, value }) {
+  const stepFnWithValue = /^step\(.+?\)$/;
 
-      return toRem(root, modularScale(Number(target), base, ratio));
-    }
-  };
+  return /^font-size$/.test(prop) && stepFnWithValue.test(value);
 }
 
-// tailOfBreaksEntries :: Object -> Object
-function tailOfBreaksEntries({ initial, ...breaks }) {
-  return Object.entries(breaks);
-}
+// createStep :: String -> String
+function createStep(x) {
+  const outsideOfParentheses = /^step\((\w+)\).*$/g;
 
-// makeTarget :: String -> String
-function makeTarget(x) {
-  return x.replace(STEP_WITH_PARENTHESES, '').replace(INVERCE_PARENTHESES, '');
-}
-
-// parentSelector :: Object -> Object
-function parentSelector({ selector }) {
-  return rule({
-    selector,
-  });
+  return x.replace(outsideOfParentheses, '$1');
 }

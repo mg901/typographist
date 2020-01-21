@@ -1,0 +1,1 @@
+exports.BROWSER_CONTEXT = 16;

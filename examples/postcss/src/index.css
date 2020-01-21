@@ -1,35 +1,56 @@
 :root {
-  @root (fluid);
+  @root;
 }
 
 body {
   @base;
 }
 
-h1 {
-  font-size: step(1);
+.h2 {
+  @h2;
+}
+
+.h3 {
+  @h3;
+}
+
+.h4 {
+  @h4;
+}
+
+.h5 {
+  @h5;
+}
+
+.h6 {
+  @h6;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .foo {
-  color: red;
-  font-size: 0step;
+  font-size: 1step;
 
-  @only (tablet): portrait {
-    color: black;
-    font-size: 4step;
-  }
-
-  @between (tablet, desktop):landscape {
-    color: lightblue;
-  }
-
-  @down (tablet):portrait {
-    color: green;
+  @up (sm) {
     font-size: 1step;
   }
 
-  @up (desktop):landscape {
-    color: gold;
+  @up (sm):landscape {
     font-size: 2step;
+  }
+
+  @down (md) {
+    color: pink;
+  }
+
+  @only (md) {
+    font-size: 2step;
+  }
+
+  @between (md, lg):landscape {
+    font-size: 2rem;
   }
 }

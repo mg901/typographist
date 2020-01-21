@@ -4,7 +4,7 @@ import { ratios, TypographistProvider } from '@typographist/styled';
 import { H1 } from './components/h1';
 import { Measure } from './components/measure';
 
-export const config = {
+const userConfig = {
   base: ['16px'],
   lineHeight: 1.5,
   ratio: ratios.MINOR_SECOND,
@@ -25,7 +25,7 @@ export const config = {
 };
 
 export const App = () => (
-  <TypographistProvider>
+  <TypographistProvider config={userConfig}>
     <Normalize />
     <Measure>
       <H1>Typographist</H1>

@@ -1,7 +1,7 @@
 //  https://www.modularscale.com/
 
 export function modularScale(
-  rawStep: number,
+  rawStep: number | string,
   base: number[],
   ratio: number,
 ): number {
@@ -37,7 +37,7 @@ function normalizeBases(
   const cloneBase = base.slice(0);
 
   // eslint-disable-next-line no-plusplus
-  for (let i = 1; i < cloneBase.length; i++) {
+  for (let i = 1; i < cloneBase.length; i += 1) {
     // shift up if value too low
     while (cloneBase[i] / 1 < cloneBase[0] / 1) {
       cloneBase[i] *= Math.pow(ratio, 1);

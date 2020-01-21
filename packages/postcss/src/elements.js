@@ -1,29 +1,29 @@
 const { decl, rule, atRule } = require('postcss');
 const { toEm } = require('@typographist/utils');
-const { toKebabCase } = require('@typographist/utils/postcss');
+const { toKebabCase } = require('./lib/convertors');
 
 // fontSizeProp :: (String | Number) -> Void
-exports.fontSizeProp = (x) =>
+exports.createFontSizeProp = (x) =>
   decl({
     prop: 'font-size',
     value: x,
   });
 
 //  mediaQuery :: String -> Object
-exports.mediaQuery = (x) =>
+exports.createMediaQuery = (x) =>
   atRule({
-    name: 'media ',
+    name: 'media',
     params: `(min-width: ${toEm(x)})`,
   });
 
-// makeRootProp :: Object -> Object
-exports.makeRootProp = ({ selector }) =>
+// parentSelector :: Object -> Object
+exports.createParentSelector = ({ selector }) =>
   rule({
     selector,
   });
 
 // cssVariable :: (String, String) -> Object
-exports.cssVariable = (name, value) =>
+exports.createCssVariable = (name, value) =>
   decl({
     prop: `--${toKebabCase(name)}`,
     value,

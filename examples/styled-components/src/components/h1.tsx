@@ -6,10 +6,10 @@ type Props = {
 };
 
 export const H1 = styled.h1<Props>`
-  ${steps(6)};
+  ${steps(5)};
   line-height: 4rem;
   margin-top: 8rem;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 
   ${up('tablet')} {
     margin-bottom: 1rem;

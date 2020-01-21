@@ -55,5 +55,8 @@
   "git.enableSmartCommit": true,
   "git.autofetch": true,
   "liveshare.featureSet": "insiders",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

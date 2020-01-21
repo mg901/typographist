@@ -11,9 +11,9 @@ exports.renderDown = (atrule, breakpointsMap) => {
   atrule.params = down(atrule, breakpointsMap);
 };
 
-exports.renderBetween = (atrule, makeBreakpointsMap) => {
+exports.renderBetween = (atrule, createBreakpointsMap) => {
   atrule.name = 'media';
-  atrule.params = between(atrule, makeBreakpointsMap);
+  atrule.params = between(atrule, createBreakpointsMap);
 };
 
 exports.renderOnly = (atrule, breakpointsMap) => {

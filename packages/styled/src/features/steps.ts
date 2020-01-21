@@ -15,11 +15,11 @@ export const steps = mem((step: number) => ({ theme }: Props): Styles => {
       result[`@media (min-width: ${toEm(breaks[key].value)})`] = {
         'font-size': toRem(x.root, modularScale(step, x.base, x.ratio)),
       };
+    } else {
+      const y = breaks[key];
+
+      result['font-size'] = toRem(y.root, modularScale(step, y.base, y.ratio));
     }
-
-    const y = breaks[key];
-
-    result['font-size'] = toRem(y.root, modularScale(step, y.base, y.ratio));
   }
 
   return result;

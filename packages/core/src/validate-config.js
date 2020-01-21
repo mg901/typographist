@@ -1,42 +1,40 @@
 var utils = require('./lib');
 
-var ERROR_PREFIX = '[typographist]: Check your config. ';
-
-var BASE_MUST_BE_AN_ARRAY =
-  "is invalid 'base'. Base must be an array of strings. " +
-  "Example 'base': ['14px', '32px'].";
-
-var BASE_MUST_CONTAIN_PX =
-  "is invalid 'base'. Base must contain pixels " +
-  "Example 'base': ['14px', '32px'].";
-
-var BREAKPOINT_ERROR_MESSAGE =
-  "is invalid 'breakpoint'. Breakpoint must be a string with a value (in pixels). " +
-  "Example 'breakpoint': '1024px'.";
-
-var LINE_HEIGHT_ERRROR_MESSAGE =
-  "is invalid 'lineHeight'. LineHeight must be a number. Example 'lineHeight': 1.5'";
-
-var RATIO_ERROR_MESSAGE =
-  "is ivalid 'ratio'. Ratio must be a number or string containing the font size (in pixels), " +
-  "the word 'at' and step. Example ratio: 1.25 or ratio: '36px at 6'.";
-
 // validateConfig :: config -> Void
 var validateConfig = function(x) {
+  validateDefaultBreakpoint(x);
   validateBases(x);
-  throwDoesntContainBreakpointProp(x);
+  throwDoesntContainminWidthProp(x);
   validateBreakpoints(x);
   validateLineHeights(x);
   validateRatios(x);
 };
 
+// invariantWithErrorPrefix :: (a, String) -> Void
 function invariantWithErrorPrefix(condition, message) {
-  return utils.invariant(condition, ERROR_PREFIX + message);
+  return utils.invariant(
+    condition,
+    '[typographist]: Check your configuration. ' + message,
+  );
 }
 
-// hasPx :: a -> Boolean
-function hasPx(x) {
-  return /\d+(\.\d+)?px/.test(x);
+// ---------- DEFAULT BREAKPOINT ----------------------------------------------
+// validateDefaultBreakpoint :: Object -> Void
+function validateDefaultBreakpoint(x) {
+  const fields = getFields(x);
+
+  const requiredFields = ['base', 'lineHeight', 'ratio'];
+
+  requiredFields.forEach((k) => {
+    invariantWithErrorPrefix(
+      fields.indexOf(k) !== -1,
+      "'" + k + "' is required field for default breakpoint.",
+    );
+  });
+}
+
+function getFields(x) {
+  return Object.keys(Object(x)).filter((k) => utils.type(x[k]) !== 'Object');
 }
 
 // ---------- BASE ------------------------------------------------------------
@@ -44,42 +42,51 @@ function hasPx(x) {
 function throwBaseMustBeAnArray(x) {
   invariantWithErrorPrefix(
     Array.isArray(x),
-    "'" + x + "' " + BASE_MUST_BE_AN_ARRAY,
+    "'" +
+      x +
+      "' is invalid 'base'. Base must be an array of strings. " +
+      "Example 'base': ['14px', '32px'].",
   );
 }
 
 // throwBaseMustContainPixels :: a -> Void
 function throwBaseMustContainPixels(x) {
-  invariantWithErrorPrefix(hasPx(x), "'" + x + "' " + BASE_MUST_CONTAIN_PX);
+  invariantWithErrorPrefix(
+    x.indexOf('px') > -1,
+    "'" +
+      x +
+      "' is invalid 'base'. Base must contain pixels " +
+      "Example 'base': ['14px', '32px'].",
+  );
 }
 
 // validateBases :: Object -> Void
 function validateBases(x) {
   utils
-    .deepObjectValues('base')(x)
+    .deepObjectValues('base')(Object(x))
     .forEach((item) => {
       throwBaseMustBeAnArray(item);
-      item.forEach(throwBaseMustContainPixels);
+      item.map(throwBaseMustContainPixels);
     });
 }
 
 // ---------- BREAKPOINTS ------------------------------------------------------
 // validateBreakpoint :: Object -> Void
-function throwDoesntContainBreakpointProp(x) {
-  var breaks = utils.omit('base', 'lineHeight', 'ratio', x);
+function throwDoesntContainminWidthProp(x) {
+  var breaks = utils.omit('base', 'lineHeight', 'ratio', Object(x));
   var keys = Object.keys(breaks);
 
   if (keys.length) {
     keys.forEach((key) => {
       invariantWithErrorPrefix(
-        breaks[key].breakpoint,
+        breaks[key].minWidth,
         "'" +
           key +
           "'" +
-          ': must contain the mandatory breakpoint property. Example ' +
+          ": must contain the mandatory 'minWidth' property. Example " +
           "'" +
           key +
-          "': {breakpoint: '768px'}.",
+          "': {minWidth: '768px'}.",
       );
     });
   }
@@ -88,16 +95,19 @@ function throwDoesntContainBreakpointProp(x) {
 // validateField :: a -> Void
 function throwInvalidBreakpoint(x) {
   invariantWithErrorPrefix(
-    typeof x === 'string' && hasPx(x),
-    "'" + x + "' " + BREAKPOINT_ERROR_MESSAGE,
+    typeof x === 'string' && x.includes('px'),
+    "'" +
+      x +
+      "' is invalid 'breakpoint'. Breakpoint must be a string with a value (in pixels). " +
+      "Example 'minWidth': '1024px'.",
   );
 }
 
 // validateFields :: config -> Void
 function validateBreakpoints(x) {
   utils
-    .deepObjectValues('breakpoint')(x)
-    .forEach(throwInvalidBreakpoint);
+    .deepObjectValues('breakpoint')(Object(x))
+    .map(throwInvalidBreakpoint);
 }
 
 // ---------- LINE-HEIGHT --------------------------------------------------------
@@ -105,15 +115,17 @@ function validateBreakpoints(x) {
 function throwInvalidLineHeight(x) {
   invariantWithErrorPrefix(
     typeof x === 'number' && utils.isNumeric(x),
-    "'" + x + "' " + LINE_HEIGHT_ERRROR_MESSAGE,
+    "'" +
+      x +
+      "' is invalid 'lineHeight'. LineHeight must be a number. Example 'lineHeight': 1.5'",
   );
 }
 
 // validateFields :: config -> Void
 function validateLineHeights(x) {
   utils
-    .deepObjectValues('lineHeight')(x)
-    .forEach(throwInvalidLineHeight);
+    .deepObjectValues('lineHeight')(Object(x))
+    .map(throwInvalidLineHeight);
 }
 
 // ---------- RATIO --------------------------------------------------------------
@@ -139,22 +151,28 @@ function throwInvalidRatio(x) {
     (typeof x === 'number' && utils.isNumeric(x)) ||
     (ratioHasFontSize(x) && ratioHasAtWord(x) && ratioHasStep(x));
 
-  invariantWithErrorPrefix(isValid, "'" + x + "' " + RATIO_ERROR_MESSAGE);
+  invariantWithErrorPrefix(
+    isValid,
+    "'" +
+      x +
+      "' is ivalid 'ratio'. Ratio must be a number or string containing the font size (in pixels), " +
+      "the word 'at' and step. Example ratio: 1.25 or ratio: '36px at 6'.",
+  );
 }
 
 // validateFields :: config -> Void
 function validateRatios(x) {
   utils
-    .deepObjectValues('ratio')(x)
-    .forEach(throwInvalidRatio);
+    .deepObjectValues('ratio')(Object(x))
+    .map(throwInvalidRatio);
 }
 
 module.exports = {
-  hasPx,
+  validateDefaultBreakpoint,
   throwBaseMustBeAnArray,
   throwBaseMustContainPixels,
   validateBases,
-  throwDoesntContainBreakpointProp,
+  throwDoesntContainminWidthProp,
   throwInvalidBreakpoint,
   validateBreakpoints,
   throwInvalidLineHeight,

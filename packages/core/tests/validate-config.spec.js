@@ -1,10 +1,9 @@
-const { invalidconfig, defaultConfig } = require('./mocks');
 const {
-  hasPx,
+  validateDefaultBreakpoint,
   validateConfig,
   throwBaseMustBeAnArray,
   throwBaseMustContainPixels,
-  throwDoesntContainBreakpointProp,
+  throwDoesntContainminWidthProp,
   throwInvalidBreakpoint,
   throwInvalidLineHeight,
   ratioHasFontSize,
@@ -13,13 +12,19 @@ const {
   throwInvalidRatio,
 } = require('../src/validate-config');
 
-describe('hasPx', () => {
-  it('returns `true` if value contains pixels', () => {
-    expect(hasPx('12px')).toEqual(true);
-  });
-
-  it("returns `false` if value doesn't contain px", () => {
-    expect(hasPx(12)).toEqual(false);
+describe('validateDefaultBreakpoint', () => {
+  it('show warn if them base prop is missing', () => {
+    try {
+      validateDefaultBreakpoint({
+        lineHeight: 1,
+        ratio: 1,
+      });
+      expect(true).toEqual(false);
+    } catch (e) {
+      expect(e.message).toEqual(
+        "[typographist]: Check your configuration. 'base' is required field for default breakpoint.",
+      );
+    }
   });
 });
 
@@ -30,7 +35,7 @@ describe('throwBaseMustBeAnArray', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your config. '1rem' is invalid 'base'. Base must be an array of strings. Example 'base': ['14px', '32px'].",
+        "[typographist]: Check your configuration. '1rem' is invalid 'base'. Base must be an array of strings. Example 'base': ['14px', '32px'].",
       );
     }
   });
@@ -43,20 +48,25 @@ describe('throwBaseMustContainPixels', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your config. '1rem' is invalid 'base'. Base must contain pixels Example 'base': ['14px', '32px'].",
+        "[typographist]: Check your configuration. '1rem' is invalid 'base'. Base must contain pixels Example 'base': ['14px', '32px'].",
       );
     }
   });
 });
 
 describe('throwDoesntContainBreakpointProp', () => {
-  it("show warn if the breakpoint doesn't contain the breakpoint property", () => {
+  it("show warn if the breakpoint doesn't contain the 'minWidth' property", () => {
     try {
-      throwDoesntContainBreakpointProp(invalidconfig);
+      throwDoesntContainminWidthProp({
+        base: ['16px'],
+        lineHeight: 1.2,
+        ratio: 1,
+        tablet: {},
+      });
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your config. 'tablet': must contain the mandatory breakpoint property. Example 'tablet': {breakpoint: '768px'}.",
+        "[typographist]: Check your configuration. 'tablet': must contain the mandatory 'minWidth' property. Example 'tablet': {minWidth: '768px'}.",
       );
     }
   });
@@ -71,7 +81,7 @@ describe('throwInvalidBreakpoint', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your config. '60rem' is invalid 'breakpoint'. Breakpoint must be a string with a value (in pixels). Example 'breakpoint': '1024px'.",
+        "[typographist]: Check your configuration. '60rem' is invalid 'breakpoint'. Breakpoint must be a string with a value (in pixels). Example 'minWidth': '1024px'.",
       );
     }
   });
@@ -84,7 +94,7 @@ describe('throwInvalidLineHeight', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your config. '1.5' is invalid 'lineHeight'. LineHeight must be a number. Example 'lineHeight': 1.5'",
+        "[typographist]: Check your configuration. '1.5' is invalid 'lineHeight'. LineHeight must be a number. Example 'lineHeight': 1.5'",
       );
     }
   });
@@ -143,7 +153,7 @@ describe('throwInvalidRatio', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your config. '45 at 6' is ivalid 'ratio'. Ratio must be a number or string containing the font size (in pixels), the word 'at' and step. Example ratio: 1.25 or ratio: '36px at 6'.",
+        "[typographist]: Check your configuration. '45 at 6' is ivalid 'ratio'. Ratio must be a number or string containing the font size (in pixels), the word 'at' and step. Example ratio: 1.25 or ratio: '36px at 6'.",
       );
     }
   });
@@ -152,22 +162,30 @@ describe('throwInvalidRatio', () => {
 describe('validateConfig', () => {
   it("show warn if the user config isn't valid", () => {
     try {
-      validateConfig(invalidconfig);
+      validateConfig({
+        base: ['1rem', '16px'],
+        lineHeight: 1,
+        ratio: 1,
+      });
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your config. '1rem' is invalid 'base'. Base must contain pixels Example 'base': ['14px', '32px'].",
+        "[typographist]: Check your configuration. '1rem' is invalid 'base'. Base must contain pixels Example 'base': ['14px', '32px'].",
       );
     }
   });
 
   it('validate default config', () => {
     try {
-      validateConfig(defaultConfig);
+      validateConfig({
+        base: '16px',
+        lineHeight: 1,
+        ratio: 1,
+      });
       expect(true).toEqual(true);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your config. '16px' is invalid 'base'. Base must contain pixels Example 'base': ['14px', '32px'].",
+        "[typographist]: Check your configuration. '16px' is invalid 'base'. Base must be an array of strings. Example 'base': ['14px', '32px'].",
       );
     }
   });

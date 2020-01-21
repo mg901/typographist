@@ -1,5 +1,5 @@
 const run = require('./run');
-const { userConfig } = require('./mocks/user-config');
+const { userConfig } = require('../../../mocks');
 
 describe('@base', () => {
   it(
@@ -7,36 +7,31 @@ describe('@base', () => {
       'the font size specified in percent, specify the font size for each breakpoint',
     () => {
       const source = `
-          body {
-            @base;
-          }`;
-
+            body {
+              @base;
+            }`;
       const compiled = `
-          body {
-            font-size: 1.6rem;
-            line-height: 2rem;
-          }
-@media  (min-width: 36em) {
             body {
-                        font-size: 1.619047619047619rem;
+              font-size: 1.3333333333333333rem;
+              line-height: 2rem;
+              font-style: normal;
+              font-weight: 400;
             }
+@media (min-width: 48em) {
+              body {
+                            font-size: 1.3076923076923077rem;
+              }
 }
-@media  (min-width: 48em) {
-            body {
-                        font-size: 1.565217391304348rem;
-            }
+@media (min-width: 62em) {
+              body {
+                            font-size: 1.3103448275862069rem;
+              }
 }
-@media  (min-width: 62em) {
-            body {
-                        font-size: 1.6rem;
-            }
-}
-@media  (min-width: 75em) {
-            body {
-                        font-size: 1.6153846153846154rem;
-            }
+@media (min-width: 75em) {
+              body {
+                            font-size: 1.3125rem;
+              }
 }`;
-
       return run(source, compiled, userConfig);
     },
   );

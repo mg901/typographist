@@ -2,29 +2,24 @@ import { step } from '../src/features/step';
 import { propsWithCustomTheme, propsWithDefaultTheme } from './mocks';
 
 describe('step', () => {
-  it('calculate step from default theme', () => {
+  it('calculate step for default breakpoint', () => {
     expect(step(0)(propsWithDefaultTheme)).toEqual('1.3333333333333333rem');
   });
-  it('calculate step for default breakpoint', () => {
-    expect(step(0)(propsWithCustomTheme)).toEqual('1.4rem');
-  });
 
-  it("calculate step for breakpoint with name 'tablet'", () => {
+  it("calculate step for 'tablet'", () => {
     expect(step(0, 'tablet')(propsWithCustomTheme)).toEqual(
-      '1.3333333333333333rem',
+      '1.3076923076923077rem',
     );
   });
 
-  it("calculate step for breakpoint with name 'desktop'", () => {
+  it("calculate step for 'desktop'", () => {
     expect(step(0, 'desktop')(propsWithCustomTheme)).toEqual(
-      '1.3333333333333333rem',
+      '1.3103448275862069rem',
     );
   });
 
-  it("calculate step for breakpoint with name 'lgDesktop'", () => {
-    expect(step(0, 'lgDesktop')(propsWithCustomTheme)).toEqual(
-      '1.3333333333333333rem',
-    );
+  it("calculate step for 'lgDesktop'", () => {
+    expect(step(0, 'lgDesktop')(propsWithCustomTheme)).toEqual('1.3125rem');
   });
 
   it("show warn if the breakpoint name isn't valid", () => {

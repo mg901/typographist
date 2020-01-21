@@ -9,21 +9,21 @@ exports.config = {
   lineHeight: 1.5,
   ratio: '45px at 6',
   tablet: {
-    breakpoint: '768px',
+    minWidth: '768px',
     base: ['17px'],
   },
   desktop: {
-    breakpoint: '992px',
+    minWidth: '992px',
     base: ['18px'],
     lineHeight: 1.7,
     ratio: 1.333,
   },
   lgDesktop: {
-    breakpoint: '1200px',
+    minWidth: '1200px',
     base: ['20px'],
   },
   xlDesktop: {
-    breakpoint: '1600px',
+    minWidth: '1600px',
     base: ['22px'],
   },
 };
@@ -42,11 +42,11 @@ exports.invalidconfig = {
     ratio: 1.333,
   },
   lgDesktop: {
-    breakpoint: '75rem',
+    minWidth: '75rem',
     base: '20px',
   },
   xlDesktop: {
-    breakpoint: '100rem',
+    minWidth: '100rem',
   },
 };
 
@@ -57,7 +57,7 @@ exports.breakpoints = [
     name: 'initial',
     ratio: 1.1880883987824906,
     root: 12,
-    value: '0px',
+    minWidth: '0px',
   },
   {
     base: [17],
@@ -65,7 +65,7 @@ exports.breakpoints = [
     name: 'tablet',
     ratio: 1.1761442744249144,
     root: 13,
-    value: '640px',
+    minWidth: '640px',
   },
   {
     base: [18],
@@ -73,7 +73,7 @@ exports.breakpoints = [
     name: 'desktop',
     ratio: 1.333,
     root: 15.5,
-    value: '1024px',
+    minWidth: '1024px',
   },
   {
     base: [20],
@@ -81,7 +81,7 @@ exports.breakpoints = [
     name: 'lgDesktop',
     ratio: 1.333,
     root: 17,
-    value: '1200px',
+    minWidth: '1200px',
   },
   {
     base: [22],
@@ -89,7 +89,7 @@ exports.breakpoints = [
     name: 'xlDesktop',
     ratio: 1.333,
     root: 18.5,
-    value: '1600px',
+    minWidth: '1600px',
   },
 ];
 
@@ -99,34 +99,34 @@ exports.breakpointsMap = {
     lineHeight: 1.5,
     ratio: 1.1880883987824906,
     root: 12,
-    value: '0px',
+    minWidth: '0px',
   },
   tablet: {
     base: [17],
     lineHeight: 1.5,
     ratio: 1.1761442744249144,
     root: 13,
-    value: '768px',
+    minWidth: '768px',
   },
   desktop: {
     base: [18],
     lineHeight: 1.7,
     ratio: 1.333,
     root: 15.5,
-    value: '992px',
+    minWidth: '992px',
   },
   lgDesktop: {
     base: [20],
     lineHeight: 1.7,
     ratio: 1.333,
     root: 17,
-    value: '1200px',
+    minWidth: '1200px',
   },
   xlDesktop: {
     base: [22],
     lineHeight: 1.7,
     ratio: 1.333,
     root: 18.5,
-    value: '1600px',
+    minWidth: '1600px',
   },
 };
