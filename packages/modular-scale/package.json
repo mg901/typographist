@@ -16,7 +16,6 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "postpublish": "yarn clean",
     "prepublishOnly": "yarn rebuild && yarn test",
     "rebuild": "yarn clean && yarn build",
     "build": "yarn clean && tsc && yarn size",
