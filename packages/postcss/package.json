@@ -1,6 +1,6 @@
 {
   "name": "@typographist/postcss",
-  "version": "6.0.5",
+  "version": "6.1.0",
   "description": "Toolkit for the rapid construction of interfaces with high quality typography.",
   "main": "src/index.js",
   "scripts": {
@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@typographist/core": "^26.0.5",
-    "@typographist/modular-scale": "^1.1.8",
+    "@typographist/modular-scale": "^1.1.9",
     "@typographist/utils": "^2.0.5",
     "memoize-one": "^5.1.1"
   }
