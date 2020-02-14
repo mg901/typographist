@@ -25,9 +25,21 @@ exports.step = function(decl, breakpointsMap) {
 
 // isStep :: Object -> Boolean
 function isStep({ prop, value }) {
-  const stepUnit = /^-?\d+(\.\d+)?step$/;
+  return (hasFontSizeProp(prop) || hasCssVar(prop)) && hasStepUnit(value);
+}
 
-  return /^font-size$/.test(prop) && stepUnit.test(value);
+// hasFontSizeProp :: String -> Boolean
+function hasFontSizeProp(x) {
+  return /^font-size$/.test(x);
+}
+
+function hasCssVar(x) {
+  return /^--[a-z0-9-]/gi.test(x);
+}
+
+// hasStepUnit :: String -> Boolean
+function hasStepUnit(x) {
+  return /^-?\d+(\.\d+)?step$/.test(x);
 }
 
 // isAppropriateMedia :: String -> Boolean
