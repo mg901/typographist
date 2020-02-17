@@ -13,7 +13,7 @@ const props = [
   }),
   decl({
     prop: 'font-weight',
-    value: 400,
+    value: 'normal',
   }),
 ];
 
