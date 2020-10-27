@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { BreakpointsMap, Breakpoint } from '@typographist/core';
 import { invariant, toRem } from '@typographist/utils';
 import { modularScale } from '@typographist/modular-scale';
@@ -10,9 +9,7 @@ export const createErrorMessage = (
   breaks: BreakpointsMap,
   name: string,
 ): string => {
-  const breakpointNamesList = Object.keys(breaks)
-    .slice(1)
-    .join(', ');
+  const breakpointNamesList = Object.keys(breaks).slice(1).join(', ');
 
   return `[typographist]: '${name}' is invalid breakpoint name. Use ${breakpointNamesList}.`;
 };

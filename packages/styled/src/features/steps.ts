@@ -6,7 +6,7 @@ import { Props, Styles } from '../model';
 
 export const steps = mem((step: number) => ({ theme }: Props): Styles => {
   const { breakpointsMap: breaks } = theme[CONFIG_SYMBOL];
-  const result: Styles = {};
+  const result = {} as Styles;
 
   for (const key in breaks) {
     if (key !== 'initial') {
