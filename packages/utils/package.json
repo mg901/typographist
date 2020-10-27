@@ -9,9 +9,7 @@
     "pretty": "cross-env ../../node_modules/.bin/prettier --write '**/*.ts'",
     "pretty:watch": "cross-env  ./../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
     "lint:file": "cross-env ../../node_modules/.bin/eslint --fix",
-    "lint:all": "cross-env ../../node_modules/.bin/eslint --fix .",
-    "test": "cross-env ../../node_modules/.bin/jest",
-    "test:watch": "cross-env ../../node_modules/.bin/jest --watch"
+    "lint:all": "cross-env ../../node_modules/.bin/eslint --fix ."
   },
   "publishConfig": {
     "access": "public"
