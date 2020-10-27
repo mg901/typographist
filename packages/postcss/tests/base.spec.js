@@ -15,7 +15,7 @@ describe('@base', () => {
               font-size: 1.3333333333333333rem;
               line-height: 2rem;
               font-style: normal;
-              font-weight: 400;
+              font-weight: normal;
             }
 @media (min-width: 48em) {
               body {

@@ -29,21 +29,16 @@
   "types": "./src/index.d.ts",
   "scripts": {
     "build": "yarn clean && tsc && yarn size",
-    "clean": "cross-env fixme=fixme ../../node_modules/.bin/rimraf build",
+    "clean": "cross-env ../../node_modules/.bin/rimraf build",
     "size": " cross-env size-limit",
-    "commit": "cross-env fixme=fixme ../../node_modules/.bin/git-cz",
-    "coverage": "cross-env fixme=fixme cat ./coverage/lcov.info | coveralls",
-    "pretty": "cross-env fixme=fixme ../../node_modules/.bin/prettier --write '**/*.ts'",
-    "pretty:watch": "cross-env fixme=fixme ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
-    "lint:file": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix",
-    "lint:all": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix .",
-    "test": "cross-env fixme=fixme ../../node_modules/.bin/jest",
-    "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
-  },
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^3.0.0",
-    "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "^3.0.2"
+    "commit": "cross-env ../../node_modules/.bin/git-cz",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "pretty": "cross-env ../../node_modules/.bin/prettier --write '**/*.ts'",
+    "pretty:watch": "cross-env ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
+    "lint:file": "cross-env ../../node_modules/.bin/eslint --fix",
+    "lint:all": "cross-env ../../node_modules/.bin/eslint --fix .",
+    "test": "cross-env ../../node_modules/.bin/jest",
+    "test:watch": "cross-env ../../node_modules/.bin/jest --watch"
   },
   "publishConfig": {
     "access": "public"

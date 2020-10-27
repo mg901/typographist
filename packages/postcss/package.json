@@ -5,14 +5,14 @@
   "main": "src/index.js",
   "scripts": {
     "size": " cross-env size-limit",
-    "commit": "cross-env fixme=fixme ../../node_modules/.bin/git-cz",
-    "coverage": "cross-env fixme=fixme cat ./coverage/lcov.info | coveralls",
-    "pretty": "cross-env fixme=fixme ../../node_modules/.bin/prettier --write '**/*.ts'",
-    "pretty:watch": "cross-env fixme=fixme ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
-    "lint:file": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix",
-    "lint:all": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix .",
-    "test": "cross-env fixme=fixme ../../node_modules/.bin/jest",
-    "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
+    "commit": "cross-env ../../node_modules/.bin/git-cz",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "pretty": "cross-env ../../node_modules/.bin/prettier --write '**/*.ts'",
+    "pretty:watch": "cross-env ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
+    "lint:file": "cross-env ../../node_modules/.bin/eslint --fix",
+    "lint:all": "cross-env ../../node_modules/.bin/eslint --fix .",
+    "test": "cross-env ../../node_modules/.bin/jest --colors",
+    "test:watch": "cross-env ../../node_modules/.bin/jest --watch"
   },
   "license": "MIT",
   "homepage": "https://github.com/mg901/typographist/postcss#readme",
@@ -45,14 +45,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "@size-limit/preset-big-lib": "^3.0.0",
-    "eslint-plugin-jest": "^23.0.4"
+  "peerDependencies": {
+    "postcss": "^8.1.4"
   },
   "dependencies": {
-    "@typographist/core": "^26.0.5",
-    "@typographist/modular-scale": "^1.1.9",
-    "@typographist/utils": "^2.0.5",
-    "memoize-one": "^5.1.1"
+    "@typographist/core": "file:../core",
+    "@typographist/modular-scale": "file:../modular-scale",
+    "@typographist/utils": "file:../utils"
   }
 }

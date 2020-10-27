@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-const mem = require('memoize-one');
 const {
   getOrientation,
   getBreakpointValues,
@@ -17,7 +15,7 @@ const {
 } = require('./validators');
 
 // up :: (Object, Object) -> String | Void
-exports.up = mem((atrule, breakpoints) => {
+exports.up = (atrule, breakpoints) => {
   throwInvalidOrientation(atrule);
   throwInvalidBreakpointValue(breakpoints, atrule);
 
@@ -27,10 +25,10 @@ exports.up = mem((atrule, breakpoints) => {
     withMinWidth,
     withOrientationOrNot(getOrientation(atrule.params)),
   ].reduce((acc, f) => f(acc), atrule.params);
-});
+};
 
 // down :: (Object, Object) -> String | Void
-exports.down = mem((atrule, breakpoints) => {
+exports.down = (atrule, breakpoints) => {
   throwInvalidOrientation(atrule);
   throwInvalidBreakpointValue(breakpoints, atrule);
   throwLastBreakpoint(breakpoints, atrule);
@@ -41,10 +39,10 @@ exports.down = mem((atrule, breakpoints) => {
     withMaxWidth,
     withOrientationOrNot(getOrientation(atrule.params)),
   ].reduce((acc, f) => f(acc), atrule.params);
-});
+};
 
 // only :: (Object, Object) -> String | Void
-exports.only = mem((atrule, breakpoints) => {
+exports.only = (atrule, breakpoints) => {
   const { params } = atrule;
 
   throwInvalidOrientation(atrule);
@@ -67,10 +65,10 @@ exports.only = mem((atrule, breakpoints) => {
   const withOrientation = withOrientationOrNot(getOrientation(params));
 
   return withOrientation(mediaQueries);
-});
+};
 
 // only :: (Object, Object) -> String | Void
-exports.between = mem((atrule, breakpoints) => {
+exports.between = (atrule, breakpoints) => {
   const { params } = atrule;
   throwLessThanTwoArgs(atrule);
   throwInvalidBreakpointValue(breakpoints, atrule);
@@ -95,4 +93,4 @@ exports.between = mem((atrule, breakpoints) => {
   const withOrientation = withOrientationOrNot(getOrientation(params));
 
   return withOrientation(mediaQueries);
-});
+};

@@ -31,18 +31,18 @@
     "prepublishOnly": "yarn clean && yarn lint:all && yarn ts-check && yarn rebuild && yarn size",
     "rebuild": "yarn clean && yarn build",
     "build": "cross-env tsc",
-    "clean": "cross-env fixme=fixme ../../node_modules/.bin/rimraf build",
+    "clean": "cross-env ../../node_modules/.bin/rimraf build",
     "size": " cross-env size-limit",
-    "commit": "cross-env fixme=fixme ../../node_modules/.bin/git-cz",
-    "coverage": "cross-env fixme=fixme cat ./coverage/lcov.info | coveralls",
-    "pretty": "cross-env fixme=fixme ../../node_modules/.bin/prettier --write '**/*.ts'",
-    "pretty:watch": "cross-env fixme=fixme ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
-    "ts-check": "cross-env fixme=fixme ../../node_modules/.bin/tsc --noEmit",
+    "commit": "cross-env ../../node_modules/.bin/git-cz",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "pretty": "cross-env ../../node_modules/.bin/prettier --write '**/*.ts'",
+    "pretty:watch": "cross-env ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
+    "ts-check": "cross-env ../../node_modules/.bin/tsc --noEmit",
     "ts-check:watch": "yarn ts-check -- --watch",
-    "lint:file": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix",
-    "lint:all": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix .",
-    "test": "cross-env fixme=fixme ../../node_modules/.bin/jest",
-    "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
+    "lint:file": "cross-env ../../node_modules/.bin/eslint --fix",
+    "lint:all": "cross-env ../../node_modules/.bin/eslint --fix .",
+    "test": "cross-env ../../node_modules/.bin/jest",
+    "test:watch": "cross-env ../../node_modules/.bin/jest --watch"
   },
   "files": [
     "build"
@@ -53,20 +53,10 @@
     "styled-components": "^4.x.x"
   },
   "dependencies": {
-    "@typographist/core": "^26.0.5",
-    "@typographist/modular-scale": "^1.1.9",
+    "@typographist/core": "file:../core",
+    "@typographist/modular-scale": "file:../modular-scale",
     "memoize-one": "^5.1.1",
     "styled-breakpoints": "^7.0.0"
-  },
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^3.0.0",
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.9.4",
-    "@types/styled-components": "^4.4.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "styled-components": "^5.0.0",
-    "typescript": "^3.7.2"
   },
   "publishConfig": {
     "access": "public"

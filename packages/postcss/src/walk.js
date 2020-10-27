@@ -30,62 +30,68 @@ const {
   renderH6,
 } = require('./features/headings');
 
-exports.walk = (options) => (root) => {
+module.exports = (options) => {
   const breaks = createBreakpointsMap(options || theme);
-  // const fluidBreaks = createBreakpointsMap(options || fluidTheme);
 
-  root.walkDecls((decl) => {
-    step(decl, breaks);
-    stepFn(decl, breaks);
-  });
+  return {
+    postcssPlugin: 'typographist',
+    Once(root) {
+      root.walkDecls((decl) => {
+        step(decl, breaks);
+        stepFn(decl, breaks);
+      });
 
-  root.walkAtRules((atrule) => {
-    bubblingAtrule(atrule);
-  });
+      root.walkAtRules((atrule) => {
+        bubblingAtrule(atrule);
+      });
 
-  root.walkAtRules((atrule) => {
-    if (atrule.name === 'root') {
-      throwIsNotRootSelector(atrule);
-      renderStandardRoot(atrule, breaks);
-    }
-  });
+      root.walkAtRules((atrule) => {
+        if (atrule.name === 'root') {
+          throwIsNotRootSelector(atrule);
+          renderStandardRoot(atrule, breaks);
+        }
+      });
 
-  root.walkAtRules((atrule) => {
-    const atrules = {
-      base: renderBase,
-      up: renderUp,
-      down: renderDown,
-      only: renderOnly,
-      between: renderBetween,
-    };
+      root.walkAtRules((atrule) => {
+        const atrules = {
+          base: renderBase,
+          up: renderUp,
+          down: renderDown,
+          only: renderOnly,
+          between: renderBetween,
+        };
 
-    if (atrules[atrule.name]) {
-      atrules[atrule.name](atrule, breaks);
-    }
-  });
+        if (atrules[atrule.name]) {
+          atrules[atrule.name](atrule, breaks);
+        }
+      });
 
-  root.walkAtRules((atrule) => {
-    const headings = {
-      h1: renderH1,
-      h2: renderH2,
-      h3: renderH3,
-      h4: renderH4,
-      h5: renderH5,
-      h6: renderH6,
-    };
+      root.walkAtRules((atrule) => {
+        const headings = {
+          h1: renderH1,
+          h2: renderH2,
+          h3: renderH3,
+          h4: renderH4,
+          h5: renderH5,
+          h6: renderH6,
+        };
 
-    if (headings[atrule.name]) {
-      headings[atrule.name](atrule, breaks);
-    }
-  });
+        if (headings[atrule.name]) {
+          headings[atrule.name](atrule, breaks);
+        }
+      });
 
-  root.walkRules((rule) => {
-    bubblingRule(rule);
-    nestedRule(rule);
-  });
+      root.walkRules((rule) => {
+        bubblingRule(rule);
+        nestedRule(rule);
+      });
 
-  // Remove empty rules.
-  root.walkRules((rule) => {
-    if (!rule.nodes.length) rule.remove();
-  });
+      // Remove empty rules.
+      root.walkRules((rule) => {
+        if (!rule.nodes.length) rule.remove();
+      });
+    },
+  };
 };
+
+module.exports.postcss = true;

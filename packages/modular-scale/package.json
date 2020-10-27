@@ -19,27 +19,24 @@
     "prepublishOnly": "yarn rebuild && yarn test",
     "rebuild": "yarn clean && yarn build",
     "build": "yarn clean && tsc && yarn size",
-    "clean": "cross-env fixme=fixme ../../node_modules/.bin/rimraf build",
+    "clean": "cross-env ../../node_modules/.bin/rimraf build",
     "size": " cross-env size-limit",
-    "commit": "cross-env fixme=fixme ../../node_modules/.bin/git-cz",
-    "coverage": "cross-env fixme=fixme cat ./coverage/lcov.info | coveralls",
-    "pretty": "cross-env fixme=fixme ../../node_modules/.bin/prettier --write '**/*.ts'",
-    "pretty:watch": "cross-env fixme=fixme ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
-    "ts-check": "cross-env fixme=fixme ../../node_modules/.bin/tsc --noEmit",
+    "commit": "cross-env ../../node_modules/.bin/git-cz",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "pretty": "cross-env ../../node_modules/.bin/prettier --write '**/*.ts'",
+    "pretty:watch": "cross-env ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
+    "ts-check": "cross-env ../../node_modules/.bin/tsc --noEmit",
     "ts-check:watch": "yarn ts-check -- --watch",
-    "lint:file": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix",
-    "lint:all": "cross-env fixme=fixme ../../node_modules/.bin/eslint --fix .",
-    "test": "cross-env fixme=fixme ../../node_modules/.bin/jest",
-    "test:watch": "cross-env fixme=fixme ../../node_modules/.bin/jest --watch"
+    "lint:file": "cross-env ../../node_modules/.bin/eslint --fix",
+    "lint:all": "cross-env ../../node_modules/.bin/eslint --fix .",
+    "test": "cross-env ../../node_modules/.bin/jest",
+    "test:watch": "cross-env ../../node_modules/.bin/jest --watch"
   },
   "files": [
     "build"
   ],
   "dependencies": {
     "memoize-one": "^5.1.1"
-  },
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^3.0.0"
   },
   "publishConfig": {
     "access": "public"
