@@ -1,6 +1,6 @@
 module.exports = {
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
     allowImportExportEverywhere: true,
     ecmaFeatures: {
@@ -41,5 +41,13 @@ module.exports = {
     'no-plusplus': 0,
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': 0,
+    'import/extensions': [
+      2,
+      'ignorePackages',
+      {
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
 };
