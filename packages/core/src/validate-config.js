@@ -1,7 +1,7 @@
 var utils = require('./lib');
 
 // validateConfig :: config -> Void
-var validateConfig = function(x) {
+var validateConfig = function (x) {
   validateDefaultBreakpoint(x);
   validateBases(x);
   throwDoesntContainminWidthProp(x);
@@ -105,9 +105,7 @@ function throwInvalidBreakpoint(x) {
 
 // validateFields :: config -> Void
 function validateBreakpoints(x) {
-  utils
-    .deepObjectValues('breakpoint')(Object(x))
-    .map(throwInvalidBreakpoint);
+  utils.deepObjectValues('breakpoint')(Object(x)).map(throwInvalidBreakpoint);
 }
 
 // ---------- LINE-HEIGHT --------------------------------------------------------
@@ -123,9 +121,7 @@ function throwInvalidLineHeight(x) {
 
 // validateFields :: config -> Void
 function validateLineHeights(x) {
-  utils
-    .deepObjectValues('lineHeight')(Object(x))
-    .map(throwInvalidLineHeight);
+  utils.deepObjectValues('lineHeight')(Object(x)).map(throwInvalidLineHeight);
 }
 
 // ---------- RATIO --------------------------------------------------------------
@@ -162,9 +158,7 @@ function throwInvalidRatio(x) {
 
 // validateFields :: config -> Void
 function validateRatios(x) {
-  utils
-    .deepObjectValues('ratio')(Object(x))
-    .map(throwInvalidRatio);
+  utils.deepObjectValues('ratio')(Object(x)).map(throwInvalidRatio);
 }
 
 module.exports = {

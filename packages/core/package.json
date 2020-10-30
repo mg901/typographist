@@ -8,6 +8,8 @@
     "type": "git",
     "url": "https://github.com/mg901/typographist.git"
   },
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "bugs": {
     "url": "https://github.com/mg901/typographist/issues"
   },
@@ -25,22 +27,23 @@
     "typographist",
     "web-typography"
   ],
-  "main": "./src/index.js",
-  "types": "./src/index.d.ts",
   "scripts": {
-    "build": "yarn clean && tsc && yarn size",
-    "clean": "../../node_modules/.bin/rimraf build",
-    "size": " size-limit",
-    "commit": "../../node_modules/.bin/git-cz",
-    "coverage": "cat ./coverage/lcov.info | coveralls",
-    "pretty": "../../node_modules/.bin/prettier --write '**/*.ts'",
-    "pretty:watch": "../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
-    "lint:file": "../../node_modules/.bin/eslint --fix",
-    "lint:all": "../../node_modules/.bin/eslint --fix .",
+    "size": "cross-env size-limit",
+    "pretty": "../../node_modules/.bin/prettier --write '**/*.{j,t}{s,sx}'",
+    "lint": "../../node_modules/.bin/eslint --fix .",
     "test": "../../node_modules/.bin/jest --colors",
     "test:watch": "../../node_modules/.bin/jest --colors --watch"
   },
+  "size-limit": [
+    {
+      "path": "src/index.js",
+      "limit": "1.63 kb"
+    }
+  ],
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@size-limit/preset-big-lib": "^4.7.0"
   }
 }

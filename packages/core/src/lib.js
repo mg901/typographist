@@ -1,5 +1,5 @@
 // merge :: {String: a} -> {String: a} -> {String: a}
-exports.merge = function() {
+exports.merge = function () {
   var i;
   var key;
   var result = {};
@@ -14,7 +14,7 @@ exports.merge = function() {
 };
 
 // omit :: ([String], {String :: a}) -> {String :: a}
-exports.omit = function() {
+exports.omit = function () {
   var key;
   var keys = Array.prototype.slice.call(arguments, 0, -1);
   var obj = arguments[arguments.length - 1];
@@ -32,7 +32,7 @@ exports.omit = function() {
 
 // deepObjectValues :: (String, ?a | [a]) -> [a]
 exports.deepObjectValues = function deepObjectValues(target, memo) {
-  return function(obj) {
+  return function (obj) {
     var result = !Array.isArray(memo) ? [] : memo;
     var key;
 
@@ -51,18 +51,18 @@ exports.deepObjectValues = function deepObjectValues(target, memo) {
 };
 
 // invariant :: (a, String) -> Void
-exports.invariant = function(condition, message) {
+exports.invariant = function (condition, message) {
   if (!condition) {
     throw new Error(message);
   }
 };
 
 // isNumeric :: a -> Boolean
-exports.isNumeric = function(x) {
+exports.isNumeric = function (x) {
   return !Number.isNaN(parseFloat(x)) && isFinite(x);
 };
 
 // type :: a -> String
-exports.type = function(x) {
+exports.type = function (x) {
   return Object.prototype.toString.call(x).slice(8, -1);
 };
