@@ -12,31 +12,24 @@
     "url": "https://github.com/mg901/typographist/issues"
   },
   "author": "mg901 <mgreen097@gmail.com>",
-  "keywords": [],
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
   "scripts": {
-    "prepublishOnly": "yarn rebuild && yarn test",
-    "rebuild": "yarn clean && yarn build",
-    "build": "yarn clean && tsc && yarn size",
-    "clean": "cross-env ../../node_modules/.bin/rimraf build",
-    "size": " cross-env size-limit",
-    "commit": "cross-env ../../node_modules/.bin/git-cz",
-    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
-    "pretty": "cross-env ../../node_modules/.bin/prettier --write '**/*.ts'",
-    "pretty:watch": "cross-env ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
-    "ts-check": "cross-env ../../node_modules/.bin/tsc --noEmit",
-    "ts-check:watch": "yarn ts-check -- --watch",
-    "lint:file": "cross-env ../../node_modules/.bin/eslint --fix",
-    "lint:all": "cross-env ../../node_modules/.bin/eslint --fix ."
+    "commit": "../../node_modules/.bin/git-cz",
+    "size": "cross-env size-limit",
+    "pretty": "../../node_modules/.bin/prettier --write '**/*.{j,t}{s,sx}'",
+    "lint": "../../node_modules/.bin/eslint --fix .",
+    "test": "../../node_modules/.bin/jest --colors",
+    "test:watch": "../../node_modules/.bin/jest --colors --watch"
   },
-  "files": [
-    "build"
+  "size-limit": [
+    {
+      "path": "index.js",
+      "limit": "553b"
+    }
   ],
-  "dependencies": {
-    "memoize-one": "^5.1.1"
-  },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@size-limit/preset-app": "^4.7.0"
   }
 }

@@ -1,4 +1,4 @@
-import { modularScale } from '.';
+const { modularScale } = require('.');
 
 describe('modularScale', () => {
   it('calculated `font-size` from the multi-stranded modular scales ', () => {
