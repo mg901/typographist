@@ -28,6 +28,7 @@
     "web-typography"
   ],
   "scripts": {
+    "commit": "../../node_modules/.bin/git-cz",
     "size": "cross-env size-limit",
     "pretty": "../../node_modules/.bin/prettier --write '**/*.{j,t}{s,sx}'",
     "lint": "../../node_modules/.bin/eslint --fix .",
