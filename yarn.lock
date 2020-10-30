@@ -2376,9 +2376,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^16.9.53":
-  version "16.9.53"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.53.tgz#40cd4f8b8d6b9528aedd1fff8fcffe7a112a3d23"
-  integrity sha512-4nW60Sd4L7+WMXH1D6jCdVftuW7j4Za6zdp6tJ33Rqv0nk1ZAmQKML9ZLD4H0dehA3FZxXR/GM8gXplf82oNGw==
+  version "16.9.55"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.55.tgz#47078587f5bfe028a23b6b46c7b94ac0d436acff"
+  integrity sha512-6KLe6lkILeRwyyy7yG9rULKJ0sXplUsl98MGoCfpteXf9sPWFWWMknDcsvubcpaTdBuxtsLF6HDUwdApZL/xIg==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
@@ -2501,15 +2501,15 @@
 "@typographist/postcss@file:packages/postcss":
   version "6.1.1"
   dependencies:
-    "@typographist/core" "file:../../Library/Caches/Yarn/v6/npm-@typographist-postcss-6.1.1-bf78081e-9201-4053-99f7-3189381d21b9-1603806580142/node_modules/@typographist/core"
-    "@typographist/modular-scale" "file:../../Library/Caches/Yarn/v6/npm-@typographist-postcss-6.1.1-bf78081e-9201-4053-99f7-3189381d21b9-1603806580142/node_modules/@typographist/modular-scale"
-    "@typographist/utils" "file:../../Library/Caches/Yarn/v6/npm-@typographist-postcss-6.1.1-bf78081e-9201-4053-99f7-3189381d21b9-1603806580142/node_modules/@typographist/utils"
+    "@typographist/core" "file:packages/core"
+    "@typographist/modular-scale" "file:packages/modular-scale"
+    "@typographist/utils" "file:packages/utils"
 
 "@typographist/styled@file:packages/styled":
   version "3.0.6"
   dependencies:
-    "@typographist/core" "file:../../Library/Caches/Yarn/v6/npm-@typographist-styled-3.0.6-144d4846-eb2d-43f2-a963-4167abee0e39-1603806580150/node_modules/@typographist/core"
-    "@typographist/modular-scale" "file:../../Library/Caches/Yarn/v6/npm-@typographist-styled-3.0.6-144d4846-eb2d-43f2-a963-4167abee0e39-1603806580150/node_modules/@typographist/modular-scale"
+    "@typographist/core" "file:packages/core"
+    "@typographist/modular-scale" "file:packages/modular-scale"
 
 "@typographist/utils@file:packages/utils":
   version "2.0.5"
@@ -10703,11 +10703,6 @@ style-loader@^2.0.0:
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
-
-styled-breakpoints@^8.1.2:
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/styled-breakpoints/-/styled-breakpoints-8.1.2.tgz#bfc962a1d5c8e6da2789b1ffa538cdb0fe940588"
-  integrity sha512-8JDedL+BAMmxPMAUrz6lCzZoAG5kkfsFLUg0ZxLZb1k4GdySMCjom5z3jq4mzQ4sKdEy9Su4RzKKvTODCfApCA==
 
 styled-components@^5.2.0:
   version "5.2.0"
