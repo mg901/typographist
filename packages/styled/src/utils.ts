@@ -3,7 +3,7 @@ import { MediaQueries } from 'styled-breakpoints';
 import { CONFIG_SYMBOL, DEFAULT_CONFIG } from './constants';
 import { CustomTheme, InitialBreakpoint, DefaultTheme, Theme } from './model';
 
-const createMediaQueries = (x: object): MediaQueries => {
+const createMediaQueries = (x: Record<string, unknown>): MediaQueries => {
   const breaks = createBreakpointsMap(x);
   const result = {} as MediaQueries;
 
@@ -16,7 +16,7 @@ const createMediaQueries = (x: object): MediaQueries => {
   return result;
 };
 
-const customTheme = (x: object): CustomTheme => ({
+const customTheme = (x: Record<string, unknown>): CustomTheme => ({
   [CONFIG_SYMBOL]: {
     breakpointsMap: createBreakpointsMap(x),
     mediaQueries: createMediaQueries(x),
@@ -30,5 +30,5 @@ export const defaultTheme = (): DefaultTheme => ({
   },
 });
 
-export const setCustomOrDefaultTheme = (x?: object): Theme =>
+export const setCustomOrDefaultTheme = (x?: Record<string, unknown>): Theme =>
   x ? customTheme(x) : defaultTheme();
