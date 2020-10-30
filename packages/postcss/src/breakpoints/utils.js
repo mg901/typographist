@@ -1,14 +1,14 @@
 const { toKebabCase } = require('../lib/convertors');
 
 // getOrientation :: String -> String
-exports.getOrientation = function(x) {
+exports.getOrientation = function (x) {
   const allCharactersBeforeColon = /^\(.+\):?/;
 
   return x.replace(allCharactersBeforeColon, '');
 };
 
 // getBreakpointValues :: String -> [String]
-exports.getBreakpointValues = function(params) {
+exports.getBreakpointValues = function (params) {
   const notBreakpointsNames = /^\(([a-z0-9-]+(,?[a-z0-9-]+)?)\).*$/i;
 
   return params
@@ -18,25 +18,22 @@ exports.getBreakpointValues = function(params) {
 };
 
 // createBreakpointList :: Object -> [String]
-exports.createBreakpointList = function(x) {
-  return Object.keys(x)
-    .slice(1)
-    .map(toKebabCase)
-    .join(', ');
+exports.createBreakpointList = function (x) {
+  return Object.keys(x).slice(1).map(toKebabCase).join(', ');
 };
 
 // withMinWidth :: String -> String
-exports.withMinWidth = function(x) {
+exports.withMinWidth = function (x) {
   return `(min-width: ${x})`;
 };
 
 // withMaxMedia :: String -> String
-exports.withMaxWidth = function(x) {
+exports.withMaxWidth = function (x) {
   return `(max-width: ${x})`;
 };
 
 // withMinAndMaxWidth :: (String, String) -> String
-exports.withMinAndMaxWidth = function(min, max) {
+exports.withMinAndMaxWidth = function (min, max) {
   return `(min-width: ${min}) and (max-width: ${max})`;
 };
 

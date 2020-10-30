@@ -10,9 +10,7 @@ exports.bubblingAtrule = (atrule) => {
 
   atrule.prepend(cleanNode(parentClone).removeAll());
 
-  cleanNode(parentClone)
-    .removeAll()
-    .append(innerNodes);
+  cleanNode(parentClone).removeAll().append(innerNodes);
 
   const parent = atrule.parent.after(atrule);
   cleanNode(atrule);

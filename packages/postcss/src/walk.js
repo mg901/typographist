@@ -30,7 +30,7 @@ const {
   renderH6,
 } = require('./features/headings');
 
-module.exports = (options) => {
+const plugin = (options) => {
   const breaks = createBreakpointsMap(options || theme);
 
   return {
@@ -94,4 +94,5 @@ module.exports = (options) => {
   };
 };
 
-module.exports.postcss = true;
+plugin.postcss = true;
+exports.typographist = plugin;

@@ -2,7 +2,7 @@ const { calcFontSize } = require('../lib/calculators');
 const { createBreakpointName } = require('../lib/media-queries');
 
 // step :: (Object, Object) -> Void
-exports.step = function(decl, breakpointsMap) {
+exports.step = function (decl, breakpointsMap) {
   if (!isStep(decl)) return;
 
   const step = decl.value.replace(/step/, '');

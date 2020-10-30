@@ -62,7 +62,7 @@ createHeading :: {
 } -> (Object, Object) -> Void
 */
 function createHeading({ defaultStep, lineHeight, marginTop, marginBottom }) {
-  return function(atrule, breakpoints) {
+  return function (atrule, breakpoints) {
     if (!isHeading(atrule)) return;
 
     throwEmptyArgument(atrule);

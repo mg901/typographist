@@ -40,7 +40,7 @@ function addFontSizesForEachBreaks(atrule, breaks) {
 }
 
 // throwIsNotRootSelector :: Object -> Void
-exports.throwIsNotRootSelector = function(atrule) {
+exports.throwIsNotRootSelector = function (atrule) {
   if (!isValidRootSelector(atrule)) {
     throw atrule.error(
       `Use the '${atrule}' with the ':root' or 'html' selectors.`,

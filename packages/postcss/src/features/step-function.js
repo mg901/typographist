@@ -4,7 +4,7 @@ const { createBreakpointName } = require('../lib/media-queries');
 const { createMediaQuery, createFontSizeProp } = require('../elements');
 
 // stepFn :: (Object, Object) -> Void
-exports.stepFn = function(decl, breakpointsMap) {
+exports.stepFn = function (decl, breakpointsMap) {
   if (!isStepFn(decl)) return;
 
   const stepToRem = calcFontSize(breakpointsMap);

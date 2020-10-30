@@ -1,4 +1,7 @@
 const { ratios } = require('@typographist/core');
-const typograhist = require('./walk');
+const { typographist } = require('./walk');
 
-module.exports = typograhist;
+module.exports = {
+  typographist,
+  ratios,
+};
