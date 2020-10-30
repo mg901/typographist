@@ -1,7 +1,9 @@
 const BROWSER_CONTEXT = 16;
 
+// toEm :: (String) -> String
 exports.toEm = (x) => parseFloat(x) / BROWSER_CONTEXT + 'em';
 
+// toRem :: (Number) -> (Number | [Number]) -> String
 exports.toRem = (root) => (fontSize) => parseFloat(fontSize) / root + 'rem';
 
 // percentage :: (String | Number | [String] | [Number])
