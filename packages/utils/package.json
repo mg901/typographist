@@ -13,10 +13,13 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "553b"
+      "limit": "85b"
     }
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.7.0"
   }
 }
