@@ -2501,15 +2501,15 @@
 "@typographist/postcss@file:packages/postcss":
   version "6.1.1"
   dependencies:
-    "@typographist/core" "file:../../Library/Caches/Yarn/v6/npm-@typographist-postcss-6.1.1-bf78081e-9201-4053-99f7-3189381d21b9-1603806580142/node_modules/@typographist/core"
-    "@typographist/modular-scale" "file:../../Library/Caches/Yarn/v6/npm-@typographist-postcss-6.1.1-bf78081e-9201-4053-99f7-3189381d21b9-1603806580142/node_modules/@typographist/modular-scale"
-    "@typographist/utils" "file:../../Library/Caches/Yarn/v6/npm-@typographist-postcss-6.1.1-bf78081e-9201-4053-99f7-3189381d21b9-1603806580142/node_modules/@typographist/utils"
+    "@typographist/core" "file:packages/core"
+    "@typographist/modular-scale" "file:packages/modular-scale"
+    "@typographist/utils" "file:packages/utils"
 
 "@typographist/styled@file:packages/styled":
   version "3.0.6"
   dependencies:
-    "@typographist/core" "file:../../Library/Caches/Yarn/v6/npm-@typographist-styled-3.0.6-144d4846-eb2d-43f2-a963-4167abee0e39-1603806580150/node_modules/@typographist/core"
-    "@typographist/modular-scale" "file:../../Library/Caches/Yarn/v6/npm-@typographist-styled-3.0.6-144d4846-eb2d-43f2-a963-4167abee0e39-1603806580150/node_modules/@typographist/modular-scale"
+    "@typographist/core" "file:packages/core"
+    "@typographist/modular-scale" "file:packages/modular-scale"
 
 "@typographist/utils@file:packages/utils":
   version "2.0.5"
@@ -5000,9 +5000,9 @@ eslint-config-airbnb@^18.2.0:
     object.entries "^1.1.2"
 
 eslint-config-prettier@^6.14.0:
-  version "6.14.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.14.0.tgz#390e7863a8ae99970981933826476169285b3a27"
-  integrity sha512-DbVwh0qZhAC7CNDWcq8cBdK6FcVHiMTKmCypOPWeZkp9hJ8xYwTaWSa6bb6cjfi8KOeJy0e9a8Izxyx+O4+gCQ==
+  version "6.15.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.15.0.tgz#7f93f6cb7d45a92f1537a70ecc06366e1ac6fed9"
+  integrity sha512-a1+kOYLR8wMGustcgAjdydMsQ2A/2ipRPwRKUmfYaSxc9ZPcrku080Ctl6zrZzZNs/U82MjSv+qKREkoq3bJaw==
   dependencies:
     get-stdin "^6.0.0"
 
@@ -10703,11 +10703,6 @@ style-loader@^2.0.0:
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
-
-styled-breakpoints@^8.1.2:
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/styled-breakpoints/-/styled-breakpoints-8.1.2.tgz#bfc962a1d5c8e6da2789b1ffa538cdb0fe940588"
-  integrity sha512-8JDedL+BAMmxPMAUrz6lCzZoAG5kkfsFLUg0ZxLZb1k4GdySMCjom5z3jq4mzQ4sKdEy9Su4RzKKvTODCfApCA==
 
 styled-components@^5.2.0:
   version "5.2.0"
