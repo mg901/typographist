@@ -2186,14 +2186,21 @@
   dependencies:
     semver "7.3.2"
 
-"@size-limit/preset-big-lib@^4.6.2":
-  version "4.6.2"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-big-lib/-/preset-big-lib-4.6.2.tgz#480331eb18f5313ddcf1216d72d80bd3f1f0be9a"
-  integrity sha512-xaM3naEjWEEBzXKnEq/72S1l6bclC6VZjXDJkyKramw0PRzjM60ObZ9J6YSGp8zMK2tQg98KEFoFZ6Wp+86KTw==
+"@size-limit/file@4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-4.7.0.tgz#a30567bc707a18cc7d9b589359a4d5d161a8bb64"
+  integrity sha512-0JjN8wJ42WfEJ4xfngVw/EUkMGVDjDUpL9v5Hmrx0PneJQDC3gpIY7tUOF7HKGNGHW941dxAuqZQw5dG49HsgQ==
   dependencies:
-    "@size-limit/file" "4.6.2"
-    "@size-limit/time" "4.6.2"
-    "@size-limit/webpack" "4.6.2"
+    semver "7.3.2"
+
+"@size-limit/preset-big-lib@^4.6.2":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-big-lib/-/preset-big-lib-4.7.0.tgz#ac9d6d32b4b358111412007f86e8e8b81e5bfb17"
+  integrity sha512-lS8aYeD5nqGYm5VE3QYwtapXvsKpuAaTJrpMZ3mBV6nnfHUWpYPJxR9KYYNVZ+bmAoE89mt1DNp3q4Lnkuj1+Q==
+  dependencies:
+    "@size-limit/file" "4.7.0"
+    "@size-limit/time" "4.7.0"
+    "@size-limit/webpack" "4.7.0"
 
 "@size-limit/preset-small-lib@^4.6.2":
   version "4.6.2"
@@ -2203,13 +2210,13 @@
     "@size-limit/file" "4.6.2"
     "@size-limit/webpack" "4.6.2"
 
-"@size-limit/time@4.6.2":
-  version "4.6.2"
-  resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-4.6.2.tgz#67b1453ac21256fc4aa07437123b16666b0a2a9a"
-  integrity sha512-1jVZBKIBtutIJRwuqov6YxzDFy1xRKdqqIO445rYf6vLHPYK3X1TrniOh73QR6qb48FID0p4/UaPwnqnhHEbuQ==
+"@size-limit/time@4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-4.7.0.tgz#1523ac44c98c712e39729f1c4b26098c24bb9811"
+  integrity sha512-TVWvqP/zac2zY6LUn7eQR8cB0xfR1GiKGPvSUQ5tBCcQXQe7idckUV9bw0l/f9ykUInP5R4khmz/INLaaTAicQ==
   dependencies:
     estimo "^2.2.1"
-    react "^17.0.0"
+    react "^17.0.1"
 
 "@size-limit/webpack@4.6.2":
   version "4.6.2"
@@ -2221,6 +2228,23 @@
     file-loader "^6.1.1"
     mkdirp "^1.0.4"
     nanoid "^3.1.10"
+    optimize-css-assets-webpack-plugin "^5.0.4"
+    pnp-webpack-plugin "^1.6.4"
+    rimraf "^3.0.2"
+    style-loader "^2.0.0"
+    webpack "^4.44.1"
+    webpack-bundle-analyzer "^3.9.0"
+
+"@size-limit/webpack@4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-4.7.0.tgz#de6458ca31a6ce75d8148fb4f9df79dc4c803c40"
+  integrity sha512-+N+X0HWg5F9NDpbUZ/xDQWAx+dDXQ59SiPWhCo7mpNjp8ttfh99QvQXmiyCeK1WfX6LN1EACVHNpkxShkw4/yQ==
+  dependencies:
+    css-loader "^5.0.0"
+    escape-string-regexp "^4.0.0"
+    file-loader "^6.2.0"
+    mkdirp "^1.0.4"
+    nanoid "^3.1.16"
     optimize-css-assets-webpack-plugin "^5.0.4"
     pnp-webpack-plugin "^1.6.4"
     rimraf "^3.0.2"
@@ -2501,15 +2525,15 @@
 "@typographist/postcss@file:packages/postcss":
   version "6.1.1"
   dependencies:
-    "@typographist/core" "file:../../Library/Caches/Yarn/v6/npm-@typographist-postcss-6.1.1-bf78081e-9201-4053-99f7-3189381d21b9-1603806580142/node_modules/@typographist/core"
-    "@typographist/modular-scale" "file:../../Library/Caches/Yarn/v6/npm-@typographist-postcss-6.1.1-bf78081e-9201-4053-99f7-3189381d21b9-1603806580142/node_modules/@typographist/modular-scale"
-    "@typographist/utils" "file:../../Library/Caches/Yarn/v6/npm-@typographist-postcss-6.1.1-bf78081e-9201-4053-99f7-3189381d21b9-1603806580142/node_modules/@typographist/utils"
+    "@typographist/core" "file:packages/core"
+    "@typographist/modular-scale" "file:packages/modular-scale"
+    "@typographist/utils" "file:packages/utils"
 
 "@typographist/styled@file:packages/styled":
   version "3.0.6"
   dependencies:
-    "@typographist/core" "file:../../Library/Caches/Yarn/v6/npm-@typographist-styled-3.0.6-144d4846-eb2d-43f2-a963-4167abee0e39-1603806580150/node_modules/@typographist/core"
-    "@typographist/modular-scale" "file:../../Library/Caches/Yarn/v6/npm-@typographist-styled-3.0.6-144d4846-eb2d-43f2-a963-4167abee0e39-1603806580150/node_modules/@typographist/modular-scale"
+    "@typographist/core" "file:packages/core"
+    "@typographist/modular-scale" "file:packages/modular-scale"
 
 "@typographist/utils@file:packages/utils":
   version "2.0.5"
@@ -5508,6 +5532,14 @@ file-loader@^6.1.1:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
+file-loader@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-6.2.0.tgz#baef7cf8e1840df325e4390b4484879480eebe4d"
+  integrity sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
+
 file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
@@ -8103,7 +8135,7 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nanoid@^3.1.10, nanoid@^3.1.11, nanoid@^3.1.15:
+nanoid@^3.1.10, nanoid@^3.1.11, nanoid@^3.1.15, nanoid@^3.1.16:
   version "3.1.16"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.16.tgz#b21f0a7d031196faf75314d7c65d36352beeef64"
   integrity sha512-+AK8MN0WHji40lj8AEuwLOvLSbWYApQpre/aFJZD71r43wVRLrOYS4FmJOPQYon1TqB462RzrrxlfA74XRES8w==
@@ -9545,7 +9577,7 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
-react@^17.0.0, react@^17.0.1:
+react@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
   integrity sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==
@@ -10703,11 +10735,6 @@ style-loader@^2.0.0:
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
-
-styled-breakpoints@^8.1.2:
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/styled-breakpoints/-/styled-breakpoints-8.1.2.tgz#bfc962a1d5c8e6da2789b1ffa538cdb0fe940588"
-  integrity sha512-8JDedL+BAMmxPMAUrz6lCzZoAG5kkfsFLUg0ZxLZb1k4GdySMCjom5z3jq4mzQ4sKdEy9Su4RzKKvTODCfApCA==
 
 styled-components@^5.2.0:
   version "5.2.0"
