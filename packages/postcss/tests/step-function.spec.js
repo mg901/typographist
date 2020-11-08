@@ -26,6 +26,7 @@ describe('transform step function', () => {
                             font-size: 3.9375rem;
               }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });

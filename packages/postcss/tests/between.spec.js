@@ -15,7 +15,8 @@ describe('@between', () => {
         color: hotpink;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
   it('should replace @between(1000px, 2000px)', () => {
     const source = `
@@ -30,7 +31,8 @@ describe('@between', () => {
         color: hotpink;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
   it('should replace @between(30em, 50em)', () => {
     const source = `
@@ -45,7 +47,8 @@ describe('@between', () => {
         color: hotpink;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });
 
@@ -63,7 +66,8 @@ describe('@between atrule with orientation', () => {
         color: hotpink;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
   it('should replace @between(30em, 50em):portrait ', () => {
     const source = `
@@ -78,6 +82,7 @@ describe('@between atrule with orientation', () => {
         color: hotpink;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });

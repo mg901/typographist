@@ -15,7 +15,8 @@ describe('@only', () => {
         background-color: rebeccapurple;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });
 
@@ -33,6 +34,7 @@ describe('@only atrule with orientation', () => {
         background-color: rebeccapurple;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });

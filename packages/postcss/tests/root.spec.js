@@ -1,5 +1,5 @@
 const run = require('./run');
-const { userConfig, fluidUserConfig } = require('../../../mocks');
+const { userConfig } = require('../../../mocks');
 
 describe('@root atrule', () => {
   it('should relpace "@root;" with native css', () => {

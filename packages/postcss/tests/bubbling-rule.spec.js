@@ -27,6 +27,7 @@ describe('bubbling rule', () => {
 :local .item {
             width: 200px;
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });

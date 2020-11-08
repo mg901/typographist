@@ -32,6 +32,7 @@ describe('nested rules', () => {
 .some-test__inner:hover {
           background-color: pink;
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });

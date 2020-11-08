@@ -15,7 +15,8 @@ describe('@up atrule', () => {
         background-color: orange;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
   it('should replace @up(1000px) with valid media query', () => {
     const source = `
@@ -30,7 +31,8 @@ describe('@up atrule', () => {
         background-color: orange;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
   it('should replace @up(40em) with valid media query', () => {
     const source = `
@@ -45,7 +47,8 @@ describe('@up atrule', () => {
         background-color: orange;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });
 

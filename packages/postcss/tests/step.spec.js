@@ -15,7 +15,8 @@ describe('transform step unit function', () => {
         font-size: 1.8620689655172413rem;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
   it('should transform step to rem if @down is set.', () => {
     const source = `
@@ -30,7 +31,8 @@ describe('transform step unit function', () => {
         font-size: 1.8620689655172413rem;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
   it('should transform step to rem if @only is set.', () => {
     const source = `
@@ -45,6 +47,7 @@ describe('transform step unit function', () => {
         font-size: 1.8620689655172413rem;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });

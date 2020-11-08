@@ -46,8 +46,11 @@
     "postcss": "^8.1.4"
   },
   "dependencies": {
-    "@typographist/core": "file:../core",
-    "@typographist/modular-scale": "file:../modular-scale",
-    "@typographist/utils": "file:../utils"
+    "@typographist/core": "^27.0.1",
+    "@typographist/modular-scale": "^1.1.10",
+    "@typographist/utils": "^3.0.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.1.6"
   }
 }

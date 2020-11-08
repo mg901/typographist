@@ -32,7 +32,8 @@ describe('@base', () => {
                             font-size: 1.3125rem;
               }
 }`;
-      return run(source, compiled, userConfig);
+      
+return run(source, compiled, userConfig);
     },
   );
 });

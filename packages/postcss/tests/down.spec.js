@@ -15,7 +15,8 @@ describe('@down', () => {
         background-color: gold;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
   it('should replace @down(1000px) with @media (min-width: 62.5em)', () => {
     const source = `
@@ -30,7 +31,8 @@ describe('@down', () => {
         background-color: gold;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
   it('should replace @down(40em) with @media (min-width: 40em)', () => {
     const source = `
@@ -45,7 +47,8 @@ describe('@down', () => {
         background-color: gold;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });
 
@@ -63,6 +66,7 @@ describe('@down atrule with orientation', () => {
         background-color: gold;
     }
 }`;
-    return run(source, compiled, userConfig);
+    
+return run(source, compiled, userConfig);
   });
 });
