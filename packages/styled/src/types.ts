@@ -2,24 +2,22 @@ import { BreakpointsMap } from '@typographist/core';
 import { MediaQueries } from 'styled-breakpoints';
 import { CONFIG_SYMBOL } from './constants';
 
-export type Styles = {
-  [ruleOrSelector: string]: string | number | Styles;
-};
-
-export type InitialBreakpoint = {
-  [key: string]: {
+export type Styles = Record<string, string | Record<string, string>>;
+export type InitialBreakpoint = Record<
+  string,
+  {
     base: [16];
     lineHeight: 1.5;
     ratio: 1.333;
     root: 12;
-    value: '0px';
-  };
-};
+    minWidth: '0px';
+  }
+>;
 
 export type DefaultTheme = {
   [CONFIG_SYMBOL]: {
     breakpointsMap: InitialBreakpoint;
-    mediaQueries: {};
+    mediaQueries: Record<string, unknown>;
   };
 };
 
@@ -32,6 +30,4 @@ export type CustomTheme = {
 
 export type Theme = DefaultTheme | CustomTheme;
 
-export type Props = {
-  [key: string]: any;
-};
+export type Props = Record<string, any>;

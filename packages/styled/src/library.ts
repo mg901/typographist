@@ -1,7 +1,7 @@
 import { createBreakpointsMap } from '@typographist/core';
 import { MediaQueries } from 'styled-breakpoints';
 import { CONFIG_SYMBOL, DEFAULT_CONFIG } from './constants';
-import { CustomTheme, InitialBreakpoint, DefaultTheme, Theme } from './model';
+import { CustomTheme, InitialBreakpoint, DefaultTheme, Theme } from './types';
 
 const createMediaQueries = (x: Record<string, unknown>): MediaQueries => {
   const breaks = createBreakpointsMap(x);
@@ -9,7 +9,7 @@ const createMediaQueries = (x: Record<string, unknown>): MediaQueries => {
 
   for (const key in breaks) {
     if (key !== 'initial') {
-      result[key] = breaks[key].value;
+      result[key] = breaks[key].minWidth;
     }
   }
 

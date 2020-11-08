@@ -3,7 +3,7 @@ import { invariant, toRem } from '@typographist/utils';
 import { modularScale } from '@typographist/modular-scale';
 import mem from 'memoize-one';
 import { CONFIG_SYMBOL } from '../constants';
-import { Props } from '../model';
+import { Props } from '../types';
 
 export const createErrorMessage = (
   breaks: BreakpointsMap,

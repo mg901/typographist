@@ -1,8 +1,9 @@
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { DEFAULT_CONFIG } from './constants';
-import { setCustomOrDefaultTheme } from './utils';
-import { renderStandardOrFluidRoot, base } from './features';
+import { setCustomOrDefaultTheme } from './library';
+import { renderStandardOrFluidRoot } from './features/root';
+import { base } from './features/base';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -26,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
 
 type Props = {
   fluid?: boolean;
-  config?: object;
+  config?: Record<string, any>;
   children: React.ReactNode;
 };
 

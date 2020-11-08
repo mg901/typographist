@@ -16,5 +16,14 @@ module.exports = {
     'react/jsx-curly-newline': 0,
     'react/prop-types': 0,
     '@typescript-eslint/no-use-before-define': 0,
+    'import/extensions': [
+      2,
+      'ignorePackages',
+      {
+        ts: 'never',
+        tsx: 'never',
+        js: 'never',
+      },
+    ],
   },
 };

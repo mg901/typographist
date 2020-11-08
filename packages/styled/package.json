@@ -29,32 +29,50 @@
   "types": "build/index.d.ts",
   "scripts": {
     "prepublishOnly": "yarn clean && yarn lint:all && yarn ts-check && yarn rebuild && yarn size",
-    "rebuild": "yarn clean && yarn build",
-    "build": "cross-env tsc",
-    "clean": "cross-env ../../node_modules/.bin/rimraf build",
-    "size": " cross-env size-limit",
-    "commit": "cross-env ../../node_modules/.bin/git-cz",
-    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
-    "pretty": "cross-env ../../node_modules/.bin/prettier --write '**/*.ts'",
-    "pretty:watch": "cross-env ../../node_modules/.bin/onchange '**/*.{j,t}s' -- prettier --write {{changed}}",
-    "ts-check": "cross-env ../../node_modules/.bin/tsc --noEmit",
-    "ts-check:watch": "yarn ts-check -- --watch",
-    "lint:file": "cross-env ../../node_modules/.bin/eslint --fix",
-    "lint:all": "cross-env ../../node_modules/.bin/eslint --fix ."
+    "build": "npm run clean && cross-env tsc",
+    "clean": "../../node_modules/.bin/rimraf build",
+    "commit": "../../node_modules/.bin/git-cz",
+    "size": "cross-env size-limit",
+    "pretty": "../../node_modules/.bin/prettier --write '**/*.{j,t}{s,sx}'",
+    "lint": "../../node_modules/.bin/eslint --fix .",
+    "test": "../../node_modules/.bin/jest --colors",
+    "test:watch": "../../node_modules/.bin/jest --colors --watch"
   },
   "files": [
     "build"
   ],
+  "size-limit": [
+    {
+      "import": {
+        "build/index.js": "{ up, down, between, only, ratios, step, steps, TypographistProvider }"
+      },
+      "limit": "4.10kb",
+      "ignore": [
+        "react",
+        "react-dom",
+        "memoize-one",
+        "styled-components"
+      ]
+    }
+  ],
   "peerDependencies": {
-    "react": "^16.x.x",
-    "react-dom": "^16.x.x",
-    "styled-components": "^4.x.x"
+    "memoize-one": "^5.1.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "styled-components": "^5.20x"
   },
   "dependencies": {
     "@typographist/core": "file:../core",
-    "@typographist/modular-scale": "file:../modular-scale"
+    "@typographist/modular-scale": "file:../modular-scale",
+    "@typographist/utils": "file:../utils",
+    "styled-breakpoints": "^8.1.2"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.12.1",
+    "@size-limit/preset-small-lib": "^4.7.0",
+    "memoize-one": "^5.1.1"
   }
 }
