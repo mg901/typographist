@@ -3,12 +3,10 @@ export type Breakpoint = {
   lineHeight: number;
   ratio: number;
   root: number;
-  value: string;
+  minWidth: string;
 };
 
-export type BreakpointsMap = {
-  [key: string]: Breakpoint;
-};
+export type BreakpointsMap = Record<string, Breakpoint>;
 
 export type Ratios = {
   AUGMENTED_FOURTH: number;
