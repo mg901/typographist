@@ -47,7 +47,7 @@
       "import": {
         "build/index.js": "{ up, down, between, only, ratios, step, steps, TypographistProvider }"
       },
-      "limit": "4.10kb",
+      "limit": "4.13kb",
       "ignore": [
         "react",
         "react-dom",
