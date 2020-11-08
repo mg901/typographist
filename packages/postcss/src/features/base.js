@@ -27,12 +27,12 @@ exports.renderBase = (atrule, breakpointsMap) => {
   tail.reverse().forEach(({ root, base, minWidth }) => {
     const body = rule({
       selector: 'body',
-    }).append(createFontSizeProp(toRem(root)(base)));
+    }).append(createFontSizeProp(toRem(root, base)));
 
     atrule.parent.after(createMediaQuery(minWidth).append(body));
   });
 
-  atrule.replaceWith(createFontSizeProp(toRem(head.root)(head.base)), ...props);
+  atrule.replaceWith(createFontSizeProp(toRem(head.root, head.base)), ...props);
 };
 
 // exports.renderFluidBase = (atrule, breakpointsMap) => {

@@ -25,7 +25,7 @@ exports.calcFontSize = (breakpoints) => (step, breakName = 'initial') => {
   if (breakpoints[breakName]) {
     const { root, base, ratio } = breakpoints[breakName];
 
-    return toRem(root)(modularScale(step, base, ratio));
+    return toRem(root, modularScale(step, base, ratio));
   }
 
   return null;
