@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [27.0.3](https://github.com/mg901/typographist/compare/@typographist/core@27.0.2...@typographist/core@27.0.3) (2020-11-08)
+
+
+### Bug Fixes
+
+* update ignored files ([059e2ce](https://github.com/mg901/typographist/commit/059e2ce238061acc476ddf4ff0cf24950b3a795d))
+
+
+
+
+
 ## [27.0.2](https://github.com/mg901/typographist/compare/@typographist/core@27.0.1...@typographist/core@27.0.2) (2020-11-08)
 
 
