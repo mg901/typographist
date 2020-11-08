@@ -44,6 +44,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "postcss": "^8.1.6"
+  },
   "devDependencies": {
     "@size-limit/preset-big-lib": "^4.7.0"
   }

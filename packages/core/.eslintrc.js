@@ -4,4 +4,12 @@ module.exports = {
   rules: {
     'no-var': 0,
   },
+  overrides: [
+    {
+      files: ['**.spec.js'],
+      rules: {
+        'no-console': 0,
+      },
+    },
+  ],
 };
