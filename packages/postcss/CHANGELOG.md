@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.2](https://github.com/mg901/typographist/postcss/compare/@typographist/postcss@7.0.1...@typographist/postcss@7.0.2) (2020-11-08)
+
+
+### Bug Fixes
+
+* update deps ([6484cc4](https://github.com/mg901/typographist/postcss/commit/6484cc4daac68c80bb31f58d68469a861386d951))
+
+
+
+
+
 ## [7.0.1](https://github.com/mg901/typographist/postcss/compare/@typographist/postcss@7.0.0...@typographist/postcss@7.0.1) (2020-11-08)
 
 **Note:** Version bump only for package @typographist/postcss

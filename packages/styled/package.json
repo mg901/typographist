@@ -1,6 +1,6 @@
 {
   "name": "@typographist/styled",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "license": "MIT",
   "homepage": "https://github.com/mg901/typographist",
   "bugs": "https://github.com/mg901/typographist/issues",
@@ -57,14 +57,14 @@
     }
   ],
   "peerDependencies": {
+    "memoize-one": "^5.1.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "styled-components": "^5.2.1",
-    "memoize-one": "^5.1.1"
+    "styled-components": "^5.2.1"
   },
   "dependencies": {
-    "@typographist/core": "^27.0.1",
-    "@typographist/modular-scale": "^1.1.10",
+    "@typographist/core": "^27.0.2",
+    "@typographist/modular-scale": "^1.1.11",
     "@typographist/utils": "^3.0.0"
   },
   "publishConfig": {
