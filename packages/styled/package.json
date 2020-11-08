@@ -28,7 +28,7 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "prepublishOnly": "yarn clean && yarn lint:all && yarn ts-check && yarn rebuild && yarn size",
+    "prepublishOnly": "yarn clean && yarn lint && yarn ts-check && yarn rebuild && yarn size",
     "build": "npm run clean && cross-env tsc",
     "clean": "../../node_modules/.bin/rimraf build",
     "commit": "../../node_modules/.bin/git-cz",
