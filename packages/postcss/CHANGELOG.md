@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.3](https://github.com/mg901/typographist/postcss/compare/@typographist/postcss@7.0.2...@typographist/postcss@7.0.3) (2020-11-08)
+
+
+### Bug Fixes
+
+* add files in npmignore config ([d7190ee](https://github.com/mg901/typographist/postcss/commit/d7190eed742a6e5139f02fbea53d5775212f5c80))
+
+
+
+
+
 ## [7.0.2](https://github.com/mg901/typographist/postcss/compare/@typographist/postcss@7.0.1...@typographist/postcss@7.0.2) (2020-11-08)
 
 
