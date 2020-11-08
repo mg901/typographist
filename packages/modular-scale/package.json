@@ -29,7 +29,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "memoize-one": "^5.1.1"
+  },
   "devDependencies": {
-    "@size-limit/preset-app": "^4.7.0"
+    "@size-limit/preset-app": "^4.7.0",
+    "memoize-one": "^5.1.1"
   }
 }
