@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "build",
     "typeRoots": ["node_modules/@types"],
-    "types": ["node"],
+    "types": ["node", "styled-breakpoints"],
     "strict": true
   },
   "files": ["./src/index.ts"],
