@@ -28,7 +28,7 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "prepublishOnly": "yarn clean && yarn lint && yarn ts-check && yarn rebuild && yarn size",
+    "prepublishOnly": "yarn clean && yarn lint && yarn ts-check && yarn build && yarn size",
     "build": "npm run clean && cross-env tsc",
     "clean": "../../node_modules/.bin/rimraf build",
     "commit": "../../node_modules/.bin/git-cz",
@@ -36,6 +36,7 @@
     "pretty": "../../node_modules/.bin/prettier --write '**/*.{j,t}{s,sx}'",
     "lint": "../../node_modules/.bin/eslint --fix .",
     "test": "../../node_modules/.bin/jest --colors",
+    "ts-check": "cross-env tsc",
     "test:watch": "../../node_modules/.bin/jest --colors --watch"
   },
   "files": [
