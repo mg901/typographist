@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.0.8](https://github.com/mg901/typographist/compare/@typographist/styled@3.0.7...@typographist/styled@3.0.8) (2020-11-08)
+
+**Note:** Version bump only for package @typographist/styled
+
+
+
+
+
 # [2.0.0](https://github.com/typographist/styled/compare/v1.3.2...v2.0.0) (2019-07-20)
 
 

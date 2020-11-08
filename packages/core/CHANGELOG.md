@@ -1,3 +1,19 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [27.0.1](https://github.com/mg901/typographist/compare/@typographist/core@27.0.0...@typographist/core@27.0.1) (2020-11-08)
+
+
+### Bug Fixes
+
+* remove key "value" with "minWidth" in type "Breakpoint" ([c6803ba](https://github.com/mg901/typographist/commit/c6803baa2d6cde628ab34952713458985e620458))
+
+
+
+
+
 ## [24.0.2](https://github.com/typographist/core/compare/v24.0.1...v24.0.2) (2019-11-10)
 
 ### Bug Fixes
