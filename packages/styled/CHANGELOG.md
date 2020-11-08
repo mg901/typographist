@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.10](https://github.com/mg901/typographist/compare/@typographist/styled@3.0.9...@typographist/styled@3.0.10) (2020-11-08)
+
+
+### Bug Fixes
+
+* add types for styled-breakpoints ([edc03ba](https://github.com/mg901/typographist/commit/edc03ba4861bbe6c41a6900ffffe9849d1ab5ec6))
+
+
+
+
+
 ## [3.0.9](https://github.com/mg901/typographist/compare/@typographist/styled@3.0.8...@typographist/styled@3.0.9) (2020-11-08)
 
 
