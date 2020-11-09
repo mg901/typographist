@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.12](https://github.com/mg901/typographist/compare/@typographist/styled@3.0.11...@typographist/styled@3.0.12) (2020-11-09)
+
+
+### Bug Fixes
+
+* add styled-breakpoints as dependency ([cf41734](https://github.com/mg901/typographist/commit/cf41734ebba725b8690ac1afb5c375d506943e33))
+
+
+
+
+
 ## [3.0.11](https://github.com/mg901/typographist/compare/@typographist/styled@3.0.10...@typographist/styled@3.0.11) (2020-11-08)
 
 **Note:** Version bump only for package @typographist/styled
