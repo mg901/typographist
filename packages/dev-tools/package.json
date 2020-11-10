@@ -1,6 +1,6 @@
 {
   "name": "@typographist/dev-tools",
-  "version": "0.0.1-alpha.2",
+  "version": "0.1.0-alpha.0",
   "license": "MIT",
   "main": "index.js",
   "homepage": "https://github.com/mg901/typographist#readme",
