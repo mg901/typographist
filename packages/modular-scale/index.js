@@ -1,9 +1,7 @@
-const mem = require('memoize-one');
-
 //  https://www.modularscale.com/
 
-// dumbModularScale :: (Number | String, [Number], Number) -> Number
-function dumbModularScale(step, base, ratio) {
+// modularScale :: (Number | String, [Number], Number) -> Number
+function modularScale(step, base, ratio) {
   const _step = Number(step);
 
   if (base.length !== 1) {
@@ -49,7 +47,7 @@ function normalizeBases(base, baseHigh, ratio) {
 }
 
 module.exports = {
-  modularScale: mem(dumbModularScale),
+  modularScale,
   calcStartPosition,
   calcFontSize,
   normalizeBases,
