@@ -11,6 +11,7 @@ module.exports = {
     es6: true,
     node: true,
     jest: true,
+    browser: true,
   },
   extends: ['airbnb', 'prettier'],
   plugins: ['prettier'],
