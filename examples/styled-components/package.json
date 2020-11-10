@@ -9,7 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@typographist/styled": "^3.0.12",
+    "@typographist/styled": "^3.0.13",
     "memoize-one": "^5.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

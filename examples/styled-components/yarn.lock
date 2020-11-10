@@ -1687,18 +1687,18 @@
   resolved "https://registry.yarnpkg.com/@typographist/core/-/core-27.0.3.tgz#b250a2498135e2b5ca392a05acacabf674f71d97"
   integrity sha512-TkvvgoXlvUEJRunsOVBsQ4Coj/PlB63dxpACpeHCc2/n2n0F39n9yayuFmmFpldggUJarKV++sZRsWm82mprzQ==
 
-"@typographist/modular-scale@^1.1.12":
-  version "1.1.12"
-  resolved "https://registry.yarnpkg.com/@typographist/modular-scale/-/modular-scale-1.1.12.tgz#5deca2d738211a740770f3a4197ec3a33c1b0d1f"
-  integrity sha512-+8iIm4ZwFPnOhv6uVYC8glcLnZ5gJGNcsiDS/iSclZZ4YkAH4tzL5I+OB8QekU+uY3pEF9mEs1Bi1gYK495WCA==
+"@typographist/modular-scale@^1.1.13":
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/@typographist/modular-scale/-/modular-scale-1.1.13.tgz#e924d8e3f858df16904bab4299fd4b76eaaab1df"
+  integrity sha512-/s/2a176e3Mbnnx3Pcdy/0ZqlwowWIitkUoqlsk4zB6gIot7KfA1CF9/GKSjNJoksFu/w8BaikBtrD0+JVJtwg==
 
-"@typographist/styled@^3.0.12":
-  version "3.0.12"
-  resolved "https://registry.yarnpkg.com/@typographist/styled/-/styled-3.0.12.tgz#fc6cace48e628a624cca676eb1bc0cce3c106099"
-  integrity sha512-4MMVTc5KgB4okthfYwCAeBalG0ES3sa7tKujthUvBxzADu9Odgnb524IUpC2DIApSgWpIkQzuRCATamP9iziRw==
+"@typographist/styled@^3.0.13":
+  version "3.0.13"
+  resolved "https://registry.yarnpkg.com/@typographist/styled/-/styled-3.0.13.tgz#0c5df4d4c3f192c8354d7a5840be4be0fd9c0a85"
+  integrity sha512-hZT2N467Nlog5MJ47fvOIgXfQP9g2O9GJFNaFIo02AoqP4ZScgc6ky1ZkIDLBHFW/+aa6m2pKhzIQDFMxKrflA==
   dependencies:
     "@typographist/core" "^27.0.3"
-    "@typographist/modular-scale" "^1.1.12"
+    "@typographist/modular-scale" "^1.1.13"
     "@typographist/utils" "^3.0.1"
     styled-breakpoints "^8.1.2"
 

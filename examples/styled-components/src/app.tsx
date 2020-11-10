@@ -9,17 +9,17 @@ const userConfig = {
   lineHeight: 1.5,
   ratio: ratios.MINOR_SECOND,
   tablet: {
-    breakpoint: '768px',
+    minWidth: '768px',
     base: ['17px'],
     ratio: ratios.MAJOR_SECOND,
   },
   desktop: {
-    breakpoint: '992px',
+    minWidth: '992px',
     base: ['19px'],
     ratio: ratios.MINOR_THIRD,
   },
   lgDesktop: {
-    breakpoint: '1200px',
+    minWidth: '1200px',
     base: ['21px'],
   },
 };
