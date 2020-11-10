@@ -9,20 +9,21 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@typographist/styled": "^2.1.7-alpha.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "styled-components": "^4.4.1",
-    "styled-normalize": "^8.0.6"
+    "@typographist/styled": "^3.0.12",
+    "memoize-one": "^5.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1",
+    "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
     "@types/jest": "24.0.23",
-    "@types/node": "12.12.11",
-    "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.4",
-    "@types/styled-components": "^4.4.0",
+    "@types/node": "^14.14.7",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "@types/styled-components": "^5.1.4",
     "react-scripts": "3.2.0",
-    "typescript": "3.7.2"
+    "typescript": "^4.0.5"
   },
   "eslintConfig": {
     "extends": "react-app"
