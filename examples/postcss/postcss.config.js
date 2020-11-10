@@ -1,5 +1,5 @@
 const postcssPresetEnv = require('postcss-preset-env');
-const { typographist } = require('../../packages/postcss/src');
+const { typographist } = require('@typographist/postcss');
 
 module.exports = {
   plugins: [
