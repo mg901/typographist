@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.13](https://github.com/mg901/typographist/compare/@typographist/modular-scale@1.1.12...@typographist/modular-scale@1.1.13) (2020-11-10)
+
+
+### Bug Fixes
+
+* **modular-scale:** remove memoize-one ([055d246](https://github.com/mg901/typographist/commit/055d246db9d3143ca4d42c845c2ed1afb6405ad7))
+
+
+
+
+
 ## [1.1.12](https://github.com/mg901/typographist/compare/@typographist/modular-scale@1.1.11...@typographist/modular-scale@1.1.12) (2020-11-08)
 
 

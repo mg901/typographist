@@ -1,6 +1,6 @@
 {
   "name": "@typographist/postcss",
-  "version": "7.0.5",
+  "version": "7.0.6",
   "description": "Toolkit for the rapid construction of interfaces with high quality typography.",
   "main": "src/index.js",
   "scripts": {
@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@typographist/core": "^27.0.3",
-    "@typographist/modular-scale": "^1.1.12",
+    "@typographist/modular-scale": "^1.1.13",
     "@typographist/utils": "^3.0.1"
   },
   "devDependencies": {
