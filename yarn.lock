@@ -2286,12 +2286,12 @@
     "@size-limit/webpack" "4.8.0"
 
 "@size-limit/preset-small-lib@^4.6.2", "@size-limit/preset-small-lib@^4.7.0":
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-4.7.0.tgz#cd10ea107357052c54e914e495fce2eea04c13f1"
-  integrity sha512-pHs7BPU/jYS7jKJZx3yuleIHwP/elvPREPFcdGPed1k/0I52jWsOxMn4r3qV06fp0UMy7Fx94wRdveu2H2oH7w==
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-4.8.0.tgz#395198ba9c69b8f882ba0fb3cb4255baeeb48c02"
+  integrity sha512-VV+ASU9H4qb55EdVGEsH2Apdx4zcgjSUxlhEaxHKRoNg7a9pMLU3uYo0adtftpVwltTzUTUFW5HCIJ6l79eT8w==
   dependencies:
-    "@size-limit/file" "4.7.0"
-    "@size-limit/webpack" "4.7.0"
+    "@size-limit/file" "4.8.0"
+    "@size-limit/webpack" "4.8.0"
 
 "@size-limit/time@4.7.0":
   version "4.7.0"
