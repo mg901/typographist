@@ -2269,12 +2269,12 @@
     semver "7.3.2"
 
 "@size-limit/preset-app@^4.7.0":
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-app/-/preset-app-4.7.0.tgz#ff4d90659a7332afade05164a32aa9a27cb00790"
-  integrity sha512-EGsL81zqj7PrDwIHyNqiz2v1E0tzGHdLiJu2JSrJ0slJy8rmzdMR4RZlAL8kJulMmQxMnfeRhHXunuPoM0w5nA==
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-app/-/preset-app-4.8.0.tgz#353aefe95f4e26e79654e8f4de7d7cdec72ec508"
+  integrity sha512-ASzzASrOIKG4Rme3bNmnHCfJYmGZxM1q7tpdK7ieg9L6kFWroOTIGxy1LhxjOpWynJ/000i4hyMWNWXt2PcLlg==
   dependencies:
-    "@size-limit/file" "4.7.0"
-    "@size-limit/time" "4.7.0"
+    "@size-limit/file" "4.8.0"
+    "@size-limit/time" "4.8.0"
 
 "@size-limit/preset-big-lib@^4.6.2", "@size-limit/preset-big-lib@^4.7.0":
   version "4.8.0"
