@@ -2254,13 +2254,6 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@size-limit/file@4.7.0":
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-4.7.0.tgz#a30567bc707a18cc7d9b589359a4d5d161a8bb64"
-  integrity sha512-0JjN8wJ42WfEJ4xfngVw/EUkMGVDjDUpL9v5Hmrx0PneJQDC3gpIY7tUOF7HKGNGHW941dxAuqZQw5dG49HsgQ==
-  dependencies:
-    semver "7.3.2"
-
 "@size-limit/file@4.8.0":
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-4.8.0.tgz#6e53f3fa2a7a0476d90d40350b0ded97b25b0dc7"
@@ -2293,14 +2286,6 @@
     "@size-limit/file" "4.8.0"
     "@size-limit/webpack" "4.8.0"
 
-"@size-limit/time@4.7.0":
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-4.7.0.tgz#1523ac44c98c712e39729f1c4b26098c24bb9811"
-  integrity sha512-TVWvqP/zac2zY6LUn7eQR8cB0xfR1GiKGPvSUQ5tBCcQXQe7idckUV9bw0l/f9ykUInP5R4khmz/INLaaTAicQ==
-  dependencies:
-    estimo "^2.2.1"
-    react "^17.0.1"
-
 "@size-limit/time@4.8.0":
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-4.8.0.tgz#ef571b86180b4991abb455d16a2a65740a4f9ee3"
@@ -2308,23 +2293,6 @@
   dependencies:
     estimo "^2.2.1"
     react "^17.0.1"
-
-"@size-limit/webpack@4.7.0":
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-4.7.0.tgz#de6458ca31a6ce75d8148fb4f9df79dc4c803c40"
-  integrity sha512-+N+X0HWg5F9NDpbUZ/xDQWAx+dDXQ59SiPWhCo7mpNjp8ttfh99QvQXmiyCeK1WfX6LN1EACVHNpkxShkw4/yQ==
-  dependencies:
-    css-loader "^5.0.0"
-    escape-string-regexp "^4.0.0"
-    file-loader "^6.2.0"
-    mkdirp "^1.0.4"
-    nanoid "^3.1.16"
-    optimize-css-assets-webpack-plugin "^5.0.4"
-    pnp-webpack-plugin "^1.6.4"
-    rimraf "^3.0.2"
-    style-loader "^2.0.0"
-    webpack "^4.44.1"
-    webpack-bundle-analyzer "^3.9.0"
 
 "@size-limit/webpack@4.8.0":
   version "4.8.0"
@@ -4340,7 +4308,7 @@ css-declaration-sorter@^4.0.1:
     postcss "^7.0.1"
     timsort "^0.3.0"
 
-css-loader@^5.0.0, css-loader@^5.0.1:
+css-loader@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-5.0.1.tgz#9e4de0d6636a6266a585bd0900b422c85539d25f"
   integrity sha512-cXc2ti9V234cq7rJzFKhirb2L2iPy8ZjALeVJAozXYz9te3r4eqLSixNAbMDJSgJEQywqXzs8gonxaboeKqwiw==
@@ -11369,9 +11337,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 typescript@^4.0.5:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.5.tgz#ae9dddfd1069f1cb5beb3ef3b2170dd7c1332389"
-  integrity sha512-ywmr/VrTVCmNTJ6iV2LwIrfG1P+lv6luD8sUJs+2eI9NLGigaN+nUQc13iHqisq7bra9lnmUSYqbJvegraBOPQ==
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.2.tgz#6369ef22516fe5e10304aae5a5c4862db55380e9"
+  integrity sha512-thGloWsGH3SOxv1SoY7QojKi0tc+8FnOmiarEGMbd/lar7QOEd3hvlx3Fp5y6FlDUGl9L+pd4n2e+oToGMmhRQ==
 
 uglify-js@^3.1.4:
   version "3.11.5"
