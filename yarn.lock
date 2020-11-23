@@ -2278,13 +2278,13 @@
     "@size-limit/time" "4.9.0"
 
 "@size-limit/preset-big-lib@^4.6.2", "@size-limit/preset-big-lib@^4.7.0":
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-big-lib/-/preset-big-lib-4.8.0.tgz#61ece5f5ce610013a1d10e9a323cc63abb8bcc9f"
-  integrity sha512-wKwLDdUSTFRveaWvFJNtfXQ4QNzxnqKz6/DBYbeDq49R1JRjYu6hWxJwn4lzGTrQKNYciEBGOQiW8l9HJ/yfvA==
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-big-lib/-/preset-big-lib-4.9.0.tgz#90205cb365ecd97b8345b3c0148aa9b93239cba8"
+  integrity sha512-58cQrUePsrgVgyNNvFrXfRLbQj2Vn4qn0prsZV573Am8M31F0UOYwdpDipTjpbcxwNpiUAXXc8sCz0LXk6WOGA==
   dependencies:
-    "@size-limit/file" "4.8.0"
-    "@size-limit/time" "4.8.0"
-    "@size-limit/webpack" "4.8.0"
+    "@size-limit/file" "4.9.0"
+    "@size-limit/time" "4.9.0"
+    "@size-limit/webpack" "4.9.0"
 
 "@size-limit/preset-small-lib@^4.6.2", "@size-limit/preset-small-lib@^4.7.0":
   version "4.8.0"
@@ -2320,6 +2320,23 @@
     file-loader "^6.2.0"
     mkdirp "^1.0.4"
     nanoid "^3.1.16"
+    optimize-css-assets-webpack-plugin "^5.0.4"
+    pnp-webpack-plugin "^1.6.4"
+    rimraf "^3.0.2"
+    style-loader "^2.0.0"
+    webpack "^4.44.1"
+    webpack-bundle-analyzer "^3.9.0"
+
+"@size-limit/webpack@4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-4.9.0.tgz#1c6231c2fd832fb8731f89ca88159b1d0abe875b"
+  integrity sha512-LqJ7TW1+Bo7FMRlRVG5mpOVXdJKR4HHx+aBQEdgxDUqHVeD+RbFprLB34XVhf/eMKRDp9bWSam7tnkui2y0Crw==
+  dependencies:
+    css-loader "^5.0.1"
+    escape-string-regexp "^4.0.0"
+    file-loader "^6.2.0"
+    mkdirp "^1.0.4"
+    nanoid "^3.1.18"
     optimize-css-assets-webpack-plugin "^5.0.4"
     pnp-webpack-plugin "^1.6.4"
     rimraf "^3.0.2"
@@ -8233,6 +8250,11 @@ nanoid@^3.1.11, nanoid@^3.1.16:
   version "3.1.16"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.16.tgz#b21f0a7d031196faf75314d7c65d36352beeef64"
   integrity sha512-+AK8MN0WHji40lj8AEuwLOvLSbWYApQpre/aFJZD71r43wVRLrOYS4FmJOPQYon1TqB462RzrrxlfA74XRES8w==
+
+nanoid@^3.1.18:
+  version "3.1.18"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.18.tgz#0680db22ab01c372e89209f5d18283d98de3e96d"
+  integrity sha512-rndlDjbbHbcV3xi+R2fpJ+PbGMdfBxz5v1fATIQFq0DP64FsicQdwnKLy47K4kZHdRpmQXtz24eGsxQqamzYTA==
 
 nanomatch@^1.2.9:
   version "1.2.13"
