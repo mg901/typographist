@@ -2261,13 +2261,20 @@
   dependencies:
     semver "7.3.2"
 
-"@size-limit/preset-app@^4.7.0":
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-app/-/preset-app-4.8.0.tgz#353aefe95f4e26e79654e8f4de7d7cdec72ec508"
-  integrity sha512-ASzzASrOIKG4Rme3bNmnHCfJYmGZxM1q7tpdK7ieg9L6kFWroOTIGxy1LhxjOpWynJ/000i4hyMWNWXt2PcLlg==
+"@size-limit/file@4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-4.9.0.tgz#4b2a1d76808afa440118b79e2f6763ccf410016e"
+  integrity sha512-MPvM/kK/U7mWQ8x0iuUpqurxV8esnYNRGJLW0Xx1B843cn2UKuqrWEtH0YZpiTh5IwsNYYhymAULNaKgSZ5aCw==
   dependencies:
-    "@size-limit/file" "4.8.0"
-    "@size-limit/time" "4.8.0"
+    semver "7.3.2"
+
+"@size-limit/preset-app@^4.7.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-app/-/preset-app-4.9.0.tgz#da94a520d486884fba2b5ab20bea933c7452d83c"
+  integrity sha512-2/0TihbRqlSoYVOA6ueDZf02Pt38qIMgMmvu1vFqNgbZYoZrDe2CE6v3B8rGss5sQ3FbV8/Yc7Af4XwRH+1gMA==
+  dependencies:
+    "@size-limit/file" "4.9.0"
+    "@size-limit/time" "4.9.0"
 
 "@size-limit/preset-big-lib@^4.6.2", "@size-limit/preset-big-lib@^4.7.0":
   version "4.8.0"
@@ -2290,6 +2297,14 @@
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-4.8.0.tgz#ef571b86180b4991abb455d16a2a65740a4f9ee3"
   integrity sha512-ps+FZcMOvzjOYiXenJ525qObWpslfMyvzZu2hdu/jmzx5pmb6FwOlJrggIPbqQN0EerMpDW4wPVKhf8h24l3/Q==
+  dependencies:
+    estimo "^2.2.1"
+    react "^17.0.1"
+
+"@size-limit/time@4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-4.9.0.tgz#f8bd5816385cd811871eb8ca2f136a16262d7e0b"
+  integrity sha512-qXSbchxxduSCw39JMry4xgm96iE0ACEjIKg2MEMZMkpAQQhWREUH0P9cqPZ4rrf6A7aau5VKw+UrwtgEQSH6tQ==
   dependencies:
     estimo "^2.2.1"
     react "^17.0.1"
