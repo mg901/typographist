@@ -10840,9 +10840,9 @@ style-loader@^2.0.0:
     schema-utils "^3.0.0"
 
 styled-breakpoints@^9.0.0:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/styled-breakpoints/-/styled-breakpoints-9.0.1.tgz#04c6c7f4dc1f81605c2f9907286f2caec813b63e"
-  integrity sha512-fbeC5fW+8CQxbOKCjMPl82uRUIm3D+JO4PW5ovAdnVmHtPKalnm/Zg3il0zNBQf6Ls85eo4FoZcmIuinvCof6w==
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/styled-breakpoints/-/styled-breakpoints-9.0.3.tgz#5c74cd71748c34cb2c4dcf02e7ee18e561eaa5aa"
+  integrity sha512-3jDnnE7hVAIFNHsulKsygKalDAOxkDgTHuPAYneTEk2IdWLbDPYjEZ0/b5bswUZPJ57KO3DGo64RRQivWvIFqA==
 
 styled-components@^5.2.1:
   version "5.2.1"
