@@ -2286,12 +2286,12 @@
     "@size-limit/webpack" "4.9.1"
 
 "@size-limit/preset-small-lib@^4.6.2", "@size-limit/preset-small-lib@^4.7.0":
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-4.9.0.tgz#8b54a55a2a4686b5f6b65fe17f7e0649ac5d21b9"
-  integrity sha512-dHTtPLqkL4irqeDwqLz3/tTXef2UhaAu8DN9vqitTHR5ZJPyx3HvbQ1xJmKG9LPRZotOfAf2jm6vBCSzKHOBGA==
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-4.9.1.tgz#47c5cd27e4011010da25e464913c0c2d4dfecf08"
+  integrity sha512-LcUBuYT2A+TcQr8p+npnkm3j2HgbLc1onHDsoePv43QzUK1tY6+Z7CkuB4PMUNT45g8jrfkfOVDzb3sG7NblSw==
   dependencies:
-    "@size-limit/file" "4.9.0"
-    "@size-limit/webpack" "4.9.0"
+    "@size-limit/file" "4.9.1"
+    "@size-limit/webpack" "4.9.1"
 
 "@size-limit/time@4.9.0":
   version "4.9.0"
@@ -8238,6 +8238,11 @@ nan@^2.12.1:
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
 nanoid@^3.1.11, nanoid@^3.1.18, nanoid@^3.1.20:
+  version "3.1.20"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.20.tgz#badc263c6b1dcf14b71efaa85f6ab4c1d6cfc788"
+  integrity sha512-a1cQNyczgKbLX9jwbS/+d7W8fX/RfgYR7lVWwWOGIPNgK2m0MWvrGF6/m4kk6U3QcFMnZf3RIhL0v2Jgh/0Uxw==
+
+nanoid@^3.1.20:
   version "3.1.20"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.20.tgz#badc263c6b1dcf14b71efaa85f6ab4c1d6cfc788"
   integrity sha512-a1cQNyczgKbLX9jwbS/+d7W8fX/RfgYR7lVWwWOGIPNgK2m0MWvrGF6/m4kk6U3QcFMnZf3RIhL0v2Jgh/0Uxw==
