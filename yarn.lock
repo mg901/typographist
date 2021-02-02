@@ -2286,13 +2286,13 @@
     "@size-limit/time" "4.9.2"
 
 "@size-limit/preset-big-lib@^4.6.2", "@size-limit/preset-big-lib@^4.7.0":
-  version "4.9.1"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-big-lib/-/preset-big-lib-4.9.1.tgz#a8d95843486b3860a6835cef18ed3b34edf266af"
-  integrity sha512-ueS17mXoVgkWhsA1g2KRmD3syHWVtRmp7hvnuSWzZnsoEa7LgLT19DTEhC5N/JuzbDJf80Fw663zgO+usTixhw==
+  version "4.9.2"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-big-lib/-/preset-big-lib-4.9.2.tgz#34e7f89139b45ce0288d9f5f013da7ed40a8e56e"
+  integrity sha512-GsMT9SGYId9Lshy4xcApFPJSzAkMkoWeKcIHNEePazWE1p3W2g+WImvKVoVzjVFQOTt9HUDZ8WZ71VdnnfRKAw==
   dependencies:
-    "@size-limit/file" "4.9.1"
-    "@size-limit/time" "4.9.1"
-    "@size-limit/webpack" "4.9.1"
+    "@size-limit/file" "4.9.2"
+    "@size-limit/time" "4.9.2"
+    "@size-limit/webpack" "4.9.2"
 
 "@size-limit/preset-small-lib@^4.6.2", "@size-limit/preset-small-lib@^4.7.0":
   version "4.9.2"
