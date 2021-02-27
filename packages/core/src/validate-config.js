@@ -74,22 +74,19 @@ function validateBases(x) {
 // validateBreakpoint :: Object -> Void
 function throwDoesntContainminWidthProp(x) {
   var breaks = utils.omit('base', 'lineHeight', 'ratio', Object(x));
-  var keys = Object.keys(breaks);
 
-  if (keys.length) {
-    keys.forEach((key) => {
-      invariantWithErrorPrefix(
-        breaks[key].minWidth,
+  Object.keys(breaks).forEach((key) => {
+    invariantWithErrorPrefix(
+      breaks[key].minWidth,
+      "'" +
+        key +
         "'" +
-          key +
-          "'" +
-          ": must contain the mandatory 'minWidth' property. Example " +
-          "'" +
-          key +
-          "': {minWidth: '768px'}.",
-      );
-    });
-  }
+        ": must contain the mandatory 'minWidth' property. Example " +
+        "'" +
+        key +
+        "': {minWidth: '768px'}.",
+    );
+  });
 }
 
 // validateField :: a -> Void
