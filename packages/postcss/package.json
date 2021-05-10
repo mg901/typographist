@@ -51,6 +51,7 @@
     "@typographist/utils": "^3.0.1"
   },
   "devDependencies": {
+    "jest-postcss": "^0.1.0",
     "postcss": "^8.1.6"
   }
 }

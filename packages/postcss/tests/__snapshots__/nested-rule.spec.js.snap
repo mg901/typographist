@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transform nested rule 1`] = `
+.test,
+.some-test {
+  font-size: 1rem;
+}
+.test__wrap,
+.test__inner,
+.some-test__wrap,
+.some-test__inner {
+  font-size: 2rem;
+}
+.test__wrap:hover,
+.test__inner:hover,
+.some-test__wrap:hover,
+.some-test__inner:hover {
+  background-color: pink;
+}
+`;

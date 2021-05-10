@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`base with breakpoints name 1`] = `
+@media (min-width: 48em) and (max-width: 74.99875em) {
+  .test {
+    color: hotpink;
+  }
+}
+`;
+
+exports[`base with em 1`] = `
+@media (min-width: 30em) and (max-width: 49.99875em) {
+  .test {
+    color: hotpink;
+  }
+}
+`;
+
+exports[`base with orientation \`landscape\` 1`] = `
+@media (min-width: 30em) and (max-width: 49.99875em) and (orientation: landscape) {
+  .test {
+    color: hotpink;
+  }
+}
+`;
+
+exports[`base with orientation \`portrait\` 1`] = `
+@media (min-width: 30em) and (max-width: 49.99875em) and (orientation: portrait) {
+  .test {
+    color: hotpink;
+  }
+}
+`;
+
+exports[`base with pixels 1`] = `
+@media (min-width: 62.5em) and (max-width: 124.99875em) {
+  .test {
+    color: hotpink;
+  }
+}
+`;

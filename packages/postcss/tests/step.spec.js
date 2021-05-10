@@ -1,8 +1,8 @@
 const run = require('./run');
 const { userConfig } = require('../../../mocks');
 
-describe('transform step unit function', () => {
-  it('should transform from step to rem if @up atrule is set.', () => {
+describe('step', () => {
+  it('should transform @up', () => {
     const source = `
               .test {
                 @up(desktop) {
@@ -15,8 +15,8 @@ describe('transform step unit function', () => {
         font-size: 1.8620689655172413rem;
     }
 }`;
-    
-return run(source, compiled, userConfig);
+
+    return run(source, compiled, userConfig);
   });
   it('should transform step to rem if @down is set.', () => {
     const source = `
@@ -31,8 +31,8 @@ return run(source, compiled, userConfig);
         font-size: 1.8620689655172413rem;
     }
 }`;
-    
-return run(source, compiled, userConfig);
+
+    return run(source, compiled, userConfig);
   });
   it('should transform step to rem if @only is set.', () => {
     const source = `
@@ -47,7 +47,7 @@ return run(source, compiled, userConfig);
         font-size: 1.8620689655172413rem;
     }
 }`;
-    
-return run(source, compiled, userConfig);
+
+    return run(source, compiled, userConfig);
   });
 });

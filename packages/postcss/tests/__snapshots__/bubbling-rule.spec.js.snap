@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transform bubbling rule 1`] = `
+:global .test {
+  color: red;
+}
+:global .some-item {
+  font-size: 1rem;
+}
+:local .item {
+  width: 200px;
+}
+`;
