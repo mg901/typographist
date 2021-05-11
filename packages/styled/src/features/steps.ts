@@ -1,10 +1,9 @@
 import { toRem, toEm } from '@typographist/utils';
 import { modularScale } from '@typographist/modular-scale';
-import mem from 'memoize-one';
 import { CONFIG_SYMBOL } from '../constants';
 import { Props, Styles } from '../types';
 
-export const steps = mem((step: number) => ({ theme }: Props): Styles => {
+export const steps = (step: number) => ({ theme }: Props): Styles => {
   const { breakpointsMap: breaks } = theme[CONFIG_SYMBOL];
   const result = {} as Styles;
 
@@ -23,4 +22,4 @@ export const steps = mem((step: number) => ({ theme }: Props): Styles => {
   }
 
   return result;
-});
+};

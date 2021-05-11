@@ -51,13 +51,11 @@
       "ignore": [
         "react",
         "react-dom",
-        "memoize-one",
         "styled-components"
       ]
     }
   ],
   "peerDependencies": {
-    "memoize-one": "^5.1.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "styled-components": "^5.2.1"
@@ -80,7 +78,6 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/styled-components": "^5.1.4",
-    "memoize-one": "^5.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1",
