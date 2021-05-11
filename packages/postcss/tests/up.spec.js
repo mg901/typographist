@@ -1,86 +1,54 @@
 const run = require('./run');
 const { userConfig } = require('../../../mocks');
 
-describe('@up atrule', () => {
-  it('should replace @up(desktop) with valid media query', () => {
+describe('@up', () => {
+  test('with breakpoints name', async () => {
     const source = `
           .test {
             @up(desktop) {
               background-color: orange;
             }
           }`;
-    const compiled = `
-          @media (min-width: 62em) {
-    .test {
-        background-color: orange;
-    }
-}`;
-    
-return run(source, compiled, userConfig);
-  });
-  it('should replace @up(1000px) with valid media query', () => {
-    const source = `
-          .test {
-            @up(1000px) {
-              background-color: orange;
-            }
-          }`;
-    const compiled = `
-          @media (min-width: 62.5em) {
-    .test {
-        background-color: orange;
-    }
-}`;
-    
-return run(source, compiled, userConfig);
-  });
-  it('should replace @up(40em) with valid media query', () => {
-    const source = `
-          .test {
-            @up(40em) {
-              background-color: orange;
-            }
-          }`;
-    const compiled = `
-          @media (min-width: 40em) {
-    .test {
-        background-color: orange;
-    }
-}`;
-    
-return run(source, compiled, userConfig);
-  });
-});
 
-describe('@up atrule with orientation', () => {
-  //   it('should replace @up(40em):landscape with valid media query', () => {
-  //     const source = `
-  //       .test {
-  //         @up(40em):landscape {
-  //           background-color: orange;
-  //         }
-  //       }`;
-  //     const compiled = `
-  //       @media (min-width: 40em) and (orientation: landscape) {
-  //     .test {
-  //         background-color: orange;
-  //     }
-  // }`;
-  //     return run(source, compiled, userConfig);
-  //   });
-  //   it('should replace @up(40em):portrait with valid media query', () => {
-  //     const source = `
-  //       .test {
-  //         @up(40em):portrait {
-  //           background-color: orange;
-  //         }
-  //       }`;
-  //     const compiled = `
-  //       @media (min-width: 40em) and (orientation: portrait) {
-  //     .test {
-  //         background-color: orange;
-  //     }
-  // }`;
-  //     return run(source, compiled, userConfig);
-  //   });
+    expect(await run(source)).toMatchSnapshot();
+  });
+
+  test('with pixels', async () => {
+    const source = `
+            .test {
+              @up(1000px) {
+                background-color: orange;
+              }
+            }`;
+    expect(await run(source)).toMatchSnapshot();
+  });
+  test('with em', async () => {
+    const source = `
+            .test {
+              @up(40em) {
+                background-color: orange;
+              }
+            }`;
+    expect(await run(source)).toMatchSnapshot();
+  });
+
+  test('with orientation `landscape`', async () => {
+    const source = `
+        .test {
+          @up(40em):landscape {
+            background-color: orange;
+          }
+        }`;
+    expect(await run(source)).toMatchSnapshot();
+  });
+
+  test('with orientation `portrait`', async () => {
+    const source = `
+          .test {
+            @up(40em):portrait {
+              background-color: orange;
+            }
+          }`;
+    expect(await run(source)).toMatchSnapshot();
+  });
 });

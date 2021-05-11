@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@down with breakpoints name 1`] = `
+@media (max-width: 74.99875em) {
+  .test {
+    background-color: gold;
+  }
+}
+`;
+
+exports[`@down with em 1`] = `
+@media (max-width: 39.99875em) {
+  .test {
+    background-color: gold;
+  }
+}
+`;
+
+exports[`@down with orientation \`landscape\` 1`] = `
+@media (max-width: 74.99875em) and (orientation: landscape) {
+  .test {
+    background-color: gold;
+  }
+}
+`;
+
+exports[`@down with orientation \`portrait\` 1`] = `
+@media (max-width: 74.99875em) and (orientation: portrait) {
+  .test {
+    background-color: gold;
+  }
+}
+`;
+
+exports[`@down with pixels 1`] = `
+@media (max-width: 62.49875em) {
+  .test {
+    background-color: gold;
+  }
+}
+`;

@@ -1,8 +1,7 @@
 const run = require('./run');
-const { userConfig } = require('../../../mocks');
 
-describe('transform step function', () => {
-  it('should replace the step function with the font size in rem for each breakpoint', () => {
+describe('step', () => {
+  test('transform step', async () => {
     const source = `
             h1 {
               font-size: step(6);
@@ -26,7 +25,7 @@ describe('transform step function', () => {
                             font-size: 3.9375rem;
               }
 }`;
-    
-return run(source, compiled, userConfig);
+
+    expect(await run(source)).toMatchSnapshot();
   });
 });

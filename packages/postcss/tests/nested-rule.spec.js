@@ -1,9 +1,7 @@
 const run = require('./run');
-const { userConfig } = require('../../../mocks');
 
-describe('nested rules', () => {
-  it('should transform nested rule', () => {
-    const source = `
+test('transform nested rule', async () => {
+  const source = `
         .test,
         .some-test {
           font-size: 1rem;
@@ -15,24 +13,6 @@ describe('nested rules', () => {
             }
           }
         }`;
-    const compiled = `
-        .test,
-        .some-test {
-          font-size: 1rem
-        }
-.test__wrap,
-.test__inner,
-.some-test__wrap,
-.some-test__inner {
-          font-size: 2rem;
-}
-.test__wrap:hover,
-.test__inner:hover,
-.some-test__wrap:hover,
-.some-test__inner:hover {
-          background-color: pink;
-}`;
-    
-return run(source, compiled, userConfig);
-  });
+
+  expect(await run(source)).toMatchSnapshot();
 });

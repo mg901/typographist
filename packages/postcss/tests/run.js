@@ -1,10 +1,9 @@
 const postcss = require('postcss');
 const { typographist } = require('../src');
+const { userConfig } = require('../../../mocks');
+require('jest-postcss');
 
-module.exports = (input, output, opts) => {
-  const result = postcss([typographist(opts)]).process(input, {
-    from: undefined,
+module.exports = (input) =>
+  postcss([typographist(userConfig)]).process(input, {
+    from: 'CSS',
   });
-  expect(result.css).toEqual(output);
-  expect(result.warnings()).toHaveLength(0);
-};

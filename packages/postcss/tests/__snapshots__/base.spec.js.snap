@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`base transform @base 1`] = `
+body {
+  font-size: 1.3333333333333333rem;
+  line-height: 2rem;
+  font-style: normal;
+  font-weight: normal;
+}
+@media (min-width: 48em) {
+  body {
+    font-size: 1.3076923076923077rem;
+  }
+}
+@media (min-width: 62em) {
+  body {
+    font-size: 1.3103448275862069rem;
+  }
+}
+@media (min-width: 75em) {
+  body {
+    font-size: 1.3125rem;
+  }
+}
+`;
