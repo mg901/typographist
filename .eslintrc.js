@@ -13,8 +13,12 @@ module.exports = {
     jest: true,
     browser: true,
   },
-  extends: ['airbnb', 'prettier'],
-  plugins: ['prettier'],
+  extends: [
+    'airbnb',
+    'plugin:prettier/recommended',
+    'plugin:clean-regex/recommended',
+  ],
+  plugins: ['prettier', 'clean-regex'],
   settings: {
     'import/resolver': {
       node: {
