@@ -148,8 +148,8 @@ function throwInvalidRatio(x) {
     isValid,
     "'" +
       x +
-      "' is ivalid 'ratio'. Ratio must be a number or string containing the font size (in pixels), " +
-      "the word 'at' and step. Example ratio: 1.25 or ratio: '36px at 6'.",
+      "' is invalid ratio. Ratio must be a number or string containing the font size (in pixels), " +
+      'the word `at` and step. Example ratio: `1.25` or ratio: `36px at 6`.',
   );
 }
 
