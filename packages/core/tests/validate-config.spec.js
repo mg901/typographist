@@ -153,7 +153,7 @@ describe('throwInvalidRatio', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: Check your configuration. '45 at 6' is ivalid 'ratio'. Ratio must be a number or string containing the font size (in pixels), the word 'at' and step. Example ratio: 1.25 or ratio: '36px at 6'.",
+        "[typographist]: Check your configuration. '45 at 6' is invalid ratio. Ratio must be a number or string containing the font size (in pixels), the word `at` and step. Example ratio: `1.25` or ratio: `36px at 6`.",
       );
     }
   });

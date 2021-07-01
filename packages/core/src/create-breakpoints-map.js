@@ -19,15 +19,13 @@ function createBreakpointsMapProcess(x) {
 
 // createInitialBreakpoint :: Object -> [Object]
 function createInitialBreakpoint(x) {
-  return [
-    {
-      base: x.base,
-      lineHeight: x.lineHeight,
-      ratio: x.ratio,
-      name: 'initial',
-      minWidth: '0px',
-    },
-  ];
+  return {
+    base: x.base,
+    lineHeight: x.lineHeight,
+    ratio: x.ratio,
+    name: 'initial',
+    minWidth: '0px',
+  };
 }
 
 // createNamedBreakpoints :: Object -> [Object]

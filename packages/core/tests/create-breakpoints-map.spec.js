@@ -16,15 +16,13 @@ const { config, breakpointsMap } = require('./mocks');
 
 describe('createInitialBreakpoint', () => {
   it('returns the array with a initial breakpoint', () => {
-    expect(createInitialBreakpoint(config)).toEqual([
-      {
-        base: ['16px', '32px'],
-        lineHeight: 1.5,
-        name: 'initial',
-        ratio: '45px at 6',
-        minWidth: '0px',
-      },
-    ]);
+    expect(createInitialBreakpoint(config)).toEqual({
+      base: ['16px', '32px'],
+      lineHeight: 1.5,
+      name: 'initial',
+      ratio: '45px at 6',
+      minWidth: '0px',
+    });
   });
 });
 
