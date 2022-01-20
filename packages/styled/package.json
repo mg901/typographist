@@ -64,7 +64,7 @@
     "@typographist/core": "^27.0.3",
     "@typographist/modular-scale": "^1.1.13",
     "@typographist/utils": "^3.0.1",
-    "styled-breakpoints": "^10.0.0"
+    "styled-breakpoints": "^11.0.3"
   },
   "publishConfig": {
     "access": "public"
