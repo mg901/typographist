@@ -28,7 +28,7 @@ exports.config = {
   },
 };
 
-exports.invalidconfig = {
+exports.invalidConfig = {
   base: ['1rem', '2em'],
   lineHeight: 1.5,
   ratio: '45 at 6',
