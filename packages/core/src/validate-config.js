@@ -4,7 +4,7 @@ var utils = require('./lib');
 var validateConfig = function (x) {
   validateDefaultBreakpoint(x);
   validateBases(x);
-  throwDoesntContainminWidthProp(x);
+  throwDoesNotContainMinWidthProp(x);
   validateBreakpoints(x);
   validateLineHeights(x);
   validateRatios(x);
@@ -72,7 +72,7 @@ function validateBases(x) {
 
 // ---------- BREAKPOINTS ------------------------------------------------------
 // validateBreakpoint :: Object -> Void
-function throwDoesntContainminWidthProp(x) {
+function throwDoesNotContainMinWidthProp(x) {
   var breaks = utils.omit('base', 'lineHeight', 'ratio', Object(x));
 
   Object.keys(breaks).forEach((key) => {
@@ -163,7 +163,7 @@ module.exports = {
   throwBaseMustBeAnArray,
   throwBaseMustContainPixels,
   validateBases,
-  throwDoesntContainminWidthProp,
+  throwDoesntContainminWidthProp: throwDoesNotContainMinWidthProp,
   throwInvalidBreakpoint,
   validateBreakpoints,
   throwInvalidLineHeight,

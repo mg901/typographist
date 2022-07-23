@@ -1,5 +1,5 @@
-var createBreakpointsMap = require('./create-breakpoints-map')
-  .createBreakpointsMap;
+var createBreakpointsMap =
+  require('./create-breakpoints-map').createBreakpointsMap;
 
 exports.ratios = {
   AUGMENTED_FOURTH: 1.41421,

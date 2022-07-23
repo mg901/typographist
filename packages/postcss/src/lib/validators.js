@@ -3,8 +3,8 @@ exports.hasPxOrEm = (x) => /\d+(px|em)$/.test(x);
 
 // isFluidTheme :: Object -> Boolean
 exports.isFluidTheme = (x) => {
-  const newLinesAndSpaces = /[\n\s]/g;
-  const rootSelectorWithValue = /(:root|html){.+?}/gm;
+  const newLinesAndSpaces = /\s/g;
+  const rootSelectorWithValue = /(:root|html)\{.+?\}/g;
 
   return hasFluid(
     x.source.input.css

@@ -23,13 +23,13 @@ const getValidBreakpoint = (
   return breaks[name];
 };
 
-export const step = (target: number, name = 'initial') => ({
-  theme,
-}: Props): string => {
-  const { root, base, ratio } = getValidBreakpoint(
-    theme[CONFIG_SYMBOL].breakpointsMap,
-    name,
-  );
+export const step =
+  (target: number, name = 'initial') =>
+  ({ theme }: Props): string => {
+    const { root, base, ratio } = getValidBreakpoint(
+      theme[CONFIG_SYMBOL].breakpointsMap,
+      name,
+    );
 
-  return toRem(root, modularScale(target, base, ratio));
-};
+    return toRem(root, modularScale(target, base, ratio));
+  };

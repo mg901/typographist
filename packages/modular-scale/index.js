@@ -7,13 +7,13 @@ function modularScale(step, base, ratio) {
   if (base.length !== 1) {
     const startPosition = calcStartPosition(_step, base);
     const fontSize = calcFontSize(_step, base, ratio);
-    const baseHigh = Math.pow(ratio, 1) * base[0];
+    const baseHigh = ratio ** 1 * base[0];
     const normalizedBases = normalizeBases(base, baseHigh, ratio);
 
     return fontSize * normalizedBases[startPosition];
   }
 
-  return Math.round(Math.pow(ratio, _step) * Number(base));
+  return Math.round(ratio ** _step * Number(base));
 }
 
 // calcStartPosition :: (Number, [Number]) -> Number
@@ -25,7 +25,7 @@ function calcStartPosition(step, base) {
 
 // calcFontSize :: (Number, [Number], Number) -> Number
 function calcFontSize(step, base, ratio) {
-  return Math.pow(ratio, Math.floor(step / base.length));
+  return ratio ** Math.floor(step / base.length);
 }
 
 // normalizeBases :: ([Number], Number, Number) -> [Number]
@@ -35,11 +35,11 @@ function normalizeBases(base, baseHigh, ratio) {
   for (let i = 1; i < cloneBase.length; i += 1) {
     // shift up if value too low
     while (cloneBase[i] / 1 < cloneBase[0] / 1) {
-      cloneBase[i] *= Math.pow(ratio, 1);
+      cloneBase[i] *= ratio ** 1;
     }
     // Shift down if too high
     while (cloneBase[i] / 1 >= baseHigh / 1) {
-      cloneBase[i] *= Math.pow(ratio, -1);
+      cloneBase[i] *= ratio ** -1;
     }
   }
 
