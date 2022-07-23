@@ -1,9 +1,9 @@
-var { validateConfig } = require('./config-validation');
+var { configValidation } = require('./config-validation');
 var utils = require('./library');
 
 // getBreakpoints :: Object -> Object | Void
 function createBreakpointsMap(config) {
-  validateConfig(config);
+  configValidation(config);
 
   return createBreakpointsMapProcess(config);
 }

@@ -5,7 +5,7 @@ const {
   omit,
   isNumeric,
   type,
-} = require('../src/lib');
+} = require('../src/library');
 
 describe('merge', () => {
   it('merge all transferred objects', () => {

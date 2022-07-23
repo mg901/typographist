@@ -1,6 +1,6 @@
 const {
   validateDefaultBreakpoint,
-  validateConfig,
+  configValidation,
   throwBaseMustBeAnArray,
   throwBaseMustContainPixels,
   throwDoesNotContainMinWidthProp,
@@ -10,7 +10,7 @@ const {
   ratioHasAtWord,
   ratioHasStep,
   throwInvalidRatio,
-} = require('../src/validate-config');
+} = require('../src/config-validation');
 
 describe('validateDefaultBreakpoint', () => {
   it('show warn if them base prop is missing', () => {
@@ -159,10 +159,10 @@ describe('throwInvalidRatio', () => {
   });
 });
 
-describe('validateConfig', () => {
+describe('configValidation', () => {
   it("show warn if the user config isn't valid", () => {
     try {
-      validateConfig({
+      configValidation({
         base: ['1rem', '16px'],
         lineHeight: 1,
         ratio: 1,
@@ -177,7 +177,7 @@ describe('validateConfig', () => {
 
   it('validate default config', () => {
     try {
-      validateConfig({
+      configValidation({
         base: '16px',
         lineHeight: 1,
         ratio: 1,
