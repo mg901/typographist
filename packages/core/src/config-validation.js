@@ -41,11 +41,11 @@ function getFields(config) {
 
 // ---------- BASE ------------------------------------------------------------
 // throwBaseMustBeAnArray -> a -> Void
-function throwBaseMustBeAnArray(x) {
+function throwBaseMustBeAnArray(base) {
   invariantWithErrorPrefix(
-    Array.isArray(x),
+    Array.isArray(base),
     "'" +
-      x +
+      base +
       "' is invalid 'base'. Base must be an array of strings. " +
       "Example 'base': ['14px', '32px'].",
   );
@@ -63,29 +63,29 @@ function throwBaseMustContainPixels(x) {
 }
 
 // validateBases :: Object -> Void
-function validateBases(x) {
+function validateBases(config) {
   utils
-    .deepObjectValues('base')(Object(x))
-    .forEach((item) => {
-      throwBaseMustBeAnArray(item);
-      item.map(throwBaseMustContainPixels);
+    .deepObjectValues('base')(Object(config))
+    .forEach((bases) => {
+      throwBaseMustBeAnArray(bases);
+      bases.map(throwBaseMustContainPixels);
     });
 }
 
 // ---------- BREAKPOINTS ------------------------------------------------------
 // validateBreakpoint :: Object -> Void
-function throwDoesNotContainMinWidthProp(x) {
-  var breaks = utils.omit('base', 'lineHeight', 'ratio', Object(x));
+function throwDoesNotContainMinWidthProp(config) {
+  var breakpoints = utils.omit('base', 'lineHeight', 'ratio', Object(config));
 
-  Object.keys(breaks).forEach((key) => {
+  Object.keys(breakpoints).forEach((breakpoint) => {
     invariantWithErrorPrefix(
-      breaks[key].minWidth,
+      breakpoints[breakpoint].minWidth,
       "'" +
-        key +
+        breakpoint +
         "'" +
         ": must contain the mandatory 'minWidth' property. Example " +
         "'" +
-        key +
+        breakpoint +
         "': {minWidth: '768px'}.",
     );
   });

@@ -13,7 +13,7 @@ function createBreakpointsMapProcess(config) {
   return []
     .concat(createInitialBreakpoint(config), createNamedBreakpoints(config))
     .reduce(inheritProps, [])
-    .map((item) => createRootProp(createRatio(normalizeBase(item))))
+    .map((breakpoint) => createRootProp(createRatio(normalizeBase(breakpoint))))
     .reduce(setBreakpointNameProp, {});
 }
 
@@ -44,14 +44,16 @@ function createNamedBreakpoints(config) {
 }
 
 // inheritProps :: Object -> Object
-function inheritProps(acc, item, index) {
-  return acc.concat(utils.merge({}, acc[index - 1], item));
+function inheritProps(acc, breakpoint, index) {
+  return acc.concat(utils.merge({}, acc[index - 1], breakpoint));
 }
 
 // ---------- BASE ------------------------------------------------------------
 // normalizeBase :: Object -> Object
 function normalizeBase(breakpoint) {
-  return utils.merge(breakpoint, { base: breakpoint.base.map(parseFloat) });
+  return utils.merge(breakpoint, {
+    base: breakpoint.base.map(parseFloat),
+  });
 }
 
 // ---------- RATIO -----------------------------------------------------------
@@ -74,13 +76,13 @@ function calcRatio(ratio, base) {
 }
 
 // getStep :: [String] -> Number
-function getStep(x) {
-  return parseFloat(x.slice(-1));
+function getStep(ratio) {
+  return parseFloat(ratio.slice(-1));
 }
 
 // getFontSize :: [String] -> Number
-function getFontSize(x) {
-  return parseFloat(x[0]);
+function getFontSize(ratio) {
+  return parseFloat(ratio[0]);
 }
 
 // ---------- ROOT -----------------------------------------------------------

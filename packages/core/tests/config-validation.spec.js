@@ -133,15 +133,15 @@ describe('ratioHasStep', () => {
     expect(ratioHasStep('123px at 7.4')).toEqual(true);
   });
 
-  it('return `true` if it contains a nagative floating point number at end of a string', () => {
+  it('return `true` if it contains a negative floating point number at end of a string', () => {
     expect(ratioHasStep('123px at -7.4')).toEqual(true);
   });
 
-  it('return `fase` if it contains a integer number with  units at end of a string', () => {
+  it('return `false` if it contains a integer number with  units at end of a string', () => {
     expect(ratioHasStep('123px at 6px')).toEqual(false);
   });
 
-  it('return `fase` if it contains a negative floating point number in px units at end of a string', () => {
+  it('return `false` if it contains a negative floating point number in px units at end of a string', () => {
     expect(ratioHasStep('123px at -6.7px')).toEqual(false);
   });
 });
