@@ -15,11 +15,13 @@ const normalizeString = (x) =>
   x.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
 
 // separateWords :: (Maybe String) -> String -> String
-const separateWords = (separator = ' ') => (str) =>
-  str
-    .split(/(?=[A-Z])/)
-    .join(separator)
-    .toLowerCase();
+const separateWords =
+  (separator = ' ') =>
+  (str) =>
+    str
+      .split(/(?=[A-Z])/)
+      .join(separator)
+      .toLowerCase();
 
 // toKebabCase :: String -> String
 const toKebabCase = separateWords('-');

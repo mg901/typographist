@@ -26,18 +26,20 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 type Props = {
-  fluid?: boolean;
-  config?: Record<string, any>;
   children: React.ReactNode;
+  fluid: boolean;
+  config: Record<string, any>;
 };
 
-export const TypographistProvider: React.FC<Props> = ({
+export function TypographistProvider({
   fluid = false,
   config = DEFAULT_CONFIG,
   children,
-}) => (
-  <ThemeProvider theme={setCustomOrDefaultTheme(config)}>
-    <GlobalStyles fluid={fluid} />
-    {children}
-  </ThemeProvider>
-);
+}: Props) {
+  return (
+    <ThemeProvider theme={setCustomOrDefaultTheme(config)}>
+      <GlobalStyles fluid={fluid} />
+      {children}
+    </ThemeProvider>
+  );
+}

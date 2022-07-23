@@ -58,5 +58,9 @@
   "workbench.startupEditor": "newUntitledFile",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "cSpell.words": [
+    "atrule",
+    "Typographist"
+  ]
 }

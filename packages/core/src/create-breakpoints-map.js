@@ -67,7 +67,7 @@ function calcRatio(ratio, base) {
   var values = ratio.trim().split(' ');
   var firstBase = base[0];
 
-  return Math.pow(getFontSize(values) / firstBase, 1 / getStep(values));
+  return (getFontSize(values) / firstBase) ** (1 / getStep(values));
 }
 
 // getStep :: [String] -> Number

@@ -51,7 +51,7 @@ function createSelectorName(replaceable, replacer) {
 // getRawRules :: String -> [String]
 function getRawRules(rule) {
   const lastComma = /,\s*$/;
-  const lineBreaksAndSpaces = /[\n\s]/g;
+  const lineBreaksAndSpaces = /\s/g;
 
   return rule
     .replace(lastComma, '')
