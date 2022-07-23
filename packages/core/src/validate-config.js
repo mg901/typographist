@@ -1,4 +1,4 @@
-var utils = require('./lib');
+var utils = require('./library');
 
 // validateConfig :: config -> Void
 var validateConfig = function (x) {
@@ -163,7 +163,7 @@ module.exports = {
   throwBaseMustBeAnArray,
   throwBaseMustContainPixels,
   validateBases,
-  throwDoesntContainminWidthProp: throwDoesNotContainMinWidthProp,
+  throwDoesNotContainMinWidthProp,
   throwInvalidBreakpoint,
   validateBreakpoints,
   throwInvalidLineHeight,
