@@ -52,11 +52,11 @@ function throwBaseMustBeAnArray(base) {
 }
 
 // throwBaseMustContainPixels :: a -> Void
-function throwBaseMustContainPixels(x) {
+function throwBaseMustContainPixels(base) {
   invariantWithErrorPrefix(
-    x.indexOf('px') > -1,
+    base.indexOf('px') > -1,
     "'" +
-      x +
+      base +
       "' is invalid 'base'. Base must contain pixels " +
       "Example 'base': ['14px', '32px'].",
   );
