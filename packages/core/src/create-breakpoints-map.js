@@ -1,36 +1,36 @@
-var { validateConfig } = require('./validate-config');
-var utils = require('./lib');
+var { configValidation } = require('./config-validation');
+var utils = require('./library');
 
 // getBreakpoints :: Object -> Object | Void
-function createBreakpointsMap(x) {
-  validateConfig(x);
+function createBreakpointsMap(config) {
+  configValidation(config);
 
-  return createBreakpointsMapProcess(x);
+  return createBreakpointsMapProcess(config);
 }
 
 // createBreakpointsMap :: Object -> Object
-function createBreakpointsMapProcess(x) {
+function createBreakpointsMapProcess(config) {
   return []
-    .concat(createInitialBreakpoint(x), createNamedBreakpoints(x))
+    .concat(createInitialBreakpoint(config), createNamedBreakpoints(config))
     .reduce(inheritProps, [])
     .map((item) => createRootProp(createRatio(normalizeBase(item))))
     .reduce(setBreakpointNameProp, {});
 }
 
 // createInitialBreakpoint :: Object -> [Object]
-function createInitialBreakpoint(x) {
+function createInitialBreakpoint(config) {
   return {
-    base: x.base,
-    lineHeight: x.lineHeight,
-    ratio: x.ratio,
+    base: config.base,
+    lineHeight: config.lineHeight,
+    ratio: config.ratio,
     name: 'initial',
     minWidth: '0px',
   };
 }
 
 // createNamedBreakpoints :: Object -> [Object]
-function createNamedBreakpoints(x) {
-  var breaks = utils.omit('base', 'lineHeight', 'ratio', x);
+function createNamedBreakpoints(config) {
+  var breaks = utils.omit('base', 'lineHeight', 'ratio', config);
   var result = [];
   var key;
 
@@ -50,16 +50,19 @@ function inheritProps(acc, item, index) {
 
 // ---------- BASE ------------------------------------------------------------
 // normalizeBase :: Object -> Object
-function normalizeBase(x) {
-  return utils.merge(x, { base: x.base.map(parseFloat) });
+function normalizeBase(breakpoint) {
+  return utils.merge(breakpoint, { base: breakpoint.base.map(parseFloat) });
 }
 
 // ---------- RATIO -----------------------------------------------------------
 
 // createRatio :: Object -> Object
-function createRatio(x) {
-  return utils.merge(x, {
-    ratio: typeof x.ratio === 'string' ? calcRatio(x.ratio, x.base) : x.ratio,
+function createRatio(breakpoint) {
+  return utils.merge(breakpoint, {
+    ratio:
+      typeof breakpoint.ratio === 'string'
+        ? calcRatio(breakpoint.ratio, breakpoint.base)
+        : breakpoint.ratio,
   });
 }
 // calcRatio :: (String, [Number]) -> Number
@@ -82,10 +85,12 @@ function getFontSize(x) {
 
 // ---------- ROOT -----------------------------------------------------------
 // createRootProp :: Object -> Object
-function createRootProp(x) {
+function createRootProp(breakpoint) {
   var half = 2;
 
-  return utils.merge(x, { root: calcLeading(x.base, x.lineHeight) / half });
+  return utils.merge(breakpoint, {
+    root: calcLeading(breakpoint.base, breakpoint.lineHeight) / half,
+  });
 }
 
 // calcLeading :: ([Number], Number) -> Number
@@ -94,8 +99,8 @@ function calcLeading(base, lineHeight) {
 }
 
 // setBreakpointNameProp :: (Object, Object) -> Object
-function setBreakpointNameProp(acc, x) {
-  acc[x.name] = utils.omit('name', x);
+function setBreakpointNameProp(acc, breakpoint) {
+  acc[breakpoint.name] = utils.omit('name', breakpoint);
 
   return acc;
 }

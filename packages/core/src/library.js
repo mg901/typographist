@@ -58,11 +58,11 @@ exports.invariant = function (condition, message) {
 };
 
 // isNumeric :: a -> Boolean
-exports.isNumeric = function (x) {
-  return !Number.isNaN(parseFloat(x)) && isFinite(x);
+exports.isNumeric = function (value) {
+  return !Number.isNaN(parseFloat(value)) && isFinite(value);
 };
 
 // type :: a -> String
-exports.type = function (x) {
-  return Object.prototype.toString.call(x).slice(8, -1);
+exports.type = function (value) {
+  return Object.prototype.toString.call(value).slice(8, -1);
 };
