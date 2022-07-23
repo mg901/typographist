@@ -1,16 +1,16 @@
 const {
   validateDefaultBreakpoint,
-  validateConfig,
+  configValidation,
   throwBaseMustBeAnArray,
   throwBaseMustContainPixels,
-  throwDoesntContainminWidthProp,
+  throwDoesNotContainMinWidthProp,
   throwInvalidBreakpoint,
   throwInvalidLineHeight,
   ratioHasFontSize,
   ratioHasAtWord,
   ratioHasStep,
   throwInvalidRatio,
-} = require('../src/validate-config');
+} = require('../src/config-validation');
 
 describe('validateDefaultBreakpoint', () => {
   it('show warn if them base prop is missing', () => {
@@ -57,7 +57,7 @@ describe('throwBaseMustContainPixels', () => {
 describe('throwDoesntContainBreakpointProp', () => {
   it("show warn if the breakpoint doesn't contain the 'minWidth' property", () => {
     try {
-      throwDoesntContainminWidthProp({
+      throwDoesNotContainMinWidthProp({
         base: ['16px'],
         lineHeight: 1.2,
         ratio: 1,
@@ -105,7 +105,7 @@ describe('ratioHasFontSize', () => {
     expect(ratioHasFontSize('35em at 6')).toEqual(false);
   });
 
-  it('return `true` if contain positive integer mumber with pixels at the beggining of the string', () => {
+  it('return `true` if contain positive integer number with pixels at the beginning of the string', () => {
     expect(ratioHasFontSize('35px at 6')).toEqual(true);
   });
 
@@ -133,15 +133,15 @@ describe('ratioHasStep', () => {
     expect(ratioHasStep('123px at 7.4')).toEqual(true);
   });
 
-  it('return `true` if it contains a nagative floating point number at end of a string', () => {
+  it('return `true` if it contains a negative floating point number at end of a string', () => {
     expect(ratioHasStep('123px at -7.4')).toEqual(true);
   });
 
-  it('return `fase` if it contains a integer number with  units at end of a string', () => {
+  it('return `false` if it contains a integer number with  units at end of a string', () => {
     expect(ratioHasStep('123px at 6px')).toEqual(false);
   });
 
-  it('return `fase` if it contains a negative floating point number in px units at end of a string', () => {
+  it('return `false` if it contains a negative floating point number in px units at end of a string', () => {
     expect(ratioHasStep('123px at -6.7px')).toEqual(false);
   });
 });
@@ -159,10 +159,10 @@ describe('throwInvalidRatio', () => {
   });
 });
 
-describe('validateConfig', () => {
+describe('configValidation', () => {
   it("show warn if the user config isn't valid", () => {
     try {
-      validateConfig({
+      configValidation({
         base: ['1rem', '16px'],
         lineHeight: 1,
         ratio: 1,
@@ -177,7 +177,7 @@ describe('validateConfig', () => {
 
   it('validate default config', () => {
     try {
-      validateConfig({
+      configValidation({
         base: '16px',
         lineHeight: 1,
         ratio: 1,

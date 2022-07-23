@@ -1,13 +1,13 @@
 var utils = require('./library');
 
-// validateConfig :: config -> Void
-var validateConfig = function (x) {
-  validateDefaultBreakpoint(x);
-  validateBases(x);
-  throwDoesNotContainMinWidthProp(x);
-  validateBreakpoints(x);
-  validateLineHeights(x);
-  validateRatios(x);
+// configValidation :: config -> Void
+var configValidation = function (config) {
+  validateDefaultBreakpoint(config);
+  validateBases(config);
+  throwDoesNotContainMinWidthProp(config);
+  validateBreakpoints(config);
+  validateLineHeights(config);
+  validateRatios(config);
 };
 
 // invariantWithErrorPrefix :: (a, String) -> Void
@@ -20,8 +20,8 @@ function invariantWithErrorPrefix(condition, message) {
 
 // ---------- DEFAULT BREAKPOINT ----------------------------------------------
 // validateDefaultBreakpoint :: Object -> Void
-function validateDefaultBreakpoint(x) {
-  const fields = getFields(x);
+function validateDefaultBreakpoint(config) {
+  const fields = getFields(config);
 
   const requiredFields = ['base', 'lineHeight', 'ratio'];
 
@@ -33,17 +33,19 @@ function validateDefaultBreakpoint(x) {
   });
 }
 
-function getFields(x) {
-  return Object.keys(Object(x)).filter((k) => utils.type(x[k]) !== 'Object');
+function getFields(config) {
+  return Object.keys(Object(config)).filter(
+    (key) => utils.type(config[key]) !== 'Object',
+  );
 }
 
 // ---------- BASE ------------------------------------------------------------
 // throwBaseMustBeAnArray -> a -> Void
-function throwBaseMustBeAnArray(x) {
+function throwBaseMustBeAnArray(base) {
   invariantWithErrorPrefix(
-    Array.isArray(x),
+    Array.isArray(base),
     "'" +
-      x +
+      base +
       "' is invalid 'base'. Base must be an array of strings. " +
       "Example 'base': ['14px', '32px'].",
   );
@@ -61,101 +63,105 @@ function throwBaseMustContainPixels(x) {
 }
 
 // validateBases :: Object -> Void
-function validateBases(x) {
+function validateBases(config) {
   utils
-    .deepObjectValues('base')(Object(x))
-    .forEach((item) => {
-      throwBaseMustBeAnArray(item);
-      item.map(throwBaseMustContainPixels);
+    .deepObjectValues('base')(Object(config))
+    .forEach((bases) => {
+      throwBaseMustBeAnArray(bases);
+      bases.map(throwBaseMustContainPixels);
     });
 }
 
 // ---------- BREAKPOINTS ------------------------------------------------------
 // validateBreakpoint :: Object -> Void
-function throwDoesNotContainMinWidthProp(x) {
-  var breaks = utils.omit('base', 'lineHeight', 'ratio', Object(x));
+function throwDoesNotContainMinWidthProp(config) {
+  var breakpoints = utils.omit('base', 'lineHeight', 'ratio', Object(config));
 
-  Object.keys(breaks).forEach((key) => {
+  Object.keys(breakpoints).forEach((breakpoint) => {
     invariantWithErrorPrefix(
-      breaks[key].minWidth,
+      breakpoints[breakpoint].minWidth,
       "'" +
-        key +
+        breakpoint +
         "'" +
         ": must contain the mandatory 'minWidth' property. Example " +
         "'" +
-        key +
+        breakpoint +
         "': {minWidth: '768px'}.",
     );
   });
 }
 
 // validateField :: a -> Void
-function throwInvalidBreakpoint(x) {
+function throwInvalidBreakpoint(breakpoint) {
   invariantWithErrorPrefix(
-    typeof x === 'string' && x.includes('px'),
+    typeof breakpoint === 'string' && breakpoint.includes('px'),
     "'" +
-      x +
+      breakpoint +
       "' is invalid 'breakpoint'. Breakpoint must be a string with a value (in pixels). " +
       "Example 'minWidth': '1024px'.",
   );
 }
 
 // validateFields :: config -> Void
-function validateBreakpoints(x) {
-  utils.deepObjectValues('breakpoint')(Object(x)).map(throwInvalidBreakpoint);
+function validateBreakpoints(config) {
+  utils
+    .deepObjectValues('breakpoint')(Object(config))
+    .map(throwInvalidBreakpoint);
 }
 
 // ---------- LINE-HEIGHT --------------------------------------------------------
 // validateField :: a -> Void
-function throwInvalidLineHeight(x) {
+function throwInvalidLineHeight(lineHeight) {
   invariantWithErrorPrefix(
-    typeof x === 'number' && utils.isNumeric(x),
+    typeof lineHeight === 'number' && utils.isNumeric(lineHeight),
     "'" +
-      x +
+      lineHeight +
       "' is invalid 'lineHeight'. LineHeight must be a number. Example 'lineHeight': 1.5'",
   );
 }
 
 // validateFields :: config -> Void
-function validateLineHeights(x) {
-  utils.deepObjectValues('lineHeight')(Object(x)).map(throwInvalidLineHeight);
+function validateLineHeights(config) {
+  utils
+    .deepObjectValues('lineHeight')(Object(config))
+    .map(throwInvalidLineHeight);
 }
 
 // ---------- RATIO --------------------------------------------------------------
 
 // ratioHasFontSize :: String -> Boolean
-function ratioHasFontSize(x) {
-  return /^\d+(\.\d+)?px\b/g.test(x);
+function ratioHasFontSize(ratio) {
+  return /^\d+(\.\d+)?px\b/g.test(ratio);
 }
 
 // ratioHasAtWord :: String -> Boolean
-function ratioHasAtWord(x) {
-  return /\sat\s/.test(x);
+function ratioHasAtWord(ratio) {
+  return /\sat\s/.test(ratio);
 }
 
 // ratioHasStep :: String -> Boolean
-function ratioHasStep(x) {
-  return /-?\b\d+(\.\d+)?\b\s*$/g.test(x);
+function ratioHasStep(ratio) {
+  return /-?\b\d+(\.\d+)?\b\s*$/g.test(ratio);
 }
 
 // validateField :: a -> Void
-function throwInvalidRatio(x) {
+function throwInvalidRatio(ratio) {
   var isValid =
-    (typeof x === 'number' && utils.isNumeric(x)) ||
-    (ratioHasFontSize(x) && ratioHasAtWord(x) && ratioHasStep(x));
+    (typeof ratio === 'number' && utils.isNumeric(ratio)) ||
+    (ratioHasFontSize(ratio) && ratioHasAtWord(ratio) && ratioHasStep(ratio));
 
   invariantWithErrorPrefix(
     isValid,
     "'" +
-      x +
+      ratio +
       "' is invalid ratio. Ratio must be a number or string containing the font size (in pixels), " +
       'the word `at` and step. Example ratio: `1.25` or ratio: `36px at 6`.',
   );
 }
 
 // validateFields :: config -> Void
-function validateRatios(x) {
-  utils.deepObjectValues('ratio')(Object(x)).map(throwInvalidRatio);
+function validateRatios(config) {
+  utils.deepObjectValues('ratio')(Object(config)).map(throwInvalidRatio);
 }
 
 module.exports = {
@@ -173,5 +179,5 @@ module.exports = {
   ratioHasStep,
   throwInvalidRatio,
   validateRatios,
-  validateConfig,
+  configValidation,
 };

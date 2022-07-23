@@ -5,10 +5,10 @@ const {
   omit,
   isNumeric,
   type,
-} = require('../src/lib');
+} = require('../src/library');
 
 describe('merge', () => {
-  it('merge all transfered objects', () => {
+  it('merge all transferred objects', () => {
     expect(merge({ a: 1 }, { b: 2 }, { c: 3 })).toEqual({ a: 1, b: 2, c: 3 });
   });
 });
