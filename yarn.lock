@@ -8887,9 +8887,9 @@ strong-log-transformer@^2.1.0:
     through "^2.3.4"
 
 styled-breakpoints@^11.0.4:
-  version "11.0.4"
-  resolved "https://registry.yarnpkg.com/styled-breakpoints/-/styled-breakpoints-11.0.4.tgz#aa75725488d891bb13b508adcdb49d53c56760ad"
-  integrity sha512-L3zM1WXHivF70JhpTJsZbyTuQ1Y6GNf3AAQmfyyoQu90MSO9LENJyAVwZiKrn9WjZnATBVlB6XEnxRCoNUx3yg==
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/styled-breakpoints/-/styled-breakpoints-11.1.1.tgz#d25831bc25c090cf8e51a39f10efc45a26b210be"
+  integrity sha512-KUpoMNPoNji5zyB/AyrY+KO/eHj87smfGMOgrAM8cH/fN2wtEW9tnwzPlQimxMyma0Y849XUnChbJBk2zws9Ig==
 
 styled-components@^5.2.1:
   version "5.3.3"
