@@ -28,7 +28,7 @@
     "commitizen": "^4.2.2",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.12.1",
+    "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-clean-regex": "^0.5.1",
