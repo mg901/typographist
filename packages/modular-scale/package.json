@@ -30,6 +30,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@size-limit/preset-app": "^7.0.3"
+    "@size-limit/preset-app": "^8.0.1"
   }
 }
