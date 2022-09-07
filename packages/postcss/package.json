@@ -52,6 +52,6 @@
   },
   "devDependencies": {
     "jest-postcss": "^0.1.0",
-    "postcss": "^8.1.6"
+    "postcss": "^8.4.16"
   }
 }
